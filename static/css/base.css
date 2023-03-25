@@ -1,8 +1,108 @@
-html {
-    height: 100%;
+/* Global variables for site colours */
+:root {
+    --site-logo: rgb(0, 0, 0);
+    --background-header: white;
+    --text-default: rgba(240, 240, 240);
+    --accent-orange: #febc27;
+    --accent-purple: #ae36b8;
+
+}  
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+header{    
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;    
+    background-color: var(--background-header);
+    padding: 5px;
+    border-bottom: 5px solid transparent;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left,  var(--accent-orange), var(--accent-purple));
+}
+.site-logo{
+    width: 20%;
+    flex-basis: 50%;    
+}
+h1{
+    margin: 0 0 10px 5px;    
+    padding: 5px;
+    float: left;
+    font-size: 200%;
+    color: var(--site-logo);    
+}
+h1 a{
+    text-decoration: none;
+}
+h1:hover{
+    color: var(--accent-purple); 
+}
+h1:hover *{
+    color: var(--accent-orange);     
+}
+
+.navigation-bar{
+    width: 50%;
+    margin: auto;
+    padding: 5px;
+}
+.navigation-bar ul{ 
+    width: 100%; 
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;       
+    list-style-type: none;
+}
+.navigation-bar ul li{   
+    display: inline-block;    
+    padding: 0 5px 5px 5px;
+    margin: 0 25px 0 25px;
+    border-bottom: 3px solid transparent;
+    border-image-slice: 1;
+}
+.navigation-bar ul li:hover {
+    border-image-source: linear-gradient(to left,  var(--accent-orange), var(--accent-purple));
+}
+.navigation-bar ul li a{
+    margin: auto;
+    color: var(--base-text);
+    font-weight: 700;
+    text-decoration: none;
 }
 
 body {
 	background-color: rgb(25, 25, 25);
-    color: rgb(250, 250, 250);
+    text-align: center;
 }
+
+/* Devices with width smaller than 500px*/
+@media only screen and (max-width: 500px) {
+    /* Site Logo and Title */
+    .site-logo{
+        width: 100%;
+        flex-basis: 100%;
+    }
+    h1{
+        margin: 0;    
+        padding: 5px;
+        float: none;
+        text-decoration: none;
+    }
+
+    /* Navigation Bar */
+    .navigation-bar{
+        width: 80%;
+    }
+    .navigation-bar ul{ 
+        width: 100%;
+        justify-content: space-around;
+    }
+    .navigation-bar ul li{ 
+        justify-content: space-evenly;
+    }
