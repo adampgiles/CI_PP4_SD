@@ -1,10 +1,24 @@
 /* Global variables for site colours */
 :root {
     --site-logo: rgb(20, 20, 20);
+
     --background-header: rgb(240, 240, 240);
     --border-header: rgb(20, 20, 20);
+
     --background-body: rgb(190, 190, 190);
+
+    --background-developer-block: rgb(138, 138, 138);
+    --border-developer-block: rgb(20, 20, 20);
+
+    --background-view-link: rgb(174, 54, 184);
+    --border-view-link: rgb(20, 20, 20);
+    --text-view-link: rgb(240, 240, 240);
+    --background-purchase-link: rgb(254, 188, 39);
+    --border-purchase-link: rgb(20, 20, 20);
+    --text-purchase-link: rgb(20, 20, 20);
+
     --text-default: rgba(240, 240, 240);
+
     --accent-orange: rgb(254, 188, 39);
     --accent-purple: rgb(174, 54, 184);
 }  
@@ -78,6 +92,92 @@ h1:hover *{
 body {
 	background-color: var(--background-body);
     text-align: center;
+}
+
+.developer-section{
+    display: flex;  
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-basis: 25%;
+    padding: 5px;    
+}
+
+.developer-block{
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid var(--border-developer-block); 
+    border-radius: 0px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background: var(--background-developer-block); 
+}
+
+.profile-names-price{
+    display: flex;  
+    justify-content: flex-start;
+    align-items: center; 
+}
+.profile-names{
+    width: 60%;
+    text-align: left;
+    padding-left: 5px;
+}
+.profile-name{
+    font-size: 150%;
+    font-weight: bold;
+}
+.profile-fullname{
+    display: flex;  
+    justify-content: flex-start;
+    align-items: center; 
+}
+.profile-price{
+    text-align: right;
+    padding-right: 10px;
+    width: 40%;
+    color: white;
+    font-size: 175%;
+    font-weight: bold;
+}
+
+.profile-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/0.5;
+    margin: 5px;
+    background-color: white;
+}
+.profile-description{
+    margin: 5px;
+}
+
+.profile-purchase{
+    background-color: var(--background-purchase-link);
+    border: 2px solid var(--border-purchase-link);
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+.profile-purchase a{
+    color: var(--text-purchase-link);
+    text-decoration: none;
+    font-size: 125%;
+    font-weight: bold;
+}
+.profile-view{
+    background-color: var(--background-view-link);
+    border: 2px solid var(--border-view-link);
+    border-radius: 10px;
+    padding: 5px;   
+    margin: 5px; 
+}
+.profile-view a{
+    color: var(--text-view-link);
+    text-decoration: none;
+    font-size: 125%;
+    font-weight: bold;
 }
 
 /* Devices with width smaller than 500px*/

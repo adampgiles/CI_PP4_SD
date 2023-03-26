@@ -16,9 +16,8 @@
                     <div class="profile-name">
                         <p>{{ developer.profile_name }}</p>
                     </div>
-                    <div class="profile-first-last-name">
-                        <p>{{ developer.first_name }}</p>
-                        <p>{{ developer.last_name }}</p>
+                    <div class="profile-fullname">
+                        <p>- {{ developer.first_name }} {{ developer.last_name }} -</p>
                     </div>
                 </div>
 
@@ -45,25 +44,24 @@
 
             <!-- Buttons to Purchase the Profile, or View if already purchased -->
             <div class="profile-purchase-view">
-
-                <!-- IF ACCESS PURCHASED THEN... -->
+                
                 <div class="profile-view">
                     <a href="">
                         <p>View Posts</p>
                     </a>
                 </div>
-                <!-- ELSE... -->
                 <div class="profile-purchase">
                     <a href="">
                         <p>Purchase Access</p>
                     </a>
                 </div>
-                <!-- END IF -->
 
             </div>
             
-            {% endfor %}
         </div>
+
+        {% endfor %}
+        
     </div>
 
 {% endblock %}
