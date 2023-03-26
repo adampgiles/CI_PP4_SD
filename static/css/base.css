@@ -3,7 +3,7 @@
     --site-logo: rgb(20, 20, 20);
     --background-header: rgb(240, 240, 240);
     --border-header: rgb(20, 20, 20);
-    --background-body: rgb(174, 54, 184);
+    --background-body: rgb(190, 190, 190);
     --text-default: rgba(240, 240, 240);
     --accent-orange: rgb(254, 188, 39);
     --accent-purple: rgb(174, 54, 184);
@@ -76,7 +76,7 @@ h1:hover *{
 }
 
 body {
-	background-color: rgb(25, 25, 25);
+	background-color: var(--background-body);
     text-align: center;
 }
 
