@@ -1,11 +1,12 @@
 /* Global variables for site colours */
 :root {
-    --site-logo: rgb(0, 0, 0);
-    --background-header: white;
+    --site-logo: rgb(20, 20, 20);
+    --background-header: rgb(240, 240, 240);
+    --border-header: rgb(20, 20, 20);
+    --background-body: rgb(174, 54, 184);
     --text-default: rgba(240, 240, 240);
-    --accent-orange: #febc27;
-    --accent-purple: #ae36b8;
-
+    --accent-orange: rgb(254, 188, 39);
+    --accent-purple: rgb(174, 54, 184);
 }  
 
 *{
@@ -21,9 +22,7 @@ header{
     flex-wrap: wrap;    
     background-color: var(--background-header);
     padding: 5px;
-    border-bottom: 5px solid transparent;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to left,  var(--accent-orange), var(--accent-purple));
+    border-bottom: 5px solid var(--border-header);
 }
 .site-logo{
     width: 20%;
@@ -67,7 +66,7 @@ h1:hover *{
     border-image-slice: 1;
 }
 .navigation-bar ul li:hover {
-    border-image-source: linear-gradient(to left,  var(--accent-orange), var(--accent-purple));
+    border-color: var(--border-header);
 }
 .navigation-bar ul li a{
     margin: auto;
@@ -106,3 +105,4 @@ body {
     .navigation-bar ul li{ 
         justify-content: space-evenly;
     }
+}
