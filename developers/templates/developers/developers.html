@@ -2,9 +2,68 @@
 {% load static %}
 
 {% block content %}
+<!-- Section containing a list of all Developers -->
+    <div class="developer-section">    
 
-<div>
-    {{ developers }}
-</div>
+        {% for developer in developers %}    
+
+        <!-- Block containing a Developer's data -->
+        <div class="developer-block">
+
+            <!-- Developer's Profile Name, First & Last name, and Price -->
+            <div class="profile-names-price">
+                <div class="profile-names">
+                    <div class="profile-name">
+                        <p>{{ developer.profile_name }}</p>
+                    </div>
+                    <div class="profile-first-last-name">
+                        <p>{{ developer.first_name }}</p>
+                        <p>{{ developer.last_name }}</p>
+                    </div>
+                </div>
+
+                <div class="profile-price">
+                    <p>£{{ developer.price }}</p>
+                </div>
+            </div>
+
+            <!-- Developer's Profile Image, and Description -->
+            <div class="profile-image-description">
+                <div class="profile-image">
+
+                    {% if developer.image %}
+                        <img src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}default_image.png" alt="-- NO IMAGE --">
+                    {% endif %}
+
+                </div>
+
+                <div class="profile-description">{{ developer.description }}</div>
+
+            </div>
+
+            <!-- Buttons to Purchase the Profile, or View if already purchased -->
+            <div class="profile-purchase-view">
+
+                <!-- IF ACCESS PURCHASED THEN... -->
+                <div class="profile-view">
+                    <a href="">
+                        <p>View Posts</p>
+                    </a>
+                </div>
+                <!-- ELSE... -->
+                <div class="profile-purchase">
+                    <a href="">
+                        <p>Purchase Access</p>
+                    </a>
+                </div>
+                <!-- END IF -->
+
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}
