@@ -26,13 +26,14 @@ class Developer(models.Model):
     count_sold = models.IntegerField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    posts = models.ForeignKey('Post', null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.profile_name
     
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(Developer, on_delete=models.CASCADE)
+    author = models.ForeignKey('Developer', on_delete=models.CASCADE)
     publish_date = models.DateTimeField(auto_now_add=True, blank=True)
     content = models.CharField(max_length=1000)
     image_url = models.URLField(max_length=1024, null=True, blank=True)

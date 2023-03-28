@@ -28,14 +28,12 @@
 
             <!-- Developer's Profile Image, and Description -->
             <div class="profile-image-description">
-                <div class="profile-image">
-
-                    {% if developer.image %}
-                        <img src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
+                <div class="profile-image">                    
+                    {% if developer.image_url != None %}
+                        <img src="{{ developer.image_url }}" alt="{{ developer.image_url }}">
                     {% else %}
-                        <img src="{{ MEDIA_URL }}default_image.png" alt="-- NO IMAGE --">
+                        <img src="https://support-dev-images.s3.eu-west-2.amazonaws.com/no-image.jpg" alt="-- NO IMAGE --">
                     {% endif %}
-
                 </div>
 
                 <div class="profile-description">{{ developer.description }}</div>
