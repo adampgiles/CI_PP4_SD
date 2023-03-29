@@ -40,6 +40,8 @@
         
         <div class="navigation-bar">
             <ul>
+                <li><a href="{% url 'developers' %}">Developer Profiles</a></li>
+
                 {% if request.user.is_authenticated %}
 
                     {% if request.user.is_superuser %}
