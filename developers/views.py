@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Developer
+from .models import Post
 
 # Create your views here.
 def all_developers(request):
@@ -12,3 +13,16 @@ def all_developers(request):
     }
 
     return render(request, 'developers/developers.html', context)
+
+def developer_profile(request, developer_id):
+    """ View to show individual developer details """
+
+    developer = get_object_or_404(Developer, pk=developer_id)
+    posts = Post.objects.all().filter(author=developer_id)
+
+    context = {
+        'developer': developer,
+        'posts': posts,
+    }
+
+    return render(request, 'developers/developer_profile.html', context)
