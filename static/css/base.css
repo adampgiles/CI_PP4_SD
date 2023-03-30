@@ -124,6 +124,31 @@ body {
     font-size: 125%;
     padding: 10px;
 }
+.sort-block{
+    margin: auto;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sort-criteria{
+    background-color: var(--background-header);
+    padding: 5px;
+    border: 2px solid var(--border-header);
+    border-radius: 5px;
+}
+.sort-criteria option{
+    background-color: var(--background-header);
+}
+.sort-clear{
+    padding: 2px;
+    height: 33px;
+    width: 33px;
+    margin-left: 5px;
+    background-color: var(--background-header);
+    border: 2px solid var(--border-header);
+    border-radius: 5px;
+}
 .developer-section{
     display: flex;  
     flex-wrap: wrap;

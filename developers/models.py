@@ -13,10 +13,10 @@ class Category(models.Model):
         return self.name
     
     def get_friendly_name(self):
-        return self.friendly.name
+        return self.friendly_name
     
 class Developer(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL, )
     first_name = models.CharField(max_length=30, default='first_name')
     last_name = models.CharField(max_length=30, default='last_name')
     email = models.EmailField(null=True, blank=True)

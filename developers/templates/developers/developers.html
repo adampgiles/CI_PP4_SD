@@ -11,6 +11,25 @@
                 <i class="fas fa-search"></i>
             </span>
         </button>
+    
+</div>
+<div class="sort-block">   
+    <form method="GET" action="{% url 'developers' %}">
+        <label for="sort-criteria">Sort by:</label>
+        <select class="sort-criteria" id="sort-criteria" name="sort-criteria" onchange="this.form.submit()" >
+            <option style="display:none">{{ sort }}</option>
+            <option value="Profile Name (ascending)">Profile Name (ascending)</option>
+            <option value="-Profile Name (descending)">Profile Name (descending)</option>
+            <option value="Price (ascending)">Price (ascending)</option>
+            <option value="Price (descending)">Price (descending)</option>
+            <option value="Purchase Count (ascending)">Purchase Count (ascending)</option>
+            <option value="Purchase Count (descending)">Purchase Count (descending)</option>
+        </select> 
+        <button class="sort-clear" type="submit" name="sort-clear">
+            <span class="icon">
+                <i class="fa-solid fa-x"></i>
+            </span>
+        </button>
     </form>
 </div>
 
@@ -28,14 +47,16 @@
                         <p>{{ developer.profile_name }}</p>
                     </div>
                     <div class="profile-category">
-                        <p>({{ developer.category.friendly_name}})</p>
+                        <p>({{ developer.category.friendly_name }})</p>
                     </div>
+                    <p class="profile-sold">Sold: {{ developer.count_sold }}</p>
                     
                 </div>
 
                 <div class="profile-price">
                     <p>£{{ developer.price }}</p>
                 </div>
+                
             </div>
 
             <!-- Developer's Profile Image, and Description -->
