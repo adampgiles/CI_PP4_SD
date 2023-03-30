@@ -8,7 +8,7 @@ def all_developers(request):
     """ View to show all developers """
 
     developers = Developer.objects.all()
-    query = None
+    query = ""
 
     if request.GET:
         if 'search-query' in request.GET:

@@ -5,7 +5,7 @@
 
 <div class="search-block">
     <form method="GET" action="{% url 'developers' %}">
-        <input class="search-bar" type="text" name="search-query" placeholder="Search Developers">
+        <input class="search-bar" type="text" name="search-query" placeholder="Search Developers" value="{{ search }}">
         <button class="search-button" type="submit">
             <span class="icon">
                 <i class="fas fa-search"></i>
