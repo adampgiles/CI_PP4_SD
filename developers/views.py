@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.db.models import Q
 from .models import Developer
 from .models import Post
 
@@ -7,9 +8,19 @@ def all_developers(request):
     """ View to show all developers """
 
     developers = Developer.objects.all()
+    query = None
+
+    if request.GET:
+        if 'search-query' in request.GET:
+            query = request.GET['search-query']
+                        
+            queries = Q(profile_name__icontains=query) | Q(description__icontains=query)
+            developers = developers.filter(queries)
+
 
     context = {
         'developers': developers,
+        'search': query,
     }
 
     return render(request, 'developers/developers.html', context)

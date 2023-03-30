@@ -2,23 +2,35 @@
 {% load static %}
 
 {% block content %}
+
+<div class="search-block">
+    <form method="GET" action="{% url 'developers' %}">
+        <input class="search-bar" type="text" name="search-query" placeholder="Search Developers">
+        <button class="search-button" type="submit">
+            <span class="icon">
+                <i class="fas fa-search"></i>
+            </span>
+        </button>
+    </form>
+</div>
+
 <!-- Section containing a list of all Developers -->
-    <div class="developer-section">    
+<div class="developer-section">    
 
-        {% for developer in developers %}    
-
+    {% for developer in developers %}  
         <!-- Block containing a Developer's data -->
         <div class="developer-block">
 
             <!-- Developer's Profile Name, First & Last name, and Price -->
             <div class="profile-names-price">
-                <div class="profile-names">
+                <div class="profile-name-category">
                     <div class="profile-name">
                         <p>{{ developer.profile_name }}</p>
                     </div>
-                    <div class="profile-fullname">
-                        <p>- {{ developer.first_name }} {{ developer.last_name }} -</p>
+                    <div class="profile-category">
+                        <p>({{ developer.category.friendly_name}})</p>
                     </div>
+                    
                 </div>
 
                 <div class="profile-price">
@@ -57,9 +69,12 @@
             </div>
             
         </div>
+    {% empty %}
 
-        {% endfor %}
-        
-    </div>
+        <h3 class="search-empty">No Developer Profiles matched your search criteria.</h3>
+
+    {% endfor %}
+    
+</div>
 
 {% endblock %}
