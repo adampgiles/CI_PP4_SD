@@ -13,13 +13,7 @@
     
     <p>Please fill out the following form to complete your order...</p>
     <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-        {% csrf_token %}
-
-        <fieldset>
-            <legend>Details</legend>
-            {{ order_form.full_name }}
-            {{ order_form.email  }}
-        </fieldset>
+        {% csrf_token %}        
         
         <fieldset>
             <legend>Payment</legend>
