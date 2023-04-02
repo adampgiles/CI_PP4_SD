@@ -5,7 +5,6 @@ def cart_contents(request):
     context = {
         'cart_items': cart_items,
         'total': total,
-        'total': total,
     }
 
     return context
