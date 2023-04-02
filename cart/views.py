@@ -8,12 +8,24 @@ def view_cart(request):
     return render(request, 'cart/cart.html')
 
 def add_to_cart(request, item_id):
-    """ Add a quantity of the specified product to the shopping cart """
+    """ Add item to the shopping cart """
 
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
     cart[item_id] = int(1)
+
+    request.session['cart'] = cart
+    print(request.session['cart'])
+    return redirect(redirect_url)
+
+def remove_from_cart(request, item_id):
+    """ Remove item from the shopping cart """
+
+    redirect_url = request.POST.get('redirect_url')
+    cart = request.session.get('cart', {})
+
+    cart.pop(item_id)
 
     request.session['cart'] = cart
     print(request.session['cart'])

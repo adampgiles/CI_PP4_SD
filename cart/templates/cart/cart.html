@@ -8,6 +8,11 @@
             <img src="{{ item.product.image.url }}">
             <p><strong>{{ item.developer.profile_name }}</strong></p>
             <p>£{{ item.developer.price }}</p>
+            <form class="form" action="{% url 'remove_from_cart' item.developer.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="X">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">                
+            </form>
         {% endfor %}
         <h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
     {% else %}
