@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>Shopping Cart</h2>
+    {% if cart_items %}
+        <div class="table-responsive rounded"></div>
+    {% else %}
+        <p class="lead mb-5">Your cart is empty.</p>
+        <a href="{% url 'developers' %}">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+            <span>Back to Developers</span>
+        </a>
+    {% endif %}
+{% endblock %}
