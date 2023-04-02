@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h2>Checkout</h2>
+    {% for item in cart_items %}
+        <p><strong>{{ item.developer.profile_name }}</strong></p>
+        <p>£{{ item.developer.price }}</p>
+    {% endfor %}
+
+    <p>Order Total:</p>
+    <p><strong>£{{ total | floatformat:2 }}</strong></p>
+    
+    <p>Please fill out the following form to complete your order...</p>
+    <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+        {% csrf_token %}
+
+        <fieldset>
+            <legend>Details</legend>
+            {{ order_form.full_name }}
+            {{ order_form.email  }}
+        </fieldset>
+        
+        <fieldset>
+            <legend>Payment</legend>
+            <!-- A Stripe card element will go here -->
+            <div id="card-element"></div>
+
+            <!-- Used to display form errors -->
+            <div id="card-errors" role="alert"></div>
+        </fieldset>
+
+        <div>                    
+            <a href="{% url 'view_cart' %}">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span>Amend Cart</span>
+            </a>
+            <button id="submit-button">
+                <span>Complete Order</span>
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </button>
+            <p>
+                <span class="icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </span>
+                <span>Your card will be charged <strong>£{{ total|floatformat:2 }}</strong></span>
+            </p>
+    
+{% endblock %}
