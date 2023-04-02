@@ -4,9 +4,14 @@
 {% block content %}
     <h2>Shopping Cart</h2>
     {% if cart_items %}
-        <div class="table-responsive rounded"></div>
+        {% for item in cart_items %}
+            <img src="{{ item.product.image.url }}">
+            <p><strong>{{ item.developer.profile_name }}</strong></p>
+            <p>£{{ item.developer.price }}</p>
+        {% endfor %}
+        <h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
     {% else %}
-        <p class="lead mb-5">Your cart is empty.</p>
+        <p>Your cart is empty.</p>
         <a href="{% url 'developers' %}">
             <span class="icon">
                 <i class="fas fa-chevron-left"></i>
