@@ -8,10 +8,12 @@ from developers.models import Developer
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    full_name = models.CharField(max_length=50, null=False, blank=False)
+    username = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    original_cart = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """
@@ -21,10 +23,9 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update grand total each time a line item is added,
-        accounting for delivery costs.
+        Update total each time a line item is added.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        self.total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         self.save()
 
     def save(self, *args, **kwargs):
@@ -50,7 +51,7 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = self.product.price
+        self.lineitem_total = self.developer.price
         super().save(*args, **kwargs)
 
     def __str__(self):
