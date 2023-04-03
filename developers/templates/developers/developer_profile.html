@@ -41,33 +41,36 @@
         </div>
     </div>  
     
-    <div class="profile-posts">
-        {% for post in posts %}
+    {% if show_posts is True %}
+        <div class="profile-posts">        
+            {% for post in posts %}
 
-        <div class="post-block">
-
-            <div class="post-image">                    
-                {% if post.image_url != None %}
-                <img src="{{ post.image_url }}" alt="{{ post.image_url }}">
-                {% else %}
-                <img src="https://support-dev-images.s3.eu-west-2.amazonaws.com/no-image.jpg" alt="-- NO IMAGE --">
-                {% endif %}
-            </div>    
-        
-            <div class="post-title">
-                <p>{{ post.title }}</p>
-            </div>
-
-            <div class="post-date">
-                <p>- published: {{ post.publish_date }} -</p>
-            </div>      
+            <div class="post-block">
+                <div class="post-image">                    
+                    {% if post.image_url != None %}
+                    <img src="{{ post.image_url }}" alt="{{ post.image_url }}">
+                    {% else %}
+                    <img src="https://support-dev-images.s3.eu-west-2.amazonaws.com/no-image.jpg" alt="-- NO IMAGE --">
+                    {% endif %}
+                </div>    
             
-            <div class="post-content">{{ post.content }}</div>
+                <div class="post-title">
+                    <p>{{ post.title }}</p>
+                </div>
 
+                <div class="post-date">
+                    <p>- published: {{ post.publish_date }} -</p>
+                </div>      
+                
+                <div class="post-content">{{ post.content }}</div>
+
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
-
+        
+    {% else %}
+        <h3>Purchase Access to view post content</h3>
+    {% endif %}
 </div>
 
 {% endblock %}
