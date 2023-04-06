@@ -163,14 +163,13 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-if 'USE_S3' in os.environ:
+if 'USE_AWS' in os.environ:
     # Bucket Configuration
-    AWS_BUCKET_NAME = 'support-dev-images'
+    AWS_BUCKET_NAME = 'support-dev-project'
     AWS_REGION_NAME = 's3.eu-west-2'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY')
-    AWS_S3_CUSTOM_DOMAIN = \
-        f'{AWS_BUCKET_NAME}.{AWS_REGION_NAME}.amazonaws.com'  
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_BUCKET_NAME}.s3.amazonaws.com'
 
     # Static and media files
     STATICFILES_STORAGE = 'custom_storages.StaticStorage' 
@@ -187,7 +186,6 @@ if 'USE_S3' in os.environ:
 STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
-STRIPE_WH_SECRET =os.environ.get('STRIPE_WEBHOOK_SECRET')
 
  # Email Configuration
 if 'DEVELOPMENT' in os.environ:
