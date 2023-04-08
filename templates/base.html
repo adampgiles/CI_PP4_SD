@@ -92,8 +92,10 @@
         </ul>
     {% endif %}
 
-    {% block page_header %}
-    {% endblock %}
+    <h1>
+        {% block head_title %}
+        {% endblock %}
+    </h1>
 
     {% block content %}
     {% endblock %}
