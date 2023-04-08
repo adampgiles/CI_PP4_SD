@@ -17,8 +17,8 @@ class Category(models.Model):
     
 class Developer(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    first_name = models.CharField(max_length=30, default='first_name')
-    last_name = models.CharField(max_length=30, default='last_name')
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     email = models.EmailField(null=True, blank=True)
     profile_name = models.CharField(max_length=254)
     description = models.TextField(max_length=508)

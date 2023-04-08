@@ -6,10 +6,10 @@
 <div class="full-profile">
 
     <div class="full-profile-image">                    
-        {% if developer.image_url != None %}
-        <img src="{{ developer.image_url }}" alt="{{ developer.image_url }}">
+        {% if developer.image %}
+        <img src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
         {% else %}
-        <img src="https://support-dev-images.s3.eu-west-2.amazonaws.com/no-image.jpg" alt="-- NO IMAGE --">
+        <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
         {% endif %}
     </div>    
 
@@ -51,10 +51,10 @@
 
             <div class="post-block">
                 <div class="post-image">                    
-                    {% if post.image_url != None %}
-                    <img src="{{ post.image_url }}" alt="{{ post.image_url }}">
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
                     {% else %}
-                    <img src="https://support-dev-images.s3.eu-west-2.amazonaws.com/no-image.jpg" alt="-- NO IMAGE --">
+                    <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
                     {% endif %}
                 </div>    
             

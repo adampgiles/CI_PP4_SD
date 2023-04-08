@@ -46,7 +46,7 @@
         <div class="navigation-bar">
             <ul>
                 <li><a href="{% url 'developers' %}">Developer Profiles</a></li>
-
+                
                 {% if request.user.is_authenticated %}
 
                     {% if request.user.is_superuser %}
@@ -74,6 +74,7 @@
 
                 {% else %}
 
+                    <li><a href="{% url 'add_developer' %}">Create a Developer Profile</a></li>
                     <li><a href="{% url 'account_signup' %}">Register</a></li>
                     <li><a href="{% url 'account_login' %}">Login</a></li>
 

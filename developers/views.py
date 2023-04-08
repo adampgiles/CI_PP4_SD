@@ -1,7 +1,11 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.conf import settings
 from django.db.models import Q
 from .models import Developer, Post
 from checkout.models import Order, OrderLineItem
+
+from django.contrib import messages
+from .forms import DeveloperProfileForm  
 
 # Create your views here.
 def all_developers(request):
@@ -73,3 +77,24 @@ def developer_profile(request, developer_id):
     }
 
     return render(request, 'developers/developer_profile.html', context)
+
+
+def add_developer(request):
+    """ Add a developer """    
+    if request.method == 'POST':
+        form = DeveloperProfileForm(request.POST, request.FILES)
+        if form.is_valid():        
+            developer = form.save()
+            messages.success(request, 'Successfully created a Developer Profile!')
+            return redirect(reverse('developer_profile', args=[developer.id]))
+        else:
+            messages.error(request, 'Failed to create a Developer Profile. Please ensure the form is valid.')
+    else:
+        form = DeveloperProfileForm()
+        
+    template = 'developers/add_developer.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
