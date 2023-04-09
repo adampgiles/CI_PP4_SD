@@ -6,7 +6,7 @@ from .models import Developer, Post
 from checkout.models import Order, OrderLineItem
 
 from django.contrib import messages
-from .forms import DeveloperProfileForm  
+from .forms import DeveloperProfileForm, PostForm
 
 # Create your views here.
 def all_developers(request):
@@ -98,6 +98,7 @@ def add_developer(request):
     template = 'developers/add_developer.html'
     context = {
         'form': form,
+        'developer': developer,
     }
 
     return render(request, template, context)
@@ -121,7 +122,6 @@ def edit_developer(request, developer_id):
     template = 'developers/edit_developer.html'
     context = {
         'form': form,
-        'developer': developer,
     }
 
     return render(request, template, context)
@@ -133,3 +133,28 @@ def delete_developer(request, developer_id):
     developer.delete()
     messages.success(request, 'Developer deleted!')
     return redirect(reverse('developers'))
+
+
+@login_required
+def add_post(request, developer_id):
+    developer = get_object_or_404(Developer, pk=developer_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid(): 
+            post = form.save(commit=False)
+            post.author = developer
+            post.save()
+            messages.success(request, 'Successfully created a new Post!')
+            return redirect(reverse('developer_profile', args=[developer.id]))
+        else:
+            messages.error(request, 'Failed to create a new Post. Please ensure the form is valid.')
+    else:
+        form = PostForm()
+        
+    template = 'developers/add_post.html'
+    context = {
+        'form': form,
+        'developer': developer,
+    }
+
+    return render(request, template, context)

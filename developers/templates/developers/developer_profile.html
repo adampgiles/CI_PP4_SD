@@ -59,7 +59,7 @@
     
         <div class="profile-posts"> 
             {% if developer.user == request.user %}
-                 <a href="">Add a New Post</a>
+                 <a href="{% url 'add_post' developer.id %}">Add a New Post</a>
             {% endif %}
 
             {% if posts %}            

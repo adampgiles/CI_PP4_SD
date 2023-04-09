@@ -1,5 +1,5 @@
 from django import forms
-from .models import Developer, Category
+from .models import Developer, Category, Post
 
 class DeveloperProfileForm(forms.ModelForm):
 
@@ -29,3 +29,23 @@ class DeveloperProfileForm(forms.ModelForm):
         self.fields['price'].required = True
         self.fields['image'].required = True
 
+
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = Post
+        exclude = ('author', 'publish_date')
+
+    image = forms.ImageField()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['title'].widget.attrs['autofocus'] = True
+        self.fields['title'].label =  'Post Title'
+        self.fields['content'].label =  'Post Content'
+        self.fields['image'].label =  'Post Image'
+
+        self.fields['title'].required = True
+        self.fields['content'].required = True
+        self.fields['image'].required = True

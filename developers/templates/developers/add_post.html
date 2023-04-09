@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h2>Add a new Post</h2>
+        <div class="add-post-form">
+            {{ developer.id }}
+            <form method="POST" action="{% url 'add_post' developer.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-input">
+                        {{ field.label_tag }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <a href="{% url 'developer_profile' developer.id %}">Cancel Post Creation</a>
+                <button type="submit">Add Post to Profile</button>
+            </form>
+        </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+{% endblock %}
