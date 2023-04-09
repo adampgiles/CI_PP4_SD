@@ -17,7 +17,7 @@ class Category(models.Model):
         return self.friendly_name
     
 class Developer(models.Model):
-    user= models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     profile_name = models.CharField(max_length=254)
     description = models.TextField(max_length=508)
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)

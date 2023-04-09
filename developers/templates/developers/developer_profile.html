@@ -50,8 +50,15 @@
     {% endif %}
     
         <div class="profile-posts"> 
+            {% if developer.user is request.user %}
+                <a href="{% url '' %}">Add a New Post</a>
+            {% endif %}
+
             {% if posts %}            
                 {% for post in posts %}
+                    {% if developer.user is request.user %}
+                        <a href="{% url '' %}">Edit/Delete Post</a>
+                    {% endif %}
                     <div class="post-block">
                         <div class="post-title">
                             <p>{{ post.title }}</p>
@@ -69,7 +76,7 @@
                             {% if request.user.is_authenticated %}                            
                                 <h3>Purchase Access to view post content</h3>
                             {% else %}
-                                <li><a href="{% url 'account_login' %}">Login to view or purchase access to post content</a></li>
+                                <a href="{% url 'account_login' %}">Login to view or purchase access to post content</a>
                             {% endif %}
                         {% endif %}
                         <div class="post-date">

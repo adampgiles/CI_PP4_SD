@@ -1,7 +1,13 @@
 from django.shortcuts import render
+from developers.models import Developer
 
 # Create your views here.
 def index(request):
     """ View to return index page """
-    
-    return render(request, 'home/index.html')
+    developer = Developer.objects.filter(user=request.user)
+
+    context = {
+        'developer': developer,
+    }
+
+    return render(request, 'home/index.html', context)
