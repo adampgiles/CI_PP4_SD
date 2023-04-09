@@ -36,45 +36,50 @@
 
             
             <div class="full-profile-purchase">
-                <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
-                    {% csrf_token %}
-                    <input type="submit" value="Purchase Access">
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">                
-                </form>
+                {% if request.user.is_authenticated %}
+                    <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value="Purchase Access">
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">                
+                    </form>
+                {% else %}
+                    <li><a href="{% url 'account_login' %}">Login to Access</a></li>
+                {% endif %}
             </div>        
         </div>  
     {% endif %}
     
-    {% if show_posts is True %}
-        <div class="profile-posts">        
-            {% for post in posts %}
-
-            <div class="post-block">
-                <div class="post-image">                    
-                    {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
-                    {% else %}
-                    <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
-                    {% endif %}
-                </div>    
-            
-                <div class="post-title">
-                    <p>{{ post.title }}</p>
-                </div>
-
-                <div class="post-date">
-                    <p>- published: {{ post.publish_date }} -</p>
-                </div>      
-                
-                <div class="post-content">{{ post.content }}</div>
-
-            </div>
-            {% endfor %}
+        <div class="profile-posts"> 
+            {% if posts %}            
+                {% for post in posts %}
+                    <div class="post-block">
+                        <div class="post-title">
+                            <p>{{ post.title }}</p>
+                        </div>                    
+                        {% if show_posts is True %}
+                            <div class="post-image">                    
+                                {% if post.image %}
+                                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                                {% else %}
+                                <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
+                                {% endif %}
+                            </div>                                                    
+                            <div class="post-content">{{ post.content }}</div>                        
+                        {% else %}
+                            {% if request.user.is_authenticated %}                            
+                                <h3>Purchase Access to view post content</h3>
+                            {% else %}
+                                <li><a href="{% url 'account_login' %}">Login to view or purchase access to post content</a></li>
+                            {% endif %}
+                        {% endif %}
+                        <div class="post-date">
+                            <p>- published: {{ post.publish_date }} -</p>
+                        </div>     
+                    </div>
+                {% endfor %}  
+            {% else %} 
+                <h3>No Posts to Display</h3>
+            {% endif %} 
         </div>
-        
-    {% else %}
-        <h3>Purchase Access to view post content</h3>
-    {% endif %}
-</div>
 
 {% endblock %}
