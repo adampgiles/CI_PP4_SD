@@ -17,10 +17,10 @@ class Category(models.Model):
         return self.friendly_name
     
 class Developer(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,null=True, blank=True, on_delete=models.CASCADE)
     profile_name = models.CharField(max_length=254)
     description = models.TextField(max_length=508)
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     count_sold = models.IntegerField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)

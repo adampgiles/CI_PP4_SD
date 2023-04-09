@@ -2,22 +2,24 @@
 {% load static %}
 
 {% block content %}
-
-<h2>Create a Developer Profile</h5>
-
-<div class="add-developer-form">
-    <form method="POST" action="{% url 'add_developer' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% for field in form %}
-            <div class="form-input">
-                {{ field.label_tag }}
-                {{ field }}
-            </div>
-        {% endfor %}
-        <a href="{% url 'developers' %}">Cancel Profile Creation</a>
-        <button type="submit">Create Developer Profile</button>
-    </form>
-</div>
+    <h2>Create a Developer Profile</h2>
+    {% if request.user.is_authenticated %}
+        <div class="add-developer-form">
+            <form method="POST" action="{% url 'add_developer' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-input">
+                        {{ field.label_tag }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <a href="{% url 'developers' %}">Cancel Profile Creation</a>
+                <button type="submit">Create Developer Profile</button>
+            </form>
+        </div>
+    {% else %}
+        <a href="{% url 'account_login' %}">Login to create a Developer Profile</a>
+    {% endif %}
 {% endblock %}
 
 {% block postloadjs %}

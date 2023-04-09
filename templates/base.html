@@ -45,18 +45,13 @@
         
         <div class="navigation-bar">
             <ul>
-                <li><a href="{% url 'developers' %}">Developer Profiles</a></li>
-                
+                <li><a href="{% url 'developers' %}">Explore Developers</a></li>
                 {% if request.user.is_authenticated %}
-
+                    <li><a href="{% url 'add_developer' %}">Create a Developer Profile</a></li>
                     {% if request.user.is_superuser %}
                         <li><a href="{% url 'admin:index' %}">Site Management</a></li>
-                    {% else %}   
-                        <li><a href="">My Developer Profile</a></li>
-                    {% endif %}                  
-
+                    {% endif %}
                     <li><a href="{% url 'account_logout' %}">Logout</a></li>
-
                     <li>
                         <a href="{% url 'view_cart' %}">
                             <div>
@@ -71,13 +66,9 @@
                             </div>
                         </a>
                     </li>
-
-                {% else %}
-
-                    <li><a href="{% url 'add_developer' %}">Create a Developer Profile</a></li>
+                {% else %}                    
                     <li><a href="{% url 'account_signup' %}">Register</a></li>
                     <li><a href="{% url 'account_login' %}">Login</a></li>
-
                 {% endif %}
             </ul>
         </div>

@@ -83,7 +83,8 @@ def add_developer(request):
     """ Add a developer """    
     if request.method == 'POST':
         form = DeveloperProfileForm(request.POST, request.FILES)
-        if form.is_valid():        
+        if form.is_valid(): 
+            form.user = request.user     
             developer = form.save()
             messages.success(request, 'Successfully created a Developer Profile!')
             return redirect(reverse('developer_profile', args=[developer.id]))
