@@ -41,23 +41,25 @@
             </div>
 
             
-            <div class="full-profile-purchase">
-                {% if request.user.is_authenticated %}
-                    <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
-                        {% csrf_token %}
-                        <input type="submit" value="Purchase Access">
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">                
-                    </form>
-                {% else %}
-                    <li><a href="{% url 'account_login' %}">Login to Access</a></li>
+            {% if request.user.is_authenticated %}
+                {% if developer.user != request.user %}                
+                    <div class="full-profile-purchase">
+                        <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value="Purchase Access">
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">                
+                        </form>
                 {% endif %}
-            </div>        
+            {% else %}
+                        <a href="{% url 'account_login' %}">Login to Access</a>
+                    </div>        
+            {% endif %}
         </div>  
     {% endif %}
     
         <div class="profile-posts"> 
-            {% if developer.user is request.user %}
-                <a href="{% url '' %}">Add a New Post</a>
+            {% if developer.user == request.user %}
+                 <a href="">Add a New Post</a>
             {% endif %}
 
             {% if posts %}            
