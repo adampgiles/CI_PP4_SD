@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 class Category(models.Model):
@@ -17,9 +18,7 @@ class Category(models.Model):
     
 class Developer(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField(null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,null=True, blank=True, on_delete=models.CASCADE)
     profile_name = models.CharField(max_length=254)
     description = models.TextField(max_length=508)
     price = models.DecimalField(max_digits=6, decimal_places=2)
