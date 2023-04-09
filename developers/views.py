@@ -1,5 +1,6 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Developer, Post
 from checkout.models import Order, OrderLineItem
@@ -78,7 +79,7 @@ def developer_profile(request, developer_id):
 
     return render(request, 'developers/developer_profile.html', context)
 
-
+@login_required
 def add_developer(request):
     """ Add a developer """    
     if request.method == 'POST':
@@ -97,6 +98,30 @@ def add_developer(request):
     template = 'developers/add_developer.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_developer(request, developer_id):
+    developer = get_object_or_404(Developer, pk=developer_id)
+    if request.method == 'POST':
+        form = DeveloperProfileForm(request.POST, request.FILES, instance=developer)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated your Developer Profile!')
+            return redirect(reverse('developer_profile', args=[developer.id]))
+        else:
+            messages.error(request, 'Failed to update your Developer Profile. Please ensure the form is valid.')
+    else:
+        form = DeveloperProfileForm(instance=developer)
+        messages.info(request, f'You are editing {developer.profile_name}')
+
+    template = 'developers/edit_developer.html'
+    context = {
+        'form': form,
+        'developer': developer,
     }
 
     return render(request, template, context)

@@ -3,6 +3,12 @@
 
 {% block content %}
 
+{% if request.user.is_authenticated %}
+    {% if developer.user == request.user %}
+        <a href="{% url 'edit_developer' developer.id %}">Edit Profile</a>
+    {% endif %}
+{% endif %}
+
 <div class="full-profile">
 
     <div class="full-profile-image">                    
