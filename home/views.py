@@ -4,7 +4,7 @@ from developers.models import Developer
 # Create your views here.
 def index(request):
     """ View to return index page """
-    if request.user:
+    if request.user.is_authenticated:
         developers = Developer.objects.filter(user=request.user)
         if developers:
             developer = developers[0]

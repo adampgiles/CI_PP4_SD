@@ -122,6 +122,7 @@ def edit_developer(request, developer_id):
     template = 'developers/edit_developer.html'
     context = {
         'form': form,
+        'developer': developer,
     }
 
     return render(request, template, context)
@@ -131,7 +132,7 @@ def edit_developer(request, developer_id):
 def delete_developer(request, developer_id):
     developer = get_object_or_404(Developer, pk=developer_id)
     developer.delete()
-    messages.success(request, 'Developer deleted!')
+    messages.success(request, 'Developer Profile deleted!')
     return redirect(reverse('developers'))
 
 
@@ -155,6 +156,33 @@ def add_post(request, developer_id):
     context = {
         'form': form,
         'developer': developer,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_post(request, post_id):
+    developer = Developer.objects.filter(user=request.user)[0]
+    print(developer.id)
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated your Post!')
+            return redirect(reverse('developer_profile', args=[developer.id]))
+        else:
+            messages.error(request, 'Failed to update your Post. Please ensure the form is valid.')
+    else:
+        form = PostForm(instance=post)
+        messages.info(request, f'You are editing {post.title}')
+
+    template = 'developers/edit_post.html'
+    context = {
+        'form': form,
+        'developer': developer,
+        'post': post,
     }
 
     return render(request, template, context)

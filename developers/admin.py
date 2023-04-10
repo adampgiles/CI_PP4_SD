@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Developer
-from .models import Category
-from .models import Post
+from .models import Developer, Category, Post
 
 # Register your models here.
 
@@ -31,7 +29,7 @@ class PostAdmin(admin.ModelAdmin):
     )
 
     ordering = ('publish_date',)
-    
+
 admin.site.register(Developer, DeveloperAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)

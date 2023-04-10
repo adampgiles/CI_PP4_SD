@@ -28,6 +28,7 @@ class Developer(models.Model):
     def __str__(self):
         return self.profile_name
     
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey('Developer', null=True, blank=True, on_delete=models.CASCADE)

@@ -64,10 +64,10 @@
 
             {% if posts %}            
                 {% for post in posts %}
-                    {% if developer.user is request.user %}
-                        <a href="{% url '' %}">Edit/Delete Post</a>
-                    {% endif %}
                     <div class="post-block">
+                        {% if developer.user == request.user %}
+                            <a href="{% url 'edit_post' post.id %}">Edit/Delete Post</a>
+                        {% endif %}
                         <div class="post-title">
                             <p>{{ post.title }}</p>
                         </div>                    

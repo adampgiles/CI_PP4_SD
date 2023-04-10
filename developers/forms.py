@@ -48,4 +48,4 @@ class PostForm(forms.ModelForm):
 
         self.fields['title'].required = True
         self.fields['content'].required = True
-        self.fields['image'].required = True
+        self.fields['image'].required = False
