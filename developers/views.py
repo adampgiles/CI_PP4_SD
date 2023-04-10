@@ -164,7 +164,6 @@ def add_post(request, developer_id):
 @login_required
 def edit_post(request, post_id):
     developer = Developer.objects.filter(user=request.user)[0]
-    print(developer.id)
     post = get_object_or_404(Post, pk=post_id)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
@@ -186,3 +185,12 @@ def edit_post(request, post_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_post(request, post_id):
+    developer = Developer.objects.filter(user=request.user)[0]
+    post = get_object_or_404(Post, pk=post_id)
+    post.delete()
+    messages.success(request, 'Post deleted!')
+    return redirect(reverse('developer_profile', args=[developer.id]))

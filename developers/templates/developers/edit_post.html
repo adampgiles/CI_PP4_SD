@@ -3,6 +3,7 @@
 
 {% block content %}
     <h2>Edit Post</h2>       
+        <a href="{% url 'delete_post' post.id %}">Delete this Post</a>
         <div class="edit-post-form">
             <form method="POST" action="{% url 'edit_post' post.id %}" enctype="multipart/form-data">
                 {% csrf_token %}
