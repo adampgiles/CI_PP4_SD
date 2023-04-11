@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Developer, Post
-from checkout.models import Order, OrderLineItem
+from accounts.models import UserAccount
 
 from django.contrib import messages
 from .forms import DeveloperProfileForm, PostForm
@@ -52,24 +52,32 @@ def all_developers(request):
     return render(request, 'developers/developers.html', context)
 
 def developer_profile(request, developer_id):
-    """ View to show individual developer details """
-
-    developer = get_object_or_404(Developer, pk=developer_id)
-    posts = Post.objects.all().filter(author=developer_id)
+    """ View to show individual developer details """    
     show_posts = False
+    """ If User is logged in, retrieve the User's Account """
+    if request.user.is_authenticated:
+        current_user = request.user
+        account = UserAccount.objects.filter(user=current_user)[0]                   
 
-    user = request.user
+    """ If the User has a Developer Profile, return that profile. Else redirect to the Add Developer page """
+    if developer_id == "this_developer":
+        if account.is_developer is True:
+            developer = Developer.objects.all().filter(user=current_user)[0]
+            posts = Post.objects.all().filter(author=developer.profile_name)
+            show_posts = True
+        else:
+            return redirect('add_developer')
+    else:
+        developer = get_object_or_404(Developer, pk=developer_id)
+        posts = Post.objects.all().filter(author=developer_id)
 
-    query = Q(username__icontains=user)
-    orders = Order.objects.filter(query)
-
-    order_lines = OrderLineItem.objects.all()
-    for order in orders:
-        for order_line in order_lines:
-            if str(order.order_number) == str(order_line.order):
-                    if str(order_line.developer) == str(developer.profile_name):
-                        show_posts = True
-                        break
+        """ If the Current User has purchased access to this Developer Profile, Show Posts """
+        if request.user.is_authenticated:
+            current_user = request.user
+            account = UserAccount.objects.filter(user=current_user)[0] 
+            developers = account.purchased_developers
+            if developers:
+                show_posts = True
 
     context = {
         'developer': developer,
@@ -88,6 +96,12 @@ def add_developer(request):
             developer = form.save(commit=False)
             developer.user = request.user
             developer.save()
+
+            current_user = request.user
+            account = UserAccount.objects.filter(user=current_user)[0]
+            account.is_developer = True
+            account.save()
+
             messages.success(request, 'Successfully created a Developer Profile!')
             return redirect(reverse('developer_profile', args=[developer.id]))
         else:
@@ -98,7 +112,6 @@ def add_developer(request):
     template = 'developers/add_developer.html'
     context = {
         'form': form,
-        'developer': developer,
     }
 
     return render(request, template, context)
@@ -132,6 +145,12 @@ def edit_developer(request, developer_id):
 def delete_developer(request, developer_id):
     developer = get_object_or_404(Developer, pk=developer_id)
     developer.delete()
+
+    current_user = request.user
+    account = UserAccount.objects.filter(user=current_user)[0]
+    account.is_developer = False
+    account.save()
+    
     messages.success(request, 'Developer Profile deleted!')
     return redirect(reverse('developers'))
 
