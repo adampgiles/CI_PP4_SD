@@ -3,29 +3,26 @@
 
 {% block content %}
 
-<div class="customer-account">
+<div class="user-account-block">
 
     <p>{{ request.user }}</p>
     <p>{{ request.user.email }}</p> 
     <a href="{% url 'account_change_password' %}">Change Password</a>
 
-        <h2>Purchased Developer Profiles</h2>
-            {% if developers %}            
-                {% for developer in developers %}
-                    <div class="developer-block">
-                        {% if developer.user == request.user %}
-                            <a href="{% url 'edit_post' post.id %}">Edit/Delete Post</a>
-                        {% endif %}
-                        <p>{{ developer.profile_name }}</p>
-                        <a href="{% url 'developer_profile' developer.id %}">
-                            <p>View Profile</p>
-                        </a>
-                    </div>
-                {% endfor %}  
-            {% else %} 
-                <h3>No Developer Profiles Purchased.</h3>
-                <a href="{% url 'developers' %}">Explore Developers</a>
-            {% endif %} 
-        </div>
+    <h2>Purchased Developer Profiles</h2>
+        {% if developers %}            
+            {% for developer in developers %}
+                <div class="developer-block">
+                    <p>{{ developer.profile_name }}</p>
+                    <a href="{% url 'developer_profile' developer.id %}">
+                        <p>View Profile</p>
+                    </a>
+                </div>
+            {% endfor %}  
+        {% else %} 
+            <h3>No Developer Profiles Purchased.</h3>
+            <a href="{% url 'developers' %}">Explore Developers</a>
+        {% endif %} 
+    </div>
 
 {% endblock %}

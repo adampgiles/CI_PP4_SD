@@ -48,12 +48,12 @@
                 <li><a href="{% url 'developers' %}">Explore Developers</a></li>
                 {% if request.user.is_authenticated %}
 
-                    <li><a href="{% url 'developer_profile' "this_developer" %}">My Developer Profile</a></li>
+                    <li><a href="{% url 'developer_profile' "is_developer" %}">My Developer Profile</a></li>
 
                     {% if request.user.is_superuser %}
                         <li><a href="{% url 'admin:index' %}">Site Management</a></li>
                     {% endif %}
-
+                    <li><a href="{% url 'user_account' %}">My Account</a></li>
                     <li><a href="{% url 'account_logout' %}">Logout</a></li>
                     <li>
                         <a href="{% url 'view_cart' %}">

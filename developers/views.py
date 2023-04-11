@@ -52,7 +52,7 @@ def all_developers(request):
     return render(request, 'developers/developers.html', context)
 
 def developer_profile(request, developer_id):
-    """ View to show individual developer details """    
+    """ View to show individual developer details """  
     show_posts = False
     """ If User is logged in, retrieve the User's Account """
     if request.user.is_authenticated:
@@ -60,16 +60,17 @@ def developer_profile(request, developer_id):
         account = UserAccount.objects.filter(user=current_user)[0]                   
 
     """ If the User has a Developer Profile, return that profile. Else redirect to the Add Developer page """
-    if developer_id == "this_developer":
+    if developer_id == "is_developer":
         if account.is_developer is True:
             developer = Developer.objects.all().filter(user=current_user)[0]
-            posts = Post.objects.all().filter(author=developer.profile_name)
+            posts = Post.objects.all().filter(author=developer.id)
             show_posts = True
         else:
             return redirect('add_developer')
     else:
         developer = get_object_or_404(Developer, pk=developer_id)
-        posts = Post.objects.all().filter(author=developer_id)
+        posts = Post.objects.all().filter(author=developer.id)
+        
 
         """ If the Current User has purchased access to this Developer Profile, Show Posts """
         if request.user.is_authenticated:
