@@ -6,6 +6,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from developers.models import Developer
+from accounts.models import UserAccount
 from cart.contexts import cart_contents
 
 import stripe
@@ -111,6 +112,17 @@ def checkout_success(request, order_number):
 
     if 'cart' in request.session:
         del request.session['cart']
+
+    """ Get the """
+    current_user = request.user
+    account = UserAccount.objects.filter(user=current_user)[0] 
+
+    orderlineitems = OrderLineItem.objects.filter(order=order)
+    for orderlineitem in orderlineitems:
+        developer = orderlineitem.developer
+        account.purchased_developers.add(developer)
+        account.save()
+    
 
     template = 'checkout/checkout_success.html'
     context = {

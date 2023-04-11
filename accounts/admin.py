@@ -6,7 +6,6 @@ from .models import UserAccount
 class UserAccountAdmin(admin.ModelAdmin):
     list_display = (
         'user',
-        'purchased_developers'
     )
 
     ordering = ('user',)

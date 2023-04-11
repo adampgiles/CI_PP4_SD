@@ -76,7 +76,7 @@ def developer_profile(request, developer_id):
             current_user = request.user
             account = UserAccount.objects.filter(user=current_user)[0] 
             developers = account.purchased_developers
-            if developers:
+            if developers.contains(developer):
                 show_posts = True
 
     context = {

@@ -31,8 +31,7 @@
 
     
 
-    <div class="full-profile-description">{{ developer.description }}</div>   
-
+    <div class="full-profile-description">{{ developer.description }}</div>  
     <!-- Buttons to Purchase the Access--> 
     {% if show_posts is False %}
         <div class="fixed-purchase-container">
@@ -40,7 +39,6 @@
                 <p>£{{ developer.price }}</p>
             </div>
 
-            
             {% if request.user.is_authenticated %}
                 {% if developer.user != request.user %}                
                     <div class="full-profile-purchase">
@@ -50,6 +48,7 @@
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">                
                         </form>
                 {% endif %}
+
             {% else %}
                         <a href="{% url 'account_login' %}">Login to Access</a>
                     </div>        
@@ -57,44 +56,44 @@
         </div>  
     {% endif %}
     
-        <div class="profile-posts"> 
-            {% if developer.user == request.user %}
-                 <a href="{% url 'add_post' developer.id %}">Add a New Post</a>
-            {% endif %}
+    <div class="profile-posts"> 
+        {% if developer.user == request.user %}
+                <a href="{% url 'add_post' developer.id %}">Add a New Post</a>
+        {% endif %}
 
-            {% if posts %}            
-                {% for post in posts %}
-                    <div class="post-block">
-                        {% if developer.user == request.user %}
-                            <a href="{% url 'edit_post' post.id %}">Edit/Delete Post</a>
-                        {% endif %}
-                        <div class="post-title">
-                            <p>{{ post.title }}</p>
-                        </div>                    
-                        {% if show_posts is True %}
-                            <div class="post-image">                    
-                                {% if post.image %}
-                                <img src="{{ post.image.url }}" alt="{{ post.title }}">
-                                {% else %}
-                                <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
-                                {% endif %}
-                            </div>                                                    
-                            <div class="post-content">{{ post.content }}</div>                        
-                        {% else %}
-                            {% if request.user.is_authenticated %}                            
-                                <h3>Purchase Access to view post content</h3>
+        {% if posts %}            
+            {% for post in posts %}
+                <div class="post-block">
+                    {% if developer.user == request.user %}
+                        <a href="{% url 'edit_post' post.id %}">Edit/Delete Post</a>
+                    {% endif %}
+                    <div class="post-title">
+                        <p>{{ post.title }}</p>
+                    </div>                    
+                    {% if show_posts is True %}
+                        <div class="post-image">                    
+                            {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}">
                             {% else %}
-                                <a href="{% url 'account_login' %}">Login to view or purchase access to post content</a>
+                            <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
                             {% endif %}
+                        </div>                                                    
+                        <div class="post-content">{{ post.content }}</div>                        
+                    {% else %}
+                        {% if request.user.is_authenticated %}                            
+                            <h3>Purchase Access to view post content</h3>
+                        {% else %}
+                            <a href="{% url 'account_login' %}">Login to view or purchase access to post content</a>
                         {% endif %}
-                        <div class="post-date">
-                            <p>- published: {{ post.publish_date }} -</p>
-                        </div>     
-                    </div>
-                {% endfor %}  
-            {% else %} 
-                <h3>No Posts to Display</h3>
-            {% endif %} 
-        </div>
+                    {% endif %}
+                    <div class="post-date">
+                        <p>- published: {{ post.publish_date }} -</p>
+                    </div>     
+                </div>
+            {% endfor %}  
+        {% else %} 
+            <h3>No Posts to Display</h3>
+        {% endif %} 
+    </div>
 
 {% endblock %}
