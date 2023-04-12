@@ -4,8 +4,6 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Developer, Post
 from accounts.models import UserAccount
-
-from django.contrib import messages
 from .forms import DeveloperProfileForm, PostForm
 
 # Create your views here.

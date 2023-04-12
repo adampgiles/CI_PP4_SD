@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h2>Contact Us</h2>
+        <div class="contact-us-form">
+            <form method="POST" action="{% url 'contact_us' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-input">
+                        {{ field.label_tag }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <button type="submit">Submit Contact Form</button>
+            </form>
+        </div>
+{% endblock %}
