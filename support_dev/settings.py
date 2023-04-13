@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = ['supportdev.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -197,9 +197,11 @@ STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 
  # Email Configuration
 if 'DEVELOPMENT' in os.environ:
+    print("No")    
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'supportdev@example.com'
 else:
+    print("yes")  
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
