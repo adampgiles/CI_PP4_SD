@@ -61,13 +61,36 @@
         {% endif %}
     {% endif %}
     
+    <!-- Pagination links and page numbers -->
+    {% if posts|length > 6 %}   
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; Newest</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Newer</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Older</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Oldest &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %} 
+
     <div class="profile-posts"> 
+        <h3>Developer Posts</h3>
+
         {% if developer.user == request.user %}
                 <a href="{% url 'add_post' developer.id %}">Add a New Post</a>
         {% endif %}
 
         {% if posts %}            
-            {% for post in posts %}
+            {% for post in page_obj %}
                 <div class="post-block">
                     {% if developer.user == request.user %}
                         <a href="{% url 'edit_post' post.id %}">Edit/Delete Post</a>
@@ -100,5 +123,26 @@
             <h3>No Posts to Display</h3>
         {% endif %} 
     </div>
+
+    <!-- Pagination links and page numbers -->
+    {% if posts|length > 6 %} 
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; Newest</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Newer</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Older</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Oldest &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %} 
 
 {% endblock %}

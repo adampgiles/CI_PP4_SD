@@ -1,4 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -41,10 +42,15 @@ def all_developers(request):
             sort = ""
             developers = Developer.objects.all()
 
+    paginator = Paginator(developers, 6)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     context = {
         'developers': developers,
         'search': query,
         'sort': sort,
+        'page_obj': page_obj,
     }
 
     return render(request, 'developers/developers.html', context)
@@ -61,8 +67,8 @@ def developer_profile(request, developer_id):
     if developer_id == "is_developer":
         if account.is_developer is True:
             developer = Developer.objects.all().filter(user=current_user)[0]
-            posts = Post.objects.all().filter(author=developer.id)
-            show_posts = True
+            posts = Post.objects.all().filter(author=developer.id)            
+            show_posts = True            
         else:
             return redirect('add_developer')
     else:
@@ -77,11 +83,19 @@ def developer_profile(request, developer_id):
             developers = account.purchased_developers
             if developers.contains(developer):
                 show_posts = True
+    
+    posts = posts.order_by('-publish_date')
+
+
+    paginator = Paginator(posts, 6)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
         'developer': developer,
         'posts': posts,
         'show_posts': show_posts,
+        'page_obj': page_obj,
     }
 
     return render(request, 'developers/developer_profile.html', context)

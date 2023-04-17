@@ -36,7 +36,28 @@
 <!-- Section containing a list of all Developers -->
 <div class="developer-section">    
 
-    {% for developer in developers %}  
+<!-- Pagination links and page numbers -->
+{% if developers|length > 6 %} 
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; First</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endif %} 
+
+    {% for developer in page_obj %}  
         <!-- Block containing a Developer's data -->
         <div class="developer-block">
             <!-- Developer's Profile Name, First & Last name, and Price -->
@@ -91,5 +112,26 @@
     {% endfor %}
     
 </div>
+
+<!-- Pagination links and page numbers -->
+{% if developers|length > 6 %} 
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; First</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endif %} 
 
 {% endblock %}
