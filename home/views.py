@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from accounts.models import UserAccount
+from developers.models import Developer
 
 # Create your views here.
 def index(request):
@@ -10,4 +11,17 @@ def index(request):
         if not account:
               UserAccount.objects.create(user=current_user)
 
-    return render(request, 'home/index.html')
+        developers = Developer.objects.filter(user=current_user)
+        print(developers)
+        if developers:
+            is_developer = True
+        else:
+            is_developer = False
+
+    else:
+            is_developer = False
+
+    context = {
+        'is_developer': is_developer,
+    }
+    return render(request, 'home/index.html', context)

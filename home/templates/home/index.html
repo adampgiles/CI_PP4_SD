@@ -1,2 +1,45 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'developers' %}">
+            <div>
+                <h3>Support</h3>
+                <p>Purchase access to Developer Profiles to view the Developer's exclusive content.</p>
+            </div>
+        </a>  
+        
+        {% if is_developer is True %}
+            <a href="{% url 'developer_profile' "is_developer" %}">  
+                <div>
+                    <h3>Dev</h3>
+                    <p>View your Developer Profile to share your exclusive content with Supporters</p>
+                </div>
+            </a>            
+        {% else %}
+            <a href="{% url 'add_developer' %}">  
+                <div>
+                    <h3>Dev</h3>
+                    <p>Create a Developer Profile to share your exclusive content with Supporters</p>
+                </div>
+            </a>
+        {% endif %}
+
+    {% else %}
+
+        <a href="{% url 'account_login' %}">
+            <div>
+                <h3>Support</h3>
+                <p>Purchase access to Developer Profiles to view the Developer's exclusive content.</p>
+            </div>
+        </a>  
+        <a href="{% url 'account_login' %}">  
+            <div>
+                <h3>Dev</h3>
+                <p>Create or view your Developer Profile to share your exclusive content with Supporters</p>
+            </div>
+        </a>
+
+    {% endif %}
+{% endblock %}
