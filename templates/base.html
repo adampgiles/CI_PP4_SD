@@ -38,32 +38,27 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg sticky-top bg-light shadow">
             <div class="container-fluid">
-
-                <a class="navbar-brand" href="{% url 'home' %}"><h1>support<strong>Dev</strong></h1></a>
-    
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <a class="navbar-brand" href="{% url 'home' %}">support<strong class="text-primary fs-4">Dev</strong></a>
+                
+                <button class="navbar-toggler drawer btn btn-outline-primary p-2 shadow m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="text-primary icon fa-solid fa-code"></i>
                 </button>
-    
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                
+                <div class="collapse navbar-collapse justify-content-end gap-2" id="navbarNavAltMarkup">
                     <div class="navbar-nav">                    
-                    <a class="btn btn-outline-success me-2 shadow" href="{% url 'developers' %}">Explore Developers</a>
-        
-                    {% if request.user.is_authenticated %}
-                        <a class="btn btn-outline-primary me-2 shadow" href="{% url 'developer_profile' "is_developer" %}">My Developer Profile</a>                              
-                        <a class="btn btn-outline-primary me-2 shadow" href="{% url 'user_account' %}">My Account</a>
+                        <a class="btn btn-outline-success me-2 shadow m-1" href="{% url 'developers' %}">Explore Developers</a>
+                        {% if request.user.is_authenticated %}                
+                        <a class="btn btn-outline-primary me-2 shadow m-1" href="{% url 'developer_profile' "is_developer" %}">My Developer Profile</a>                              
+                        <a class="btn btn-outline-primary me-2 shadow m-1" href="{% url 'user_account' %}">My Account</a>
                         
                         {% if request.user.is_superuser %}
-                        <a class="btn btn-outline-primary me-2 shadow" href="{% url 'admin:index' %}">Site Management</a>
+                        <a class="btn btn-outline-primary me-2 shadow m-1" href="{% url 'admin:index' %}">Site Management</a>
                         {% endif %}
                         
-                        <a class="btn btn-outline-secondary me-2 shadow" href="{% url 'contact_us' %}"><i class="fa-solid fa-envelope"></i></a>
-                        <a class="text-white btn btn-danger btn-outline-danger me-2" href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a>
-                        
                         {% if total %}
-                            <a class="text-white btn btn-secondary me-2" href="{% url 'view_cart' %}">
+                            <a class="text-white btn btn-secondary me-2 m-1" href="{% url 'view_cart' %}">
                                 <div>
                                     <i class="fas fa-shopping-bag fa-lg"></i>
                                     <p>
@@ -75,11 +70,16 @@
                                     </p>
                                 </div>
                             </a>
-                        {% endif %}                        
+                        {% endif %}          
+                        
+                        <div class="d-flex justify-content-center m-1">
+                            <a class="btn btn-outline-secondary me-2 shadow" href="{% url 'contact_us' %}"><i class="fa-solid fa-envelope"></i></a>
+                            <a class="text-white btn btn-danger btn-outline-danger me-2" href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a>
+                        <div>
 
                     {% else %}
-                        <a class="btn btn-outline-primary me-2 shadow" href="{% url 'account_login' %}">Login</a>
-                        <a class="btn btn-outline-primary me-2 shadow" href="{% url 'account_signup' %}">Register</a>
+                        <a class="btn btn-outline-primary me-2 shadow m-1" href="{% url 'account_login' %}">Login</a>
+                        <a class="btn btn-outline-primary me-2 shadow m-1" href="{% url 'account_signup' %}">Register</a>
                     {% endif %}
                     </div>
                 </div>
