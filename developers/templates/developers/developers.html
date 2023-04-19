@@ -24,105 +24,83 @@
     </form>
 </div>
 
-<!-- Section containing a list of all Developers -->
-<div class="developer-section">    
-
+<div class="container d-flex justify-content-center align-items-center p-2">
 <!-- Pagination links and page numbers -->
-{% if developers|length > 6 %} 
-    <div class="pagination">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; First</a>
-                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-            {% endif %}
+    {% if developers|length > 2 %} 
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; First</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% endif %}
 
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                {% endif %}
             </span>
-
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">Next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
-            {% endif %}
-        </span>
-    </div>
-{% endif %} 
-
-    {% for developer in page_obj %}  
-        <!-- Block containing a Developer's data -->
-        <div class="developer-block">
-            <!-- Developer's Profile Name, First & Last name, and Price -->
-            <div class="profile-names-price">
-                <div class="profile-name-category">
-                    <div class="profile-name">
-                        <p>{{ developer.profile_name }}</p>
-                    </div>
-                    <div class="profile-category">
-                        <p>({{ developer.category.friendly_name }})</p>
-                    </div>
-                    <p class="profile-sold">Sold: {{ developer.count_sold }}</p>
-                    
-                </div>
-
-                <div class="profile-price">
-                    <p>£{{ developer.price }}</p>
-                </div>
-                
-            </div>
-
-            <!-- Developer's Profile Image, and Description -->
-            <div class="profile-image-description">
-                <div class="profile-image">                    
-                    {% if developer.image %}
-                        <img src="{{ developer.image.url }}" alt="{{ developer.image.url }}">
-                    {% else %}
-                        <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
-                    {% endif %}
-                </div>
-
-                <div class="profile-description">{{ developer.description }}</div>
-
-            </div>
-
-            <!-- Buttons to Purchase the Profile, or View if already purchased -->
-            <div class="profile-purchase-view">
-                
-                <div class="profile-view">
-                    <a href="{% url 'developer_profile' developer.id %}">
-                        <p>View Profile</p>
-                    </a>
-                </div>
-
-            </div>
-            
         </div>
-    {% empty %}
-
-        <h3 class="search-empty">No Developer Profiles matched your search criteria.</h3>
-
-    {% endfor %}
-    
+    {% endif %} 
 </div>
 
-<!-- Pagination links and page numbers -->
-{% if developers|length > 6 %} 
-    <div class="pagination">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; First</a>
-                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-            {% endif %}
+<!-- Section containing a list of all Developers -->
+<div class="container text-center">
+    {% for developer in page_obj %} 
+    <div class="row text-center rounded m-0 p-2 shadow border-bottom border-2 border-primary border-opacity-75 h-100">
 
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
+        <div class="col-12 col-md-4 d-flex align-items-center justify-content-center p-2">
+            <img class="img-thumbnail dev-image" src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">           
+        </div>
 
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">Next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
-            {% endif %}
-        </span>
+        <div class="col-12 col-md-4 d-flex flex-column align-items-center p-2">
+            <h3 class="fw-bolder p-0 m-0">{{ developer.profile_name }}</h3>
+
+            <p class="p-0 m-0">({{ developer.category.friendly_name }})</p>
+
+            <p class="m-1 border-top border-2 border-primary border-opacity-75 w-100">{{ developer.description }}</p>
+            
+        </div>
+
+        <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center">
+                
+            <p class="fw-bolder p-1 m-0 fs-1 text-primary h-25">£{{ developer.price }}</p>
+
+            <p class="border-bottom border-2 border-primary border-opacity-75 h-25 w-75 fw-bold">{% if developer.count_sold is None %} 0 Purchases {% else %} {{developer.count_sold}} Purchases {% endif %}</p>
+
+            <a class="btn btn-warning me-2 shadow m-1 fw-bolder my-3 w-75" href="{% url 'developer_profile' developer.id %}">View Profile</a>      
+
+        </div>
     </div>
-{% endif %} 
+    {% empty %}
+        <h3 class="search-empty">No Developer Profiles matched your search criteria.</h3>
+    {% endfor %}
+</div>  
+
+<div class="container d-flex justify-content-center align-items-center p-2">
+<!-- Pagination links and page numbers -->
+    {% if developers|length > 2 %} 
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; First</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %} 
+</div>
 
 {% endblock %}

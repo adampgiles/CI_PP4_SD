@@ -2,6 +2,17 @@
     color: #fff !important;
 }
 
-.dynamic-height {
-    height: 100dvh;
+.dev-image {
+    max-width: 250px;
+    max-height: 250px;
+    width:100%;
+}
+
+p {
+    font-size:0.75rem;
+}
+@media (min-width: 1200px) {  
+  p {
+    font-size:1rem;
+    }    
 }
