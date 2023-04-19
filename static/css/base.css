@@ -1,3 +1,7 @@
 .drawer:hover .icon {
     color: #fff !important;
 }
+
+.dynamic-height {
+    height: 100dvh;
+}
