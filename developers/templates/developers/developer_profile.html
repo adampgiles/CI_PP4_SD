@@ -31,8 +31,7 @@
             
             {% if show_posts is False %}
                 {% if posts|length > 0 %} 
-                    <p class="fw-bolder my-1 m-0 fs-1 text-primary h-25">£{{ developer.price }}</p>
-        
+                    <p class="fw-bolder my-1 m-0 fs-1 text-primary h-25">£{{ developer.price }}</p>        
                     {% if request.user.is_authenticated %}
                         {% if developer.user != request.user %}
                             <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
@@ -101,21 +100,22 @@
                         {% else %}
                             <img class="dev-image" src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
                         {% endif %}                   
-                    {% endif %}                
-                    <p class="post-content">{{ post.content }}</p> 
-                    {% if request.user.is_authenticated %} 
-                        {% if developer.user != request.user %}
-                            <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
-                                {% csrf_token %}                                
-                                <input class="btn btn-warning shadow m-0 fw-bolder my-2" type="submit" value="Purchase Access to view post content">
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">                
-                            </form> 
-                        {% else %}
-                            <a class="btn btn-outline-secondary shadow m-0 my-2" href="{% url 'edit_post' post.id %}">Edit/Delete Post</a>
-                        {% endif %}        
+                        <p class="post-content">{{ post.content }}</p>                    
                     {% else %}
-                        <a class="btn btn-warning shadow m-0 fw-bolder my-2" href="{% url 'account_login' %}">Login to view or purchase access to post content</a>
-                    {% endif %}
+                        {% if request.user.is_authenticated %} 
+                            {% if developer.user != request.user %}
+                                <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
+                                    {% csrf_token %}                                
+                                    <input class="btn btn-warning shadow m-0 fw-bolder my-2" type="submit" value="Purchase Access to view post content">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">                
+                                </form> 
+                            {% else %}
+                                <a class="btn btn-outline-secondary shadow m-0 my-2" href="{% url 'edit_post' post.id %}">Edit/Delete Post</a>
+                            {% endif %}        
+                        {% else %}
+                            <a class="btn btn-warning shadow m-0 fw-bolder my-2" href="{% url 'account_login' %}">Login to view or purchase access to post content</a>
+                        {% endif %}  
+                    {% endif %}                
                 </div>
             </div>     
         {% endfor %}  
