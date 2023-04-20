@@ -1,25 +1,34 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h2>Create a Developer Profile</h2>
-    {% if request.user.is_authenticated %}
-        <div class="add-developer-form">
-            <form method="POST" action="{% url 'add_developer' %}" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for field in form %}
-                    <div class="form-input">
-                        {{ field.label_tag }}
-                        {{ field }}
-                    </div>
-                {% endfor %}
-                <a href="{% url 'developers' %}">Cancel Profile Creation</a>
-                <button type="submit">Create Developer Profile</button>
-            </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h2>Create a Developer Profile</h2>
+            </div>
         </div>
-    {% else %}
-        <a href="{% url 'account_login' %}">Login to create a Developer Profile</a>
-    {% endif %}
+
+        <div class="row">
+            {% if request.user.is_authenticated %}
+            <div class="col-12 col-md-6">
+                <form method="POST" action="{% url 'add_developer' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field  | as_crispy_field }}
+                    {% endfor %}
+                    <div class="text-right">
+                        <a class="btn btn-sm btn-danger shadow m-1 fw-bolder" href="{% url 'developers' %}">Cancel Profile Creation</a>
+                        <button class="btn btn-warning shadow m-1 fw-bolder" type="submit">Create Developer Profile</button>
+                    </div>
+                </form>
+            </div>  
+            {% else %}
+                <a href="{% url 'account_login' %}">Login to create a Developer Profile</a>
+            {% endif %}          
+        </div>
+    </div>
 {% endblock %}
 
 {% block postloadjs %}

@@ -54,9 +54,9 @@
 
         <div class="col-12 col-md-4 d-flex align-items-center justify-content-center p-2">
             {% if developer.image %}
-                <img src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
+                <img class="dev-image" src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
             {% else %}
-                <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
+                <img class="dev-image" src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
             {% endif %}         
         </div>
 
@@ -75,7 +75,7 @@
 
             <p class="border-bottom border-2 border-primary border-opacity-75 h-25 w-75 fw-bold">{% if developer.count_sold is None %} 0 Purchases {% else %} {{developer.count_sold}} Purchases {% endif %}</p>
 
-            <a class="btn btn-warning me-2 shadow m-1 fw-bolder my-3 w-75" href="{% url 'developer_profile' developer.id %}">View Profile</a>      
+            <a class="btn btn-warning shadow m-1 fw-bolder my-3 w-75" href="{% url 'developer_profile' developer.id %}">View Profile</a>      
 
         </div>
     </div>
