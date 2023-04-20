@@ -3,71 +3,75 @@
 
 {% block content %}
 
-{% if request.user.is_authenticated %}
-    {% if developer.user == request.user %}
-        <a href="{% url 'edit_developer' developer.id %}">Edit Profile</a>
-    {% endif %}
-{% endif %}
+<div class="container text-center">
+    <div class="row text-center  rounded m-0 p-2 shadow border-bottom border-top border-2 border-primary border-opacity-75 h-100">
 
-<div class="full-profile">
-
-    <div class="full-profile-image">                    
-        {% if developer.image %}
-        <img src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
-        {% else %}
-        <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
-        {% endif %}
-    </div>    
-
-
-    <div class="full-profile-names">
-        <div class="full-profile-name">
-            <p>{{ developer.profile_name }}</p>
+        <div class="col-12 col-md-4 d-flex align-items-center justify-content-center p-2">
+            {% if developer.image %}
+                <img src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
+            {% else %}
+                <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
+            {% endif %}          
         </div>
-        <div class="full-profile-category">
-            <p>({{ developer.category.friendly_name }})</p>
+
+        <div class="col-12 col-md-4 d-flex flex-column align-items-center p-2">
+            <h3 class="fw-bolder p-0 m-0">{{ developer.profile_name }}</h3>
+
+            <p class="pb-1 m-0">({{ developer.category.friendly_name }})</p>
+
+            <p class="py-1 m-0 border-top border-bottom border-2 border-primary border-opacity-75 w-100">{{ developer.description }}</p>
+            
         </div>
-    </div>
 
-    
-
-    <div class="full-profile-description">{{ developer.description }}</div>  
-    <!-- Buttons to Purchase the Access--> 
-    {% if show_posts is False %}
-        {% if posts|length > 0 %} 
-            <div class="fixed-purchase-container">
-                <div class="full-profile-price">
-                    <p>£{{ developer.price }}</p>
-                </div>
-
-                {% if request.user.is_authenticated %}
-                    {% if developer.user != request.user %}
-                    <div class="full-profile-purchase">
-                        <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
-                            {% csrf_token %}
-                            <input type="submit" value="Purchase Access">
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">                
-                        </form>                     
-                    {% endif %}
-                {% else %}
-                        <a href="{% url 'account_login' %}">Login to Access</a>
-                    </div>        
-                {% endif %}
-            </div> 
-        {% else %} 
+        <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center">  
+            
             {% if developer.user == request.user %}
-                <h3>Add a New Post to Activate Purchases</h3>
+                <a class="btn btn-outline-secondary shadow" href="{% url 'edit_developer' developer.id %}">Edit Profile</a>
             {% endif %}
-        {% endif %}
-    {% endif %}
+            
+            {% if show_posts is False %}
+                {% if posts|length > 0 %} 
+                    <p class="fw-bolder my-1 m-0 fs-1 text-primary h-25">£{{ developer.price }}</p>
+        
+                    {% if request.user.is_authenticated %}
+                        {% if developer.user != request.user %}
+                            <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
+                                {% csrf_token %}
+                                <input class="btn btn-warning shadow m-0 fw-bolder my-2" type="submit" value="Purchase Access">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">                
+                            </form>                     
+                        {% endif %}
+                    {% else %}
+                        <a class="btn btn-warning shadow m-0 fw-bolder my-3" href="{% url 'account_login' %}">Login to Access</a>
+                    {% endif %}
+                {% else %} 
+                    {% if developer.user == request.user %}
+                        <h3>Add a New Post to Activate Purchases</h3>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+            <p class="p-0 m-0 fw-bold">{% if developer.count_sold is None %} 0 Purchases {% else %} {{developer.count_sold}} Purchases {% endif %}</p>
+
+        </div>            
+    </div>
+</div>  
+
+<div class="container text-center p-2">
+    <h3>Developer Posts</h3> 
+    {% if developer.user == request.user %}
+        <a class="btn btn-outline-secondary shadow m-1" href="{% url 'add_post' developer.id %}">Add a New Post</a>
+    {% endif %}     
+</div>
     
-    <!-- Pagination links and page numbers -->
-    {% if posts|length > 6 %}   
+<div class="container d-flex justify-content-center align-items-center p-2">
+<!-- Pagination links and page numbers -->
+    {% if posts|length > 2 %} 
         <div class="pagination">
             <span class="step-links">
                 {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; Newest</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">Newer</a>
+                    <a href="?page=1">&laquo; First</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
                 {% endif %}
 
                 <span class="current">
@@ -75,74 +79,81 @@
                 </span>
 
                 {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">Older</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">Oldest &raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
                 {% endif %}
             </span>
         </div>
     {% endif %} 
+</div>
 
-    <div class="profile-posts"> 
-        <h3>Developer Posts</h3>
 
-        {% if developer.user == request.user %}
-                <a href="{% url 'add_post' developer.id %}">Add a New Post</a>
-        {% endif %}
+{% if posts %}            
+    {% for post in page_obj %}
+        <div class="container text-center">
 
-        {% if posts %}            
-            {% for post in page_obj %}
-                <div class="post-block">
-                    {% if developer.user == request.user %}
-                        <a href="{% url 'edit_post' post.id %}">Edit/Delete Post</a>
-                    {% endif %}
-                    <div class="post-title">
-                        <p>{{ post.title }}</p>
-                    </div>                    
-                    {% if show_posts is True %}
-                        <div class="post-image">                    
-                            {% if post.image %}
+            <div class="row text-center rounded m-2 p-2 shadow border-bottom border-top border-2 border-warning border-opacity-75">
+                <div class="col">                
+                    <h4>{{ post.title }}</h4>
+                    <p class="pb-1 m-0">Published: {{ post.publish_date }}</p>
+                    
+                    {% if show_posts is True %}                  
+                        {% if post.image %}
                             <img src="{{ post.image.url }}" alt="{{ post.title }}">
-                            {% else %}
-                            <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
-                            {% endif %}
-                        </div>                                                    
-                        <div class="post-content">{{ post.content }}</div>                        
-                    {% else %}
-                        {% if request.user.is_authenticated %}                            
-                            <h3>Purchase Access to view post content</h3>
                         {% else %}
-                            <a href="{% url 'account_login' %}">Login to view or purchase access to post content</a>
-                        {% endif %}
+                            <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
+                        {% endif %}                   
                     {% endif %}
-                    <div class="post-date">
-                        <p>- published: {{ post.publish_date }} -</p>
-                    </div>     
+                
+                    <p class="post-content">{{ post.content }}</p> 
+
+                    {% if request.user.is_authenticated %} 
+                        {% if developer.user != request.user %}
+                            <form class="form" action="{% url 'add_to_cart' developer.id %}" method="POST">
+                                {% csrf_token %}
+                                <input class="btn btn-warning shadow m-0 fw-bolder my-2" type="submit" value="Purchase Access to view post content">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">                
+                            </form> 
+                        {% else %}
+                            <a class="btn btn-outline-secondary shadow m-0 my-2" href="{% url 'edit_post' post.id %}">Edit/Delete Post</a>
+                        {% endif %}        
+                    {% else %}
+                        <a class="btn btn-warning shadow m-0 fw-bolder my-2" href="{% url 'account_login' %}">Login to view or purchase access to post content</a>
+                    {% endif %}
                 </div>
-            {% endfor %}  
-        {% else %} 
-            <h3>No Posts to Display</h3>
+            </div>     
+        </div>
+    {% endfor %}  
+
+{% else %} 
+
+    <h3>No Posts to Display</h3>
+
+{% endif %} 
+
+
+
+<div class="container d-flex justify-content-center align-items-center p-2">
+    <!-- Pagination links and page numbers -->
+        {% if posts|length > 2 %} 
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; First</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    {% endif %}
+    
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+    
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
         {% endif %} 
     </div>
-
-    <!-- Pagination links and page numbers -->
-    {% if posts|length > 6 %} 
-        <div class="pagination">
-            <span class="step-links">
-                {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; Newest</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">Newer</a>
-                {% endif %}
-
-                <span class="current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
-
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">Older</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">Oldest &raquo;</a>
-                {% endif %}
-            </span>
-        </div>
-    {% endif %} 
 
 {% endblock %}

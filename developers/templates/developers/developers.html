@@ -50,10 +50,14 @@
 <!-- Section containing a list of all Developers -->
 <div class="container text-center">
     {% for developer in page_obj %} 
-    <div class="row text-center rounded m-0 p-2 shadow border-bottom border-2 border-primary border-opacity-75 h-100">
+    <div class="row text-center rounded m-2 p-2 shadow border-bottom border-top border-2 border-primary border-opacity-75 h-100">
 
         <div class="col-12 col-md-4 d-flex align-items-center justify-content-center p-2">
-            <img class="img-thumbnail dev-image" src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">           
+            {% if developer.image %}
+                <img src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
+            {% else %}
+                <img src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
+            {% endif %}         
         </div>
 
         <div class="col-12 col-md-4 d-flex flex-column align-items-center p-2">
