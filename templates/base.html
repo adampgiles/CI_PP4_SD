@@ -92,11 +92,14 @@
     </header>
 
     {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
+    <div class="container-fluid text-center bg-primary shadow">
+        <div class="row justify-content-center align-items-center">
+                {% for message in messages %}
+                <p class="p-2 m-0 fs-6 text-white fw-bolder">{{ message }}</p>
+                {% endfor %}
+        </div>
+    </div>
+            
     {% endif %}
 
     <h1>
