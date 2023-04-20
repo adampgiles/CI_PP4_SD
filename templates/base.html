@@ -40,12 +40,30 @@
     <header>
         <nav class="navbar navbar-expand-lg sticky-top bg-light shadow">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">support<strong class="text-primary fs-4">Dev</strong></a>
-                
-                <button class="navbar-toggler drawer btn btn-outline-primary p-2 shadow m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="text-primary icon fa-solid fa-code"></i>
-                </button>
-                
+
+                <a class="navbar-brand" href="{% url 'home' %}">support<strong class="text-primary fs-4">Dev</strong></a>   
+
+                <div class="d-flex justify-content-end align-items-center">
+                    {% if total %}
+                        <a class=" btn btn-outline-primary" href="{% url 'view_cart' %}">
+                            <div>
+                                <i class="fas fa-shopping-bag fa-lg"></i>
+                            </div>
+                            <p class="p-0 m-0 fw-bolder">
+                                {% if total %}
+                                    £{{ total|floatformat:2 }}
+                                {% else %}
+                                    £0.00
+                                {% endif %}
+                            </p>
+                        </a>
+                    {% endif %} 
+
+                    <button class="navbar-toggler drawer btn btn-outline-primary p-2 shadow m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="text-primary icon fa-solid fa-code"></i>
+                    </button>
+                </div>
+
                 <div class="collapse navbar-collapse justify-content-end gap-2" id="navbarNavAltMarkup">
                     <div class="navbar-nav">                    
                         <a class="btn btn-outline-success me-2 shadow m-1" href="{% url 'developers' %}">Explore Developers</a>
@@ -55,23 +73,8 @@
                         
                         {% if request.user.is_superuser %}
                         <a class="btn btn-outline-primary me-2 shadow m-1" href="{% url 'admin:index' %}">Site Management</a>
-                        {% endif %}
-                        
-                        {% if total %}
-                            <a class="text-white btn btn-secondary me-2 m-1" href="{% url 'view_cart' %}">
-                                <div>
-                                    <i class="fas fa-shopping-bag fa-lg"></i>
-                                    <p>
-                                        {% if total %}
-                                            £{{ total|floatformat:2 }}
-                                        {% else %}
-                                            £0.00
-                                        {% endif %}
-                                    </p>
-                                </div>
-                            </a>
-                        {% endif %}          
-                        
+                        {% endif %}                       
+                                 
                         <div class="d-flex justify-content-center m-1">
                             <a class="btn btn-outline-secondary me-2 shadow" href="{% url 'contact_us' %}"><i class="fa-solid fa-envelope"></i></a>
                             <a class="text-white btn btn-danger btn-outline-danger me-2" href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a>
@@ -82,7 +85,8 @@
                         <a class="btn btn-outline-primary me-2 shadow m-1" href="{% url 'account_signup' %}">Register</a>
                     {% endif %}
                     </div>
-                </div>
+                </div>                
+                
             </div>
         </nav>
     </header>
