@@ -19,7 +19,7 @@ class DeveloperProfileForm(forms.ModelForm):
         self.fields['profile_name'].label =  'Profile Name'
         self.fields['description'].label =  'Profile Description'
         self.fields['category'].label =  'Category'
-        self.fields['price'].label =  'Purchase Price'
+        self.fields['price'].label =  'Purchase Price(£)'
         self.fields['price'].placeholder =  '5.00'
 
         self.fields['category'].required = True

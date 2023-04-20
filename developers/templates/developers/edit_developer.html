@@ -3,14 +3,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
+    <div class="container text-center">
+        <div class="row justify-content-center">
             <div class="col-12 col-md-6">
                 <h2>Edit Your Developer Profile</h2>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-12 col-md-6">
                 <a class="btn btn-sm btn-danger shadow m-1 fw-bolder" href="{% url 'delete_developer' developer.id %}">Delete your Profile</a>
                 <form method="POST" action="{% url 'edit_developer' developer.id %}" enctype="multipart/form-data">

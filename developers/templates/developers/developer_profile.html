@@ -45,7 +45,7 @@
                     {% endif %}
                 {% else %} 
                     {% if developer.user == request.user %}
-                    <a class="btn btn-warning shadow m-2 fw-bolder" href="{% url 'add_post' developer.id %}">Add a New Post to Activate Purchases</a>
+                    <a class="btn btn-warning shadow m-2 fw-bolder" href="{% url 'add_post' developer.id %}">Add a New Post<br>to Activate Purchases</a>
                     {% endif %}
                 {% endif %}
             {% endif %}
