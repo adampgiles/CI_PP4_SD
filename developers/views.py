@@ -66,15 +66,13 @@ def developer_profile(request, developer_id):
     """ If the User has a Developer Profile, return that profile. Else redirect to the Add Developer page """
     if developer_id == "is_developer":
         if account.is_developer is True:
-            developer = Developer.objects.all().filter(user=current_user)[0]
-            posts = Post.objects.all().filter(author=developer.id)            
-            show_posts = True            
+            developer_id = Developer.objects.all().filter(user=current_user)[0].pk
+            return redirect('developer_profile', developer_id)       
         else:
             return redirect('add_developer')
     else:
         developer = get_object_or_404(Developer, pk=developer_id)
-        posts = Post.objects.all().filter(author=developer.id)
-        
+        posts = Post.objects.all().filter(author=developer.id)        
 
         """ If the Current User has purchased access to this Developer Profile, Show Posts """
         if request.user.is_authenticated:
@@ -85,7 +83,6 @@ def developer_profile(request, developer_id):
                 show_posts = True
     
     posts = posts.order_by('-publish_date')
-
 
     paginator = Paginator(posts, 6)
     page_number = request.GET.get("page")
