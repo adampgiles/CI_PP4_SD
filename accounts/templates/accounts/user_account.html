@@ -2,27 +2,59 @@
 {% load static %}
 
 {% block content %}
-
-<div class="user-account-block">
-
-    <p>{{ request.user }}</p>
-    <p>{{ request.user.email }}</p> 
-    <a href="{% url 'account_change_password' %}">Change Password</a>
-
-    <h2>Purchased Developer Profiles</h2>
-        {% if developers %}            
-            {% for developer in developers %}
-                <div class="developer-block">
-                    <p>{{ developer.profile_name }}</p>
-                    <a href="{% url 'developer_profile' developer.id %}">
-                        <p>View Profile</p>
-                    </a>
-                </div>
-            {% endfor %}  
-        {% else %} 
-            <h3>No Developer Profiles Purchased.</h3>
-            <a href="{% url 'developers' %}">Explore Developers</a>
-        {% endif %} 
+<div class="container text-center">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-6">
+            <h2 class="my-2 p-2 fw-bolder border-bottom border-2 border-primary border-opacity-75">Account Details</h2>
+            <p class="m-0"><strong>Username: </strong>{{ request.user }}</p>
+            <p class="m-0"><strong>Email: </strong>{{ request.user.email }}</p> 
+            <a class="btn btn-outline-secondary shadow fw-bolder m-2" href="{% url 'account_change_password' %}">Change Password</a>
+        </div>
     </div>
+</div> 
 
+<div class="container text-center">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-6">
+            <h5 class="my-2 p-2 fw-bolder border-bottom border-2 border-primary border-opacity-75">Purchased Developer Profiles</h5>            
+        </div>
+    </div>
+</div> 
+
+<div class="container text-center">
+    {% for developer in developers %} 
+    <div class="row text-center rounded m-2 p-2 shadow border-bottom border-top border-2 border-warning border-opacity-75 h-100">
+
+        <div class="col-12 col-md-4 d-flex align-items-center justify-content-center p-2">
+            {% if developer.image %}
+                <img class="dev-image" src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
+            {% else %}
+                <img class="dev-image" src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
+            {% endif %}         
+        </div>
+
+        <div class="col-12 col-md-4 d-flex flex-column align-items-center p-2">
+            <h3 class="fw-bolder p-0 m-0">{{ developer.profile_name }}</h3>
+
+            <p class="p-0 m-0">({{ developer.category.friendly_name }})</p>
+
+            <p class="m-1 border-top border-2 border-primary border-opacity-75 w-100">{{ developer.description }}</p>
+            
+        </div>
+
+        <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center">
+                
+            <p class="fw-bolder p-1 m-0 fs-1 text-primary h-25">£{{ developer.price }}</p>
+
+            <p class="border-bottom border-2 border-primary border-opacity-75 h-25 w-75 fw-bold">{% if developer.count_sold is None %} 0 Purchases {% else %} {{developer.count_sold}} Purchases {% endif %}</p>
+
+            <a class="btn btn-warning shadow m-1 fw-bolder my-3 w-75" href="{% url 'developer_profile' developer.id %}">View Profile</a>      
+
+        </div>
+    </div>
+    {% empty %}
+        <h3>No Developer Profiles Purchased</h3>
+        <a class="btn btn-warning shadow m-1 fw-bolder my-3 w-75" href="{% url 'developers' %}">Explore Developers</a>
+    {% endfor %}
+</div>  
 {% endblock %}
