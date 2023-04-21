@@ -16,11 +16,11 @@
                 <form method="POST" action="{% url 'edit_post' post.id %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
-                        {{ field  | as_crispy_field }}
+                        {{ field | as_crispy_field }}
                     {% endfor %}
                     <div class="text-right">
                         <a class="btn btn-sm btn-danger shadow m-1 fw-bolder" href="{% url 'developer_profile' developer.id %}">Cancel Post Edit</a>
-                        <button class="btn btn-warning shadow m-1 fw-bolder" type="submit">Update Post</button>
+                        <button class="btn btn-primary shadow m-1 fw-bolder" type="submit">Update Post</button>
                     </div>
                 </form>
             </div>            
