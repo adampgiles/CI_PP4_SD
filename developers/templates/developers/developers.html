@@ -54,9 +54,9 @@
 
         <div class="col-12 col-md-4 d-flex align-items-center justify-content-center p-2">
             {% if developer.image %}
-                <img class="dev-image" src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
+                <img class="mh-100 mw-100" src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
             {% else %}
-                <img class="dev-image" src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
+                <img class="mh-100 mw-100" src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
             {% endif %}         
         </div>
 
