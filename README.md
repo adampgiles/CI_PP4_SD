@@ -165,11 +165,11 @@ Additionally there are:
 
 This is a data-centric website. Utilising html, css, js and bootstrap 5 for the front-end. With python, django framework and a Postgres database for the back-end.
 
-<img src="">
-
 ### Physical Database Model
 
 This model contains an overview of all the model fields, their types and connections. This reflects how the database is structured within the website.
+
+<img src="readme/database/database_model.png">
 
 ### Models
 
