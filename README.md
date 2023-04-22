@@ -50,7 +50,7 @@ User stories have been separated into two groups; Developer and Supporter.
 
 ### Structure
 
-The website structure consists of the main "Base" page, with the following sections being added to this page dependant on the URL; Index Page, Explore Developers Page, Login Page, Register Page, Developer Profile/My Developer Profile Page, Create Developer Profile Page, Edit Developer Profile Page, Add a New Post Page, Edit Post Page, My Account Page, Shopping Cart Page, Checkout Page, Checkout Success Page, 404 Error Page and 500 Error Page.
+The website structure consists of the main "Base" page, with the following sections being added to this page dependant on the URL; Index Page, Explore Developers Page, Login Page, Register Page, Developer Profile/My Developer Profile Page, Create Developer Profile Page, Edit Developer Profile Page, Add a New Post Page, Edit Post Page, My Account Page, Shopping Cart Page, Checkout Page, Checkout Success Page, Contact Us Page, 404 Error Page and 500 Error Page.
 
 The pages are detailed below;
 
@@ -123,6 +123,11 @@ The pages are detailed below;
 <img src="">
 </details>
 - This page contains text to inform the user that the purchase was made.
+
+<details><summary>CContact Us Page</summary>
+<img src="">
+</details>
+- This page contains a contact form for the user to complete that will submit their message to the site admin.
 
 <details><summary>404 Page</summary>
 <img src="">
