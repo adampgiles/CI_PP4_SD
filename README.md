@@ -160,3 +160,45 @@ Additionally there are:
     - custom_storage.py: This is the boto3 configuration file for AWS
     - Procfile: This is to run the application
     -requirements.txt: This contains a list of the python libraries that are installed.
+
+### Database
+
+This is a data-centric website. Utilising html, css, js and bootstrap 5 for the front-end. With python, django framework and a Postgres database for the back-end.
+
+<img src="">
+
+### Physical Database Model
+
+This model contains an overview of all the model fields, their types and connections. This reflects how the database is structured within the website.
+
+### Models
+
+The following models represent the database structure of the website:
+
+##### UserAccount Model
+The UserAccount model contains data for the user's account page.
+ - Contains the following fields: user(OneToOneField), is_developer, purchased_developers(ManyToManyField).
+
+##### Order Model
+The Order model contains data on the orders.
+ - Contains the following fields: order_number, username, email, date, total, original_cart, stripe_pid.
+
+##### OrderLineItem Model
+The OrderLineItem model contains data on the each entry in an order.
+ - Contains the following fields: order(Foreign Key), developer(Foreign Key), lineitem_total.
+
+##### ContactUs Model
+The ContactUs model contains data on the message a user submits to the site admin.
+ - Contains the following fields: user(Foreign Key), subject, body, sent_date.
+
+##### Category Model
+The Category model contains data on the categorys a user can attach to their Developer Profile.
+ - Contains the following fields: name, friendly_name.
+
+##### Developer Model
+The Developer model contains data on the user's Developer Profile.
+ - Contains the following fields: user, profile_name, description, category(Foreign Key), price, count_sold, image.
+
+##### Post Model
+The Post model contains data on the user's Developer Profile Posts.
+ - Contains the following fields: title, author(Foreign Key), publish_date, content, image.
