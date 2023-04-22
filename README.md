@@ -138,3 +138,25 @@ The pages are detailed below;
 <img src="">
 </details>
 - A 500 page was created to ensure that a user can easily navigate back to the main site if they encounter an internal server error.
+
+
+### Code Structure
+The website was built using Django Framework; separating the site into a number of apps.
+
+The website apps are:
+    - accounts (Based on the Boutique Ado project): This app contains the functionality around the user's account and purchased developers.
+    - cart (Based on the Boutique Ado project): This app contains the functionality around the user's shopping cart.
+    - checkout (Based on the Boutique Ado project): This app contains the functionality around the user's shopping cart checkout and payment.
+    - contactus: This app contains the functionality around the Contact Us form, for user's to submit a message to the site admin database.
+    - developer (Based on the Boutique Ado project): This app contains the functionality around the Developer pages.
+    - home: This app contains the functionality around the home page.
+
+Additionally there are:
+    - support_dev: This contains the settings and main site config files.
+    - templates: This contains the base.html and the django authentication allauth html templates.
+    - static: This contains the css stylesheet.
+    - manage.py This is the main file for starting the site.
+    - README.md: This is the README documentation file
+    - custom_storage.py: This is the boto3 configuration file for AWS
+    - Procfile: This is to run the application
+    -requirements.txt: This contains a list of the python libraries that are installed.
