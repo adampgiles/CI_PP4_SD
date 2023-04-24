@@ -394,10 +394,15 @@ os.environ.setdefault("EMAIL_HOST_USER", "TO BE ADDED BY USER")
 os.environ.setdefault("EMAIL_HOST_PASS", "TO BE ADDED BY USER")
 ```
 9. Install the relevant packages as per the requirements.txt file
-10. Start the application by running 
+10. Run the below prompt to create a super/admin user
+```
+python3 manage.py createsuperuser
+```
+11. Start the application by running 
 ```
 python3 manage.py runserver
 ```
+
 ## Google Emails
 To allow the website to send emails we will use a Google account as an SMTP server, by using the following steps:
 1. Go to Google.com and create an email account, once logged in navigate to the settings page within your Gmail account. Then click "Other Google Account Settings"
@@ -516,6 +521,26 @@ os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "SECRET_ACCESS_KEY_HERE")
 os.environ.setdefault("USE_AWS", "True")
 ```
 20. AWS should now function correctly within the project. 
+
+### Database (ElephantSQL)
+1. Go to ElephantSQL.com to create an account and access your dashboard.
+2. Select "Create New Instance"
+3. Set up the plan. Name "supportDev", Plan "Tiny Turtle (Free)", leave Tags blank.
+4. For "Select Region", choose your closest Data Center.
+5. click "Review".
+6. Check details are correct and click "Create Instance"
+7. Go to your dashboard and click on the "supportDev" Instance.
+8. In the URL section, click the copy icon to add the database URL to your clipboard.
+9. In your local environment(env.py) and Heroku, Ensure the below DATABASE_URL is set to the URL you copied (as below).
+```
+os.environ.setdefault("DATABASE_URL", "URL_HERE")
+```
+10. In Heroku, create a Environment variable "DISABLE_COLLECTSTATIC" and set to 1.
+11. Within you code editor, run the below code.
+```
+python3 manage.py collectstatic
+```
+12. Once completed, the Environment variable can be removed from Heroku.
 
 ### Heroku
 1. In the settings.py file, ensure that debug is NOT set to True.
