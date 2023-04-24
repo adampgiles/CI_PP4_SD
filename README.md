@@ -229,14 +229,14 @@ The Post model contains data on the user's Developer Profile Posts.
 
 ## Features
 
-The website consists of thirteen pages with 18 features.
+The website consists of fourteen pages with 18 features.
 
 ### Navigation Bar
 - Situated in a persistent position at the top of every page.
 - Contains links to the other website pages.
 - Available links change if the user is logged into the website;
-    - Logged out: "Explore Developers", "Login" and "Register".
-    - Logged in: "Explore Developers", "My Developer Profile", "My Account", "Contact Us" and "Log out".
+- Logged out: "Explore Developers", "Login" and "Register".
+- Logged in: "Explore Developers", "My Developer Profile", "My Account", "Contact Us" and "Log out".
 - When hovering over a link on Desktop devices the link colours change. This gives visible notification to the user that the link is clickable.
 - Meets user stories: ???.
 
@@ -353,3 +353,11 @@ The website consists of thirteen pages with 18 features.
 ### 500 Page
 - This page is display when a user encounters an internal server error(HTTP 500 response code).
 - The user is provided with a link to return to the index page.
+
+### Responsive Design
+<details><summary>Responsive Design</summary>
+<img src="">
+</details>
+
+- The website is full responsive on desktop to mobile devices.
+- Meets user story: ???.
