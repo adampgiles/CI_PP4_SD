@@ -153,6 +153,9 @@ def edit_developer(request, developer_id):
 @login_required
 def confirm_delete_developer(request, developer_id):
     developer = get_object_or_404(Developer, pk=developer_id)
+    if not request.user == developer.user:
+        return redirect('home')
+    
     template = 'developers/confirm_delete_developer.html'
     context = {
         'developer': developer,
@@ -163,8 +166,10 @@ def confirm_delete_developer(request, developer_id):
 @login_required
 def delete_developer(request, developer_id):
     developer = get_object_or_404(Developer, pk=developer_id)
+    if not request.user == developer.user:
+        return redirect('home')
+    
     developer.delete()
-
     current_user = request.user
     account = UserAccount.objects.filter(user=current_user)[0]
     account.is_developer = False
@@ -226,7 +231,10 @@ def edit_post(request, post_id):
 
 @login_required
 def confirm_delete_post(request, post_id):
+    developer = Developer.objects.filter(user=request.user)[0]
     post = get_object_or_404(Post, pk=post_id)
+    if not developer.user == post.author:
+        return redirect('home')
     template = 'developers/confirm_delete_post.html'
     context = {
         'post': post,
@@ -237,6 +245,8 @@ def confirm_delete_post(request, post_id):
 def delete_post(request, post_id):
     developer = Developer.objects.filter(user=request.user)[0]
     post = get_object_or_404(Post, pk=post_id)
+    if not developer.user == post.author:
+        return redirect('home')
     post.delete()
     messages.success(request, 'Post deleted!')
     return redirect(reverse('developer_profile', args=[developer.id]))
