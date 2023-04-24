@@ -433,3 +433,19 @@ The website consists of fourteen pages with 18 features.
 
 13. When the deployment has been successful, click on "Open App" in the top-right.
 <img src="readme/deployment/heroku/open_app.JPG">
+
+## Credits
+
+## Code
+
+### Placeholder/Test Tales
+- Placeholder/Test Developer Profile and Posts for "testuser1" and "testuser2", were generated using [ChatGPT](https://chat.openai.com/auth/login).
+
+### Images/Icons/Font
+- Font from [Google-Fonts](https://fonts.google.com/)
+- All website Icons taken from [FontAwesome](https://fontawesome.com/).
+
+## Acknowledgements
+Thank you to the following individuals for their support during the creation of this website; 
+- Mo Shami, my Mentor, who provided excellent guidance and feedback throughout. 
+- My partner and friends, for supporting with device testing.
