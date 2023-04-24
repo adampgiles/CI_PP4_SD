@@ -361,3 +361,40 @@ The website consists of fourteen pages with 18 features.
 
 - The website is full responsive on desktop to mobile devices.
 - Meets user story: ???.
+
+
+## Deployment
+
+### Forking the GitHub Repository
+1. Go to the GitHub repository
+2. Click on Fork button in top right corner.
+
+### Making a Local Clone
+1. Navigate to the GitHub repository 
+2. Select the Code button above the files.
+3. Select the "HTTPS" tab on the dropdown window to clone with HTTPS, copy the link.
+4. Open Git Bash.
+5. Change the current working directory to the location where you would like the cloned directory.
+6. Type "git clone " and paste the URL from the clipboard (example: "$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY")
+7. Press Enter to create.
+8. Create an env.py file in the root folder in the project, and add the following code with the relevant key, value pairs, and ensure you enter the correct key values.
+
+<code>import os</code><br>
+
+<code>os.environ.setdefault("DJANGO_SECRET_KEY", "TO BE ADDED BY USER")</code><br>
+
+<code>os.environ.setdefault("DATABASE_URL", "TO BE ADDED BY USER")</code><br>
+
+<code>os.environ.setdefault("AWS_ACCESS_KEY_ID", "TO BE ADDED BY USER")</code><br>
+<code>os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "TO BE ADDED BY USER")</code><br>
+<code>os.environ.setdefault("USE_AWS", "True")</code><br>
+
+<code>os.environ.setdefault("STRIPE_PUBLIC_KEY", "TO BE ADDED BY USER")</code><br>
+<code>os.environ.setdefault("STRIPE_SECRET_KEY", "TO BE ADDED BY USER")</code><br>
+<code>os.environ.setdefault("STRIPE_WH_SECRET", "TO BE ADDED BY USER")</code><br>
+
+<code>os.environ.setdefault("EMAIL_HOST_USER", "TO BE ADDED BY USER")</code><br>
+<code>os.environ.setdefault("EMAIL_HOST_PASS", "TO BE ADDED BY USER")</code>
+
+9. Install the relevant packages as per the requirements.txt file
+10. Start the application by running <code>python3 app.py</code>
