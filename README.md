@@ -39,11 +39,11 @@ User stories have been separated into two groups; Developer and Supporter.
 11. I want to be able to amend my Profile details. So that I can ensure my details are correct and up to date.
 
 - Supporter
-13. I want to be able to view a list of Developer Profiles. So that I can choose which Profiles I would like to purchase access to.
-14. I want to be able to view details of a Developer's Profile content. So that I can decide if the content is of interest to me.
-15. I want to be able to amend my Account details. So that I can ensure my details are correct and up to date.
-16. I want to be able to sort Developer Profiles by multiple criteria. So that I can quickly identify Developer profiles by price, name or post count.
-17. I want to be able to view a list of Developer Profiles I have purchased access to. So that I can quickly navigate to a Developer's Profile.
+12. I want to be able to view a list of Developer Profiles. So that I can choose which Profiles I would like to purchase access to.
+13. I want to be able to view details of a Developer's Profile content. So that I can decide if the content is of interest to me.
+14. I want to be able to amend my Account details. So that I can ensure my details are correct and up to date.
+15. I want to be able to sort Developer Profiles by multiple criteria. So that I can quickly identify Developer profiles by price, name or post count.
+16. I want to be able to view a list of Developer Profiles I have purchased access to. So that I can quickly navigate to a Developer's Profile.
 
 ### Structure
 
@@ -474,6 +474,171 @@ The website was tested on the following browsers:
 - Mozilla Firefox
 
 ### User Story Testing
+
+1. I want to be able to register for a Developer Profile. So that I can create a unique Profile for Supporters to purchase access to.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| Create A Developer Profile Page                        | Complete and submit the Form to create an Developer Profile                                | A Developer Profile is created                                      | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+2. I want to be able to access my Profile.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| My Developer Profile Page                        | Navigate to the  My Developer Profile Page                               | Able to access my Profile.                                    | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+3. I want to be able to delete my Profile.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| Confirm Delete Profile Page                        | Navigate to the Confirm Delete Profile Page and click link to delete                            | Profile is deleted                             | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+4. I want to be able to register for an Account. So that I can purchase access to Developer Profiles.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| allauth Register Page                        | Navigate to the Register Page and complete the form                         | Account is created after email verification                           | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+5. I want to be able to authenticate my registration via email confirmation. So that I can confirm my Account registration was a success.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| allauth Email Verification                        | Register for an account and verify the email                        | Account is created after email verification                           | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+6. I want to be able to login to my Account. So that I can purchase and access Developer Profiles.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| allauth Login page                        | Navigate to the Login Page and complete the form                      | User is logged in.                      | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+7. I want to be able to logout of my Account. So that I can protect my Account from unauthorised access.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| allauth Logout page                        | Navigate to the Logout Page and confirm logout                     | User is logged out.                      | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+8. I want to be able to have a unique Supporter Account. So that I can view my Account details and purchased Developer Profiles.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| My Account page                        | Navigate to the My Account Page                   | User can view their account details and purchases                     | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+9. I want to be able to view my Profile from the perspective of a Developer and a Supporter. So that I can edit my Profile, and also check that the Supporter view meets my needs.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| My Developer Profile page                        | Navigate to the My Developer Profile Page                   | Developer can view their account from the perspective of a Supporter                    | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+10. I want to be able to easily create and edit my Profile content. So that I can provide content to my Subscribers.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| Add/Edit/Delete Post pages                        | Navigate to the My Developer Profile page, where the Developer can edit the add/edit/delete posts.                | Developer can edit their profile content             | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+11. I want to be able to amend my Profile details. So that I can ensure my details are correct and up to date.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| Edit Profile page                     | Navigate to the My Developer Profile page, select the Edit Profile link and complete the form               | Developer profile details are updated          | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+12. I want to be able to view a list of Developer Profiles. So that I can choose which Profiles I would like to purchase access to.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| Explore Developers page                     | Navigate to the Explore Developers page     | List of Developer Profiles displayed  | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+13. I want to be able to view details of a Developer's Profile content. So that I can decide if the content is of interest to me.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| Developer Profile page                     | Select a developer in the Explore Developers page     | View details of a Developer's Profile  | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+14. I want to be able to amend my Account details. So that I can ensure my details are correct and up to date.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| My Account page                     | Navigate to My Account page     | Change Password link can be used  | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+15. I want to be able to sort Developer Profiles by multiple criteria. So that I can quickly identify Developer profiles by price, name or post count.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| Search and Filter bars                     | Navigate to Explore Developers page and use the search or filter bar     | Displayed Profiles change or are ordered, based on search or filter criteria  | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+16. I want to be able to view a list of Developer Profiles I have purchased access to. So that I can quickly navigate to a Developer's Profile.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| SMy Account Page                    | Navigate to My Account page and scroll down to Purchased Developers section     | Purchased Profiles displayed and a link for each can be clicked to go to the profile  | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+
+
+
+
 
 ## Credits
 
