@@ -192,7 +192,7 @@ The ContactUs model contains data on the message a user submits to the site admi
  - Contains the following fields: user(Foreign Key), subject, body, sent_date.
 
 ##### Category Model
-The Category model contains data on the categorys a user can attach to their Developer Profile.
+The Category model contains data on the categories a user can attach to their Developer Profile.
  - Contains the following fields: name, friendly_name.
 
 ##### Developer Model
@@ -226,3 +226,130 @@ The Post model contains data on the user's Developer Profile Posts.
 - [Google Fonts](https://fonts.google.com/), used to acquire the site's font.
 - [Lucidchart](http://lucidchart.com), used to create database design diagrams.
 - [WC3 Validator](https://validator.w3.org/), [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/), [Wave Validator](https://wave.webaim.org/), [Lighthouse](https://developers.google.com/web/tools/lighthouse/) and [Am I Responsive](http://ami.responsivedesign.is/), used to test the site's code, performance, accessibility and responsiveness. 
+
+## Features
+
+The website consists of thirteen pages with 18 features.
+
+### Navigation Bar
+- Situated in a persistent position at the top of every page.
+- Contains links to the other website pages.
+- Available links change if the user is logged into the website;
+    - Logged out: "Explore Developers", "Login" and "Register".
+    - Logged in: "Explore Developers", "My Developer Profile", "My Account", "Contact Us" and "Log out".
+- When hovering over a link on Desktop devices the link colours change. This gives visible notification to the user that the link is clickable.
+- Meets user stories: ???.
+
+### Search Bar and Filter Bar
+- Situated at the top of the Explore Developers page.
+- User's can conduct keyword searches which will then only display Developer Profiles that contain the keyword.
+- User's can order the displayed profiles by different criteria in ascending or descending order.
+- Meets user stories: ???.
+
+### Explore Developers Section
+- Situated on the Explore Developers page.
+- This section displays a "Developer block" for each submitted Developer Profile (Which Profiles show depends on any search criteria).
+- Each "Developer block" contains the Developer's Profile Name, Category, Profile Image, Description, Purchase count and a line to view the full profile.
+- Meets user stories: ???.
+
+### Developer Profile Details Section
+- Situated on the Developer Profile page.
+- This page displays the selected Developer's Profile details.
+- The same information as the Explore Developer Page is displayed in this section, but some content changes depending on if the user is logged in, has purchased the profile and if the Developer has added any posts.
+- The Developer's Profile price and link to purchase only show if the Developer has added any posts. This is to ensure that there is content on the profile for the user to purchase.
+- If the user is not logged in, the purchase link changes to a link to the login page
+- If the current user is the owner of the Developer Profile, links are available on this section to edit the profile details.
+- Meets user story: ???.
+
+### Developer Posts Section
+- Situated on the Developer Profile page.
+- This page displays the selected Developer's Profile Posts.
+- If the Developer has added any posts, they are displayed in "post blocks" here.
+- Each block contains the Post Title, Published Date, Image and Content.
+- The Post content is hidden and changes to a link to purchase if a user has not purchased this profile. 
+- If the user is not logged in, the purchase link changes to a link to the login page
+- If the current user is the owner of the Developer Profile, links are available on this section to add a new post and to edit a post.
+- Meets user story: ???.
+
+### Create a Developer Profile Section
+- This page contains a form for the user to create a Developer Profile to the website.
+- All field within the form are mandatory and must be completed.
+- Validation exists to ensure the fields are completed and that the Price cannot be negative.
+- The user then clicks a submit button, which adds the Developer Profile to the Developer database.
+- Meets user story: ???.
+
+### Edit Developer Profile Section
+- This page contains a form for the user to edit their Developer Profile.
+- All field are auto-populated with the current details.
+- All field within the form are mandatory and must be completed.
+- Validation exists to ensure the fields are completed and that the Price cannot be negative.
+- This section contains a link to the delete profile page.
+- The user then clicks a submit button, which updates the Developer Profile on the Developer database.
+- Meets user story: ???.
+
+### Delete Developer Profile Section
+- This page contains text and a link asking if the user is sure they want to delete their profile.
+- The user can confirm deletion, or return to the edit profile page.
+- Meets user story: ???.
+
+### Developer Posts Section
+- Situated on the Developer Profile page.
+- This page displays the selected Developer's Profile Posts.
+- If the Developer has added any posts, they are displayed in "post blocks" here.
+- Each block contains the Post Title, Published Date, Image and Content.
+- The Post content is hidden and changes to a link to purchase if a user has not purchased this profile. 
+- If the user is not logged in, the purchase link changes to a link to the login page
+- If the current user is the owner of the Developer Profile, links are available on this section to add a new post and to edit a post.
+- Meets user story: ???.
+
+### Add a New Post Section
+- This page contains a form for the user to add a new post to their Developer Profile.
+- All field within the form are mandatory, except the image.
+- Validation exists to ensure the mandatory fields are completed.
+- The user then clicks a submit button, which adds the post to the Post database.
+- Meets user story: ???.
+
+### Edit Post Section
+- This page contains a form for the user to edit their Developer Profile Post.
+- All field are auto-populated with the current details.
+- All field within the form are mandatory, except the image.
+- Validation exists to ensure the mandatory fields are completed.
+- This section contains a link to the delete post page.
+- The user then clicks a submit button, which updates the post on the Post database.
+- Meets user story: ???.
+
+### Delete Post Section
+- This page contains text and a link asking if the user is sure they want to delete their post.
+- The user can confirm deletion, or return to the edit post page.
+- Meets user story: ???.
+
+### My Account Section
+- This page displays the current users account details.
+- Username, Email and a link to Change Password are presented to the user.
+- A purchased developer section contains the details of any Developer Profiles the user has purchase with links to each profile.
+- Meets user story: ???.
+
+### Contact Us Section
+- This page contains a form for the user to submit a message to the site admin.
+- All field within the form are mandatory.
+- Validation exists to ensure the mandatory fields are completed.
+- The user then clicks a submit button, which adds the form to the contactus database.
+- Meets user story: ???.
+
+### Login Page
+- This page contains a form for the user to log in to the website.
+- This page is part of Django allauth.
+- Meets user story: ??.
+
+### Register Page
+- This page contains a form for the user to create an account on the website.
+- This page is part of Django allauth.
+- Meets user story: ??.
+
+### 404 Page
+- This page is display when a user encounters a page that does not exist (HTTP 404 response code).
+- The user is provided with a link to return to the index page.
+
+### 500 Page
+- This page is display when a user encounters an internal server error(HTTP 500 response code).
+- The user is provided with a link to return to the index page.
