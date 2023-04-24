@@ -12,7 +12,7 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-                <a class="btn btn-sm btn-danger shadow m-1 fw-bolder" href="{% url 'delete_developer' developer.id %}">Delete your Profile</a>
+                <a class="btn btn-sm btn-danger shadow m-1 fw-bolder" href="{% url 'confirm_delete_developer' developer.id %}">Delete your Profile</a>
                 <form method="POST" action="{% url 'edit_developer' developer.id %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}

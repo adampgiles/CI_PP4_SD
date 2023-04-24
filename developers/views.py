@@ -150,6 +150,15 @@ def edit_developer(request, developer_id):
 
     return render(request, template, context)
 
+@login_required
+def confirm_delete_developer(request, developer_id):
+    developer = get_object_or_404(Developer, pk=developer_id)
+    template = 'developers/confirm_delete_developer.html'
+    context = {
+        'developer': developer,
+    }
+    return render(request, template, context)
+
 
 @login_required
 def delete_developer(request, developer_id):
