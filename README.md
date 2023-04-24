@@ -396,6 +396,24 @@ The website consists of fourteen pages with 18 features.
 9. Install the relevant packages as per the requirements.txt file
 10. Start the application by running <code>python3 app.py</code>
 
+## Google Emails
+To allow the website to send emails we will use a Google account as an SMTP server, by using the following steps:
+1. Go to Google.com and create an email account, once logged in navigate to the settings page within your Gmail account. Then click "Other Google Account Settings"
+2. Turn on the 2-step verification.
+3. Click on "app passwords", choose Other as the app and set the password name, eg. Django or supportDev.
+4. A 16 digit password will be generated, after clicking "create. Please take note of the password.
+5. In the env.py file you previously created, populate the EMAIL_HOST_USER with the gmail account email address.
+6. In the env.py file you previously created, populate the EMAIL_HOST_PASS with the 16 digit password.
+7. Ensure the following code exists in the settings.py file to send the emails
+<br><code>EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'</code>
+<br><code>EMAIL_USE_TLS = True</code>
+<br><code>EMAIL_PORT = 587</code>
+<br><code>EMAIL_HOST = 'smtp.gmail.com'</code>
+<br><code>EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')</code>
+<br><code>EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')</code>
+<br><code>DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')</code>
+8. Ensure the variable are also set within you Production Environment (Heroku)
+
 ### Heroku
 1. In the settings.py file, ensure that debug is NOT set to True.
 2. Create a new file called "ProcFile" in the root directory, and add the line; 
