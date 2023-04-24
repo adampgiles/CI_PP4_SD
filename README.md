@@ -375,27 +375,29 @@ The website consists of fourteen pages with 18 features.
 6. Type "git clone " and paste the URL from the clipboard (example: "$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY")
 7. Press Enter to create.
 8. Create an env.py file in the root folder in the project, and add the following code with the relevant key, value pairs, and ensure you enter the correct key values.
+```
+import os
 
-<code>import os</code><br>
+os.environ.setdefault("DJANGO_SECRET_KEY", "TO BE ADDED BY USER")
 
-<code>os.environ.setdefault("DJANGO_SECRET_KEY", "TO BE ADDED BY USER")</code><br>
+os.environ.setdefault("DATABASE_URL", "TO BE ADDED BY USER")
 
-<code>os.environ.setdefault("DATABASE_URL", "TO BE ADDED BY USER")</code><br>
+os.environ.setdefault("AWS_ACCESS_KEY_ID", "TO BE ADDED BY USER")
+os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "TO BE ADDED BY USER")
+os.environ.setdefault("USE_AWS", "True")
 
-<code>os.environ.setdefault("AWS_ACCESS_KEY_ID", "TO BE ADDED BY USER")</code><br>
-<code>os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "TO BE ADDED BY USER")</code><br>
-<code>os.environ.setdefault("USE_AWS", "True")</code><br>
+os.environ.setdefault("STRIPE_PUBLIC_KEY", "TO BE ADDED BY USER")
+os.environ.setdefault("STRIPE_SECRET_KEY", "TO BE ADDED BY USER")
+os.environ.setdefault("STRIPE_WH_SECRET", "TO BE ADDED BY USER")
 
-<code>os.environ.setdefault("STRIPE_PUBLIC_KEY", "TO BE ADDED BY USER")</code><br>
-<code>os.environ.setdefault("STRIPE_SECRET_KEY", "TO BE ADDED BY USER")</code><br>
-<code>os.environ.setdefault("STRIPE_WH_SECRET", "TO BE ADDED BY USER")</code><br>
-
-<code>os.environ.setdefault("EMAIL_HOST_USER", "TO BE ADDED BY USER")</code><br>
-<code>os.environ.setdefault("EMAIL_HOST_PASS", "TO BE ADDED BY USER")</code>
-
+os.environ.setdefault("EMAIL_HOST_USER", "TO BE ADDED BY USER")
+os.environ.setdefault("EMAIL_HOST_PASS", "TO BE ADDED BY USER")
+```
 9. Install the relevant packages as per the requirements.txt file
-10. Start the application by running <code>python3 manage.py runserver</code>
-
+10. Start the application by running 
+```
+python3 manage.py runserver
+```
 ## Google Emails
 To allow the website to send emails we will use a Google account as an SMTP server, by using the following steps:
 1. Go to Google.com and create an email account, once logged in navigate to the settings page within your Gmail account. Then click "Other Google Account Settings"
@@ -405,15 +407,15 @@ To allow the website to send emails we will use a Google account as an SMTP serv
 5. In the env.py file you previously created, populate the EMAIL_HOST_USER with the gmail account email address.
 6. In the env.py file you previously created, populate the EMAIL_HOST_PASS with the 16 digit password.
 7. Ensure the following code exists in the settings.py file to send the emails
-
-<code>EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'</code><br>
-<code>EMAIL_USE_TLS = True</code><br>
-<code>EMAIL_PORT = 587</code><br>
-<code>EMAIL_HOST = 'smtp.gmail.com'</code><br>
-<code>EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')</code><br>
-<code>EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')</code><br>
-<code>DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')</code>
-
+```
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+```
 8. Ensure the variable are also set within you Production Environment (Heroku)
 
 ## Stripe
@@ -421,38 +423,117 @@ To allow the website to send emails we will use a Google account as an SMTP serv
 2. Once Logged in, navigate to the Developers section of your account.
 3. Under Developers Section, click on the "API keys"
 4. Please take note of the "publishable" and "secret keys" values.
-5. In your local environment and Heroku, Ensure the STRIPE_PUBLIC_KEY is set to the Publishable Key and STRIPE_SECRET_KEY to the Secret Key. 
-
-<code>os.environ.setdefault('STRIPE_PUBLIC_KEY', 'PUBLISHABLE_HERE')</code><br>
-<code>os.environ.setdefault('STRIPE_SECRET_KEY', 'SECRET_KEY_HERE')</code>
-
+5. In your local environment(env.py)  and Heroku, Ensure the STRIPE_PUBLIC_KEY is set to the Publishable Key and STRIPE_SECRET_KEY to the Secret Key. 
+```
+os.environ.setdefault('STRIPE_PUBLIC_KEY', 'PUBLISHABLE_HERE')
+os.environ.setdefault('STRIPE_SECRET_KEY', 'SECRET_KEY_HERE')
+```
 6. Within the Developers section of your stripe account, select "Webhooks".
 7. Create a webhook with the url of the website.
 
 8. Choose all events to send
 9. Please take note of the Webhook key value.
 . 
-10. In your local environment and Heroku, Ensure the STRIPE_WH_SECRETis set to the Webhook Key
+10. In your local environment(env.py)  and Heroku, Ensure the STRIPE_WH_SECRETis set to the Webhook Key
+```
+os.environ.setdefault('STRIPE_WH_SECRET', 'WEBHOOK_KEY_HERE')
+```
 
-<code>os.environ.setdefault('STRIPE_WH_SECRET', 'WEBHOOK_KEY_HERE')</code>
+## Amazon Web Services (AWS)
+1. Go to aws.amazon.com and create an account.
+2. Navigate to the S3 application and create an a new S3 Bucket called "supportdev-bucket".
+3. Ensure the option "Block All Public access setting" is NOT checked.
+4. Within the Properties section, go to "Static Website Hosting" and select edit.
+5. Enable this and set the index.html and the error.html values to their default (index.html and error.html).
+6. Within the Permissions section, select edit on CORS configuration and set it the the below code.
+```
+[
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
+7. Within the Permissions section, select edit on bucket policy and set it the the below code.
+```
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1680874746424",
+    "Statement": [
+        {
+            "Sid": "Stmt1680874745401",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::supportdev-bucket/*"
+        }
+    ]
+}
+```
+
+8. Within the Permissions section, select edit on Access control list(ACL).
+9. Grant "Read Access" for the "Bucket ACL" - "Everyone(Public Access)".
+10. Now that the bucket is created, navigate to IAM Application.
+11. Create a user called "support-dev-user".
+12. Within the Permission section, click "Add Permissions". Then "Attach Policies directly". Then "Create Policy".
+13. Under "JON" paste the following code and call the policy "support-dev-static-user".
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "s3-object-lambda:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::supportdev-bucket",
+                "arn:aws:s3:::supportdev-bucket/*"
+            ]
+        }
+    ]
+}
+```
+14. Set the user's permission to the created policy
+15. Within the Security Credentials section, navigate to "Access Keys" and select "Create Access Key".
+16. Select Local code and tick the "I understand...." checkbox, then "Next".
+17. Give the key a description if you wish, and select "Create Access Key"
+18. Please take note of the Access Key and Secret Access Key. Select "Done".
+19. In your local environment(env.py) and Heroku, Ensure the below variables are set correctly.
+
+```
+os.environ.setdefault("AWS_ACCESS_KEY_ID", "ACCESS_KEY_HERE")
+os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "SECRET_ACCESS_KEY_HERE")
+os.environ.setdefault("USE_AWS", "True")
+```
+20. AWS should now function correctly within the project. 
 
 ### Heroku
 1. In the settings.py file, ensure that debug is NOT set to True.
 2. Create a new file called "ProcFile" in the root directory, and add the line; 
-
-<code>web: gunicorn support_dev.wsgi:application</code>
-
+```
+web: gunicorn support_dev.wsgi:application
+```
 3. Create a requirements.txt file by running the below command in the terminal.
+```
+pip freeze > requirements.txt
+```
+4. Ensure ProcFile and requirements.txt are committed to your git repository in the root directory.
 
-<code>pip freeze > requirements.txt</code>
-
-5. Ensure ProcFile and requirements.txt are committed to your git repository in the root directory.
-
-6. Create an account on [Heroku](https://signup.heroku.com/login?redirect-url=https%3A%2F%2Fid.heroku.com%2Foauth%2Fauthorize%3Fclient_id%3Ddd0b2de7-576f-44d7-8607-788ece271310%26redirect_uri%3Dhttps%253A%252F%252Fwww.heroku.com%252Fauth%252Fheroku%252Fcallback%26response_type%3Dcode%26scope%3Didentity%2Bread%26state%3Dcbeff6caa22dd3da82260d4764c9ad34d99bca10abeb5adb)
-7. On your dashboard, select "Create New App".
+5. Create an account on [Heroku](https://signup.heroku.com/login?redirect-url=https%3A%2F%2Fid.heroku.com%2Foauth%2Fauthorize%3Fclient_id%3Ddd0b2de7-576f-44d7-8607-788ece271310%26redirect_uri%3Dhttps%253A%252F%252Fwww.heroku.com%252Fauth%252Fheroku%252Fcallback%26response_type%3Dcode%26scope%3Didentity%2Bread%26state%3Dcbeff6caa22dd3da82260d4764c9ad34d99bca10abeb5adb)
+6. On your dashboard, select "Create New App".
 <img src="readme/deployment/heroku/new_app.JPG">
 
-8. Set a unique name and select the closest region to you. Select "Create App".
+7. Set a unique name and select the closest region to you. Select "Create App".
 <img src="readme/deployment/heroku/create_app.JPG">
 
 8. In Application Dashboard, navigate to the deploy section and connect to your Git account,then to your Repository. Select "Connect" (After connecting the section should look like the image below).
@@ -464,8 +545,8 @@ To allow the website to send emails we will use a Google account as an SMTP serv
 10. Select "Reveal Config Vars" and set key/value pairs from env.py.
 <img src="readme/deployment/heroku/config_vars.JPG">
 
-12. Navigate back to the "Deploy" tab.
-13. Select your branch then "Enable Automatic Deploys".
+11. Navigate back to the "Deploy" tab.
+12. Select your branch then "Enable Automatic Deploys".
 <img src="readme/deployment/heroku/branch_auto_deploy.JPG">
 
 13. When the deployment has been successful, click on "Open App" in the top-right.
