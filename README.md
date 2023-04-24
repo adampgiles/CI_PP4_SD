@@ -431,6 +431,50 @@ The website consists of fourteen pages with 18 features.
 13. When the deployment has been successful, click on "Open App" in the top-right.
 <img src="readme/deployment/heroku/open_app.JPG">
 
+## Testing
+
+### Accessibility
+
+WAVE WebAIM web accessibility evaluation tool was utilised to ensure the website met accessibility standards.
+
+<details><summary></summary>
+<img src="">
+</details>
+
+### Performance
+
+To test the performance of the website, Lighthouse in Google Chrome developer tools was used. Below is the outcome.
+
+<details><summary>Performance Test Result</summary>
+<img src="">
+</details>
+
+### Device Testing
+
+The website was tested using Google Chrome Developer Tools - Device Toolbar to simulate different device viewports. 
+
+The following device viewports were tested using the Device Toolbar;
+- iPad Pro (Tablet screen test)
+- iPhone 5/SE (Mobile screen test)
+
+The website was also tested on the following physical devices;
+- iPhone 12 Pro Max
+- iPhone 14 Pro Max
+- Samsung Galaxy Note 8
+- Kindle Fire 10
+
+The following resolutions were tested using a Windows desktop PC;
+- 1920 x 1080
+- 3440 x 1440
+
+### Browser Compatibility
+
+The website was tested on the following browsers:
+- Google Chrome
+- Mozilla Firefox
+
+### User Story Testing
+
 ## Credits
 
 ## Code
