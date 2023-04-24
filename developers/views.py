@@ -215,6 +215,14 @@ def edit_post(request, post_id):
 
     return render(request, template, context)
 
+@login_required
+def confirm_delete_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    template = 'developers/confirm_delete_post.html'
+    context = {
+        'post': post,
+    }
+    return render(request, template, context)
 
 @login_required
 def delete_post(request, post_id):
