@@ -398,3 +398,38 @@ The website consists of fourteen pages with 18 features.
 
 9. Install the relevant packages as per the requirements.txt file
 10. Start the application by running <code>python3 app.py</code>
+
+### Heroku
+1. In the settings.py file, ensure that debug is NOT set to True.
+2. Create a new file called "ProcFile" in the root directory, and add the line; 
+
+<code>web: gunicorn support_dev.wsgi:application</code>
+
+3. Create a requirements.txt file by running the below command in the terminal.
+
+<code>pip freeze > requirements.txt</code>
+
+5. Ensure ProcFile and requirements.txt are committed to your git repository in the root directory.
+
+6. Create an account on [Heroku](https://signup.heroku.com/login?redirect-url=https%3A%2F%2Fid.heroku.com%2Foauth%2Fauthorize%3Fclient_id%3Ddd0b2de7-576f-44d7-8607-788ece271310%26redirect_uri%3Dhttps%253A%252F%252Fwww.heroku.com%252Fauth%252Fheroku%252Fcallback%26response_type%3Dcode%26scope%3Didentity%2Bread%26state%3Dcbeff6caa22dd3da82260d4764c9ad34d99bca10abeb5adb)
+7. On your dashboard, select "Create New App".
+<img src="readme/deployment/heroku/new_app.JPG">
+
+8. Set a unique name and select the closest region to you. Select "Create App".
+<img src="readme/deployment/heroku/create_app.JPG">
+
+8. In Application Dashboard, navigate to the deploy section and connect to your Git account,then to your Repository. Select "Connect" (After connecting the section should look like the image below).
+<img src="readme/deployment/heroku/connect_repo.JPG">
+
+9. Navigate to the "Settings" tab.
+<img src="readme/deployment/heroku/settings.JPG">
+
+10. Select "Reveal Config Vars" and set key/value pairs from env.py.
+<img src="readme/deployment/heroku/config_vars.JPG">
+
+12. Navigate back to the "Deploy" tab.
+13. Select your branch then "Enable Automatic Deploys".
+<img src="readme/deployment/heroku/branch_auto_deploy.JPG">
+
+13. When the deployment has been successful, click on "Open App" in the top-right.
+<img src="readme/deployment/heroku/open_app.JPG">
