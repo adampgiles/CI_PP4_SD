@@ -8,6 +8,25 @@
 - [User Stories](#user-stories)
     - [Registration and User Accounts](#registration-and-user-accounts)
     - [Site Navigation and Views](#site-navigation-and-views)
+- [Design](#design)
+    - [Colour](#colour)
+    - [Fonts](#font)
+    - [Structure](#structure)
+    - [Code Structure](#code-structure)
+    - [Database](#database)
+- [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Frameworks, Libraries & Tools](#frameworks-libraries-tools)
+- [Features](#features)
+- [Validation](#validation)
+    - [HTML Validation](#html-validation)
+    - [CSS Validation](#css-validation)
+    - [JS Validation](#js-validation)
+    - [Python Validation](#python-validation)
+- [Bugs](#bugs)
+- [Deployment](#deployment)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
 
 ## Project Goals
 supportDev is a membership creation platform, tailored towards Developers. Developers create a Profile where they provide Supporters with access to exclusive content. This content could be; Developer Logs, Source Code, or links to products/apps. Developers set the access price for Supporters.
@@ -44,6 +63,8 @@ User stories have been separated into two groups; Developer and Supporter.
 14. I want to be able to amend my Account details. So that I can ensure my details are correct and up to date.
 15. I want to be able to sort Developer Profiles by multiple criteria. So that I can quickly identify Developer profiles by price, name or post count.
 16. I want to be able to view a list of Developer Profiles I have purchased access to. So that I can quickly navigate to a Developer's Profile.
+
+## Design
 
 ### Structure
 
@@ -156,7 +177,7 @@ Additionally there are:
     - README.md: This is the README documentation file
     - custom_storage.py: This is the boto3 configuration file for AWS
     - Procfile: This is to run the application
-    -requirements.txt: This contains a list of the python libraries that are installed.
+    - requirements.txt: This contains a list of the python libraries that are installed.
 
 ### Database
 
