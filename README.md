@@ -76,6 +76,13 @@ The site's colour scheme consists of five key colours: Blue, Grey, Green, Yellow
 
 One font was used on the site; Inter, which is a clear and legible font.
 
+### Wireframes
+
+<details><summary>Wireframes</summary>
+<img src="">
+- I created wireframes for mobile devices. The website uses bootstrap to maintain the element layout when changing screen size and very little media queries are used, therefore I did not feel it was necessary to produce desktop wireframes.
+</details>
+
 ### Structure
 
 The website structure consists of the main "Base" page, with the following sections being added to this page dependant on the URL; Index Page, Explore Developers Page, Login Page, Register Page, Developer Profile/My Developer Profile Page, Create Developer Profile Page, Edit Developer Profile Page, Confirm Delete Developer Page, Add a New Post Page, Edit Post Page, Confirm Delete Post Page, My Account Page, Shopping Cart Page, Checkout Page, Checkout Success Page, Contact Us Page, 404 Error Page and 500 Error Page.
@@ -166,7 +173,6 @@ The pages are detailed below;
 <img src="">
 </details>
 - A 500 page was created to ensure that a user can easily navigate back to the main site if they encounter an internal server error.
-
 
 ### Code Structure
 The website was built using Django Framework; separating the site into a number of apps.
