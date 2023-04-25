@@ -66,9 +66,19 @@ User stories have been separated into two groups; Developer and Supporter.
 
 ## Design
 
+### Colour
+The site's colour scheme consists of five key colours: Blue, Grey, Green, Yellow and Red. Also Black and White; White is used for input fields and text background. Black is used for text. Blue is for buttons borders, and key information. Grey is for secondary information and contrasting element backgrounds. Green is used for buttons. Yellow is used for buttons and borders. Red is used for delete and logout buttons.
+<details><summary>Key Colours</summary>
+<img src="readme/design/colour_scheme.PNG">
+</details>
+
+### Font
+
+One font was used on the site; Inter, which is a clear and legible font.
+
 ### Structure
 
-The website structure consists of the main "Base" page, with the following sections being added to this page dependant on the URL; Index Page, Explore Developers Page, Login Page, Register Page, Developer Profile/My Developer Profile Page, Create Developer Profile Page, Edit Developer Profile Page, Add a New Post Page, Edit Post Page, My Account Page, Shopping Cart Page, Checkout Page, Checkout Success Page, Contact Us Page, 404 Error Page and 500 Error Page.
+The website structure consists of the main "Base" page, with the following sections being added to this page dependant on the URL; Index Page, Explore Developers Page, Login Page, Register Page, Developer Profile/My Developer Profile Page, Create Developer Profile Page, Edit Developer Profile Page, Confirm Delete Developer Page, Add a New Post Page, Edit Post Page, Confirm Delete Post Page, My Account Page, Shopping Cart Page, Checkout Page, Checkout Success Page, Contact Us Page, 404 Error Page and 500 Error Page.
 
 The pages are detailed below;
 
@@ -142,7 +152,7 @@ The pages are detailed below;
 </details>
 - This page contains text to inform the user that the purchase was made.
 
-<details><summary>CContact Us Page</summary>
+<details><summary>Contact Us Page</summary>
 <img src="">
 </details>
 - This page contains a contact form for the user to complete that will submit their message to the site admin.
