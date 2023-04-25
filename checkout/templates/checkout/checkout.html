@@ -18,8 +18,8 @@
     {% for item in cart_items %}
         <div class="row rounded m-2 p-2 shadow border-bottom border-top border-2 border-primary border-opacity-75 justify-content-around align-items-center">
             <div class="col-12 col-md-4">
-                {% if developer.image %}
-                <img class="dev-image" src="{{ developer.image.url }}" alt="{{ developer.profile_name }}">
+                {% if item.developer.image %}
+                <img class="dev-image" src="{{ item.developer.image.url }}" alt="{{ item.developer.profile_name }}">
                 {% else %}
                 <img class="dev-image" src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
                 {% endif %} 
