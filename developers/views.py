@@ -14,6 +14,8 @@ def all_developers(request):
     developers = Developer.objects.all()
     query = ""
     sort = ""
+    
+    developers = developers.order_by('-count_sold')
 
     if request.GET:
         if 'search-query' in request.GET:
