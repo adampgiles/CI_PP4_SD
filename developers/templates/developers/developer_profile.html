@@ -65,7 +65,7 @@
     
 <div class="container d-flex justify-content-center align-items-center p-2">
 <!-- Pagination links and page numbers -->
-    {% if posts|length > 2 %} 
+    {% if posts|length > 4 %} 
         <div class="pagination">
             <span class="step-links">
                 {% if page_obj.has_previous %}
@@ -93,12 +93,10 @@
             <div class="row text-center rounded m-2 p-2 shadow border-bottom border-top border-2 border-warning border-opacity-75">
                 <div class="col">                
                     <h4>{{ post.title }}</h4>
-                    <p class="pb-1 m-0">Published: {{ post.publish_date }}</p>                    
+                    <p class="pb-1 m-0 text-muted">Published: {{ post.publish_date }}</p>                    
                     {% if show_posts is True %}                  
                         {% if post.image %}
                             <img class="mh-100 mw-100" src="{{ post.image.url }}" alt="{{ post.title }}">
-                        {% else %}
-                            <img class="mh-100 mw-100" src="{{ MEDIA_URL }}no-image.jpg" alt="-- NO IMAGE --">
                         {% endif %}                   
                         <p class="post-content">{{ post.content }}</p>                    
                     {% else %}
@@ -131,7 +129,7 @@
 
 <div class="container d-flex justify-content-center align-items-center p-2">
     <!-- Pagination links and page numbers -->
-        {% if posts|length > 2 %} 
+        {% if posts|length > 4 %} 
             <div class="pagination">
                 <span class="step-links">
                     {% if page_obj.has_previous %}

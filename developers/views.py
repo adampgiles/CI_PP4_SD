@@ -42,7 +42,7 @@ def all_developers(request):
             sort = ""
             developers = Developer.objects.all()
 
-    paginator = Paginator(developers, 6)
+    paginator = Paginator(developers, 4)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
@@ -77,14 +77,17 @@ def developer_profile(request, developer_id):
         """ If the Current User has purchased access to this Developer Profile, Show Posts """
         if request.user.is_authenticated:
             current_user = request.user
-            account = UserAccount.objects.filter(user=current_user)[0] 
-            developers = account.purchased_developers
-            if developers.contains(developer):
+            if current_user == developer.user:
                 show_posts = True
+            else:
+                account = UserAccount.objects.filter(user=current_user)[0] 
+                developers = account.purchased_developers
+                if developers.contains(developer):
+                    show_posts = True
     
     posts = posts.order_by('-publish_date')
 
-    paginator = Paginator(posts, 6)
+    paginator = Paginator(posts, 4)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
