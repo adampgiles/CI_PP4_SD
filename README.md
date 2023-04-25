@@ -817,6 +817,7 @@ The website was tested on the following browsers:
 ### Images/Icons/Font
 - Font from [Google-Fonts](https://fonts.google.com/)
 - All website Icons taken from [FontAwesome](https://fontawesome.com/).
+- All website images taken from [Pixels](https://www.pexels.com/) - Free to Use (CC).
 
 ## Acknowledgements
 Thank you to the following individuals for their support during the creation of this website; 
