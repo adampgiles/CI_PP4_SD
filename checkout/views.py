@@ -119,6 +119,9 @@ def checkout_success(request, order_number):
     for orderlineitem in orderlineitems:
         developer = orderlineitem.developer
         account.purchased_developers.add(developer)
+        developer = Developer.objects.filter(profile_name=developer)[0] 
+        developer.count_sold += 1;
+        developer.save()
         account.save()
     
 
