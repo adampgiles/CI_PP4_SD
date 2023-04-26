@@ -410,6 +410,23 @@ The website consists of fourteen pages with 18 features.
 - The website is full responsive on desktop to mobile devices.
 - Meets user story: ???.
 
+## Bugs
+
+| Bug | Fix |
+| - | - |
+| cart context typo in settings.py | Corrected the typo |
+| collectstatic not working | installed boto3 and updated AWS bucket name and policy |
+| heroku not collecting static files | updated settings and custom_storage code |
+| duplicate total cart context | removed duplicate total cart context |
+| .venv on git repo | added to .gitignore |
+| unable to runserver locally | amended allowed hosts  |
+| email verification issue on local environment | amended account email verification code to not require verification on local environment|
+| .venv and .vscode still on git repo | removed from repo |
+| mediastorage typo | corrected typo |
+| logout page link typo | corrected typo |
+| user could delete other user profiles and posts by navigating to the url | added user check to stop this |
+| edit post button not showing on developer profile | amended code to check if the current user is the post owner |
+| confirm_delete_post page not showing for owning user | amended code to check if the current user is the post owner |
 
 ## Deployment
 
