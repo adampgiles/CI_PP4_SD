@@ -10,7 +10,6 @@ from .forms import DeveloperProfileForm, PostForm
 # Create your views here.
 def all_developers(request):
     """ View to show all developers """
-
     developers = Developer.objects.all()
     query = ""
     sort = ""
@@ -75,7 +74,6 @@ def developer_profile(request, developer_id):
     else:
         developer = get_object_or_404(Developer, pk=developer_id)
         posts = Post.objects.all().filter(author=developer.id)        
-
         """ If the Current User has purchased access to this Developer Profile, Show Posts """
         if request.user.is_authenticated:
             current_user = request.user
@@ -104,7 +102,7 @@ def developer_profile(request, developer_id):
 
 @login_required
 def add_developer(request):
-    """ Add a developer """    
+    """ Create a developer profile """    
     if request.method == 'POST':
         form = DeveloperProfileForm(request.POST, request.FILES)
         if form.is_valid(): 
@@ -139,6 +137,7 @@ def add_developer(request):
 
 @login_required
 def edit_developer(request, developer_id):
+    """ Edit a developer profile """    
     developer = get_object_or_404(Developer, pk=developer_id)
     if request.method == 'POST':
         form = DeveloperProfileForm(request.POST, request.FILES, instance=developer)
@@ -162,6 +161,7 @@ def edit_developer(request, developer_id):
 
 @login_required
 def confirm_delete_developer(request, developer_id):
+    """ Confirm deletion of a developer profile """    
     developer = get_object_or_404(Developer, pk=developer_id)
     if not request.user == developer.user:
         return redirect('home')
@@ -175,6 +175,7 @@ def confirm_delete_developer(request, developer_id):
 
 @login_required
 def delete_developer(request, developer_id):
+    """ Delete a developer profile """    
     developer = get_object_or_404(Developer, pk=developer_id)
     if not request.user == developer.user:
         return redirect('home')
@@ -191,6 +192,7 @@ def delete_developer(request, developer_id):
 
 @login_required
 def add_post(request, developer_id):
+    """ Create a developer profile post """    
     developer = get_object_or_404(Developer, pk=developer_id)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -216,6 +218,7 @@ def add_post(request, developer_id):
 
 @login_required
 def edit_post(request, post_id):
+    """ Edit a developer profile post """   
     developer = Developer.objects.filter(user=request.user)[0]
     post = get_object_or_404(Post, pk=post_id)
     if request.method == 'POST':
@@ -241,6 +244,7 @@ def edit_post(request, post_id):
 
 @login_required
 def confirm_delete_post(request, post_id):
+    """ Confirm deletion of a developer profile post """   
     developer = Developer.objects.filter(user=request.user)
     if developer:
         post = get_object_or_404(Post, pk=post_id)
@@ -258,6 +262,7 @@ def confirm_delete_post(request, post_id):
 
 @login_required
 def delete_post(request, post_id):
+    """ Delete a developer profile post """   
     developer = Developer.objects.filter(user=request.user)[0]
     post = get_object_or_404(Post, pk=post_id)
     if not developer.user == post.author:

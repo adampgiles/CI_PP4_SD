@@ -6,7 +6,7 @@ from contactus.forms import ContactForm
 # Create your views here.
 @login_required
 def contact_us(request):
-    """ Add a Contact Form """    
+    """ Submit a Contact Form """    
     if request.method == 'POST':
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid(): 

@@ -252,7 +252,6 @@ The Developer model contains data on the user's Developer Profile.
 The Post model contains data on the user's Developer Profile Posts.
  - Contains the following fields: title, author(Foreign Key), publish_date, content, image.
 
-
 ## Technologies Used
 
 ### Languages
