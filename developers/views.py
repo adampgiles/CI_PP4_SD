@@ -236,9 +236,14 @@ def edit_post(request, post_id):
 
 @login_required
 def confirm_delete_post(request, post_id):
-    developer = Developer.objects.filter(user=request.user)[0]
-    post = get_object_or_404(Post, pk=post_id)
-    if not developer.user == post.author:
+    developer = Developer.objects.filter(user=request.user)
+    if developer:
+        post = get_object_or_404(Post, pk=post_id)
+        print(developer.profile_name)
+        print(post.author)
+        if not developer.profile_name != post.author:
+            return redirect('home')
+    else:
         return redirect('home')
     template = 'developers/confirm_delete_post.html'
     context = {
