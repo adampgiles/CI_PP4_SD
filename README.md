@@ -323,6 +323,7 @@ The website consists of fourteen pages with 18 features.
 - This page contains a form for the user to create a Developer Profile to the website.
 - All field within the form are mandatory and must be completed.
 - Validation exists to ensure the fields are completed and that the Price cannot be negative.
+- Validation also exists to stop the same Profile Name being used as a previous Profile.
 - The user then clicks a submit button, which adds the Developer Profile to the Developer database.
 - Meets user story: ???.
 
