@@ -109,6 +109,11 @@ def add_developer(request):
         form = DeveloperProfileForm(request.POST, request.FILES)
         if form.is_valid(): 
             developer = form.save(commit=False)
+            developers = Developer.objects.all()
+            current_developer = developers.filter(profile_name=developer.profile_name)
+            if current_developer:
+                messages.error(request, ("Profile Name is already in use, please use another Profile Name."))
+                return redirect(reverse('add_developer'))
             developer.user = request.user
             developer.save()
 
