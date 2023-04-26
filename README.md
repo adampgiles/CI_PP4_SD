@@ -90,87 +90,101 @@ The website structure consists of the main "Base" page, with the following secti
 The pages are detailed below;
 
 <details><summary>Base Page</summary>
-<img src="">
+<img src="readme/structure/nav_bar_logged_out.PNG">
+<img src="readme/structure/nav_bar_logged_in.PNG">
 </details>
 - This page contains a header; consisting of Site Logo and Navigation Bar (Links change if the user is logged in).
 
 <details><summary>Index Page</summary>
-<img src="">
+<img src="readme/structure/index.PNG">
 </details>
 - This page contains a Hero Section with sub-sections for "Support" and "Dev", each with text and a link. If the current user is not authenticated, the links navigate to the login page. If the user is authenticated, the "Support" section link, navigates to the "Explore Developers" page. The "Dev" section link navigates to the "Create Developer Profile" page, if the user has not already created a Profile. If they have created a Developer Profile, the link navigates to their Developer Profile page. 
 
 <details><summary>Explore Developers Page</summary>
-<img src="">
+<img src="readme/structure/all_developers.PNG">
 </details>
 - This page contains a search bar, sort by filter,and a block for each Developer's Profile. Each block containes the Developer's Profile Image, Profile Name, Profile Description, Profile Price, Purchase Count and a link to the Developer's Full Profile.
 
 <details><summary>Login Page</summary>
-<img src="">
+<img src="readme/structure/login.PNG">
 </details>
 - This page contains a form for the user to complete that will log them into the site.
 
 <details><summary>Register Page</summary>
-<img src="">
+<img src="readme/structure/register.PNG">
 </details>
 - This page contains a form for the user to complete that will create an account on the site.
 
 <details><summary>Developer Profile/My Developer Profile Page</summary>
-<img src="">
+<img src="readme/structure/developer_profile_not_logged_in.PNG">
+<img src="readme/structure/developer_profile_not_purchased.PNG">
+<img src="readme/structure/developer_profile_purchased.PNG">
+<img src="readme/structure/developer_profile_own.PNG">
 </details>
 - This page contains the selected Developer's Full Profile and Posts, each post block contains the Post Title, Post Content and Post Image. If the current user is viewing their own Developer Profile, links are available to edit the profile, add a new post and edit a post.
 
 <details><summary>Create Developer Profile Page</summary>
-<img src="">
+<img src="readme/structure/add_developer.PNG">
 </details>
 - This page contains a form for the user to complete that will create a Developer Profile on the site.
 
 <details><summary>Edit Developer Profile</summary>
-<img src="">
+<img src="readme/structure/edit_developer.PNG">
 </details>
 - This page contains a form for the user to complete that will update their Developer Profile on the site.
 
+<details><summary>Confirm Delete Developer Profile</summary>
+<img src="readme/structure/confirm_delete_developer.PNG">
+</details>
+- This page contains text and buttons for the user to confirm or cancel profile deletion.
+
 <details><summary>Add a New Post Page</summary>
-<img src="">
+<img src="readme/structure/add_post.PNG">
 </details>
 - This page contains a form for the user to complete that will create new post on their Developer Profile on the site.
 
 <details><summary>Edit Post Page</summary>
-<img src="">
+<img src="readme/structure/edit_post.PNG">
 </details>
 - This page contains a form for the user to complete that will update a post on their Developer Profile on the site.
 
+<details><summary>Confirm Delete Post</summary>
+<img src="readme/structure/confirm_delete_developer.PNG">
+</details>
+- This page contains text and buttons for the user to confirm or cancel post deletion.
+
 <details><summary>My Account Page</summary>
-<img src="">
+<img src="readme/structure/my_account.PNG">
 </details>
 - This page contains the users details: Username, Email address and a link to change password. The page also contains a section displaying all the Developer Profiles the user has purchased access to.
 
 <details><summary>Shopping Cart Page</summary>
-<img src="">
+<img src="readme/structure/cart.PNG">
 </details>
 - This page contains a list of items the user had added to their Cart, with the totals of each item and Cart Total. The user can then click a link to Checkout.
 
 <details><summary>Checkout Page</summary>
-<img src="">
+<img src="readme/structure/checkout.PNG">
 </details>
 - This page contains the Cart's contents along with a input for the user's card details. The user can then click a link to Complete the Purchase.
 
 <details><summary>Checkout Success Page</summary>
-<img src="">
+<img src="readme/structure/checkout_success.PNG">
 </details>
 - This page contains text to inform the user that the purchase was made.
 
 <details><summary>Contact Us Page</summary>
-<img src="">
+<img src="readme/structure/contact_form.PNG">
 </details>
 - This page contains a contact form for the user to complete that will submit their message to the site admin.
 
 <details><summary>404 Page</summary>
-<img src="">
+<img src="readme/structure/error_404.PNG">
 </details>
 - A 404 page was created to ensure that a user can easily navigate back to the main site if they encounter a page which does not exist.
 
 <details><summary>500 Page</summary>
-<img src="">
+<img src="readme/structure/error_500.PNG">
 </details>
 - A 500 page was created to ensure that a user can easily navigate back to the main site if they encounter an internal server error.
 
