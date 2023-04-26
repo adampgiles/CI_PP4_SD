@@ -63,6 +63,7 @@ User stories have been separated into two groups; Developer and Supporter.
 14. I want to be able to amend my Account details. So that I can ensure my details are correct and up to date.
 15. I want to be able to sort Developer Profiles by multiple criteria. So that I can quickly identify Developer profiles by price, name or post count.
 16. I want to be able to view a list of Developer Profiles I have purchased access to. So that I can quickly navigate to a Developer's Profile.
+17. I want to access a contact form, so I can inform the site owner.
 
 ## Design
 
@@ -286,19 +287,19 @@ The website consists of fourteen pages with 18 features.
 - Logged out: "Explore Developers", "Login" and "Register".
 - Logged in: "Explore Developers", "My Developer Profile", "My Account", "Contact Us" and "Log out".
 - When hovering over a link on Desktop devices the link colours change. This gives visible notification to the user that the link is clickable.
-- Meets user stories: ???.
+- Meets user stories: 2, 4, 6, 7, 14, 17.
 
 ### Search Bar and Filter Bar
 - Situated at the top of the Explore Developers page.
 - User's can conduct keyword searches which will then only display Developer Profiles that contain the keyword.
 - User's can order the displayed profiles by different criteria in ascending or descending order.
-- Meets user stories: ???.
+- Meets user stories: 15.
 
 ### Explore Developers Section
 - Situated on the Explore Developers page.
 - This section displays a "Developer block" for each submitted Developer Profile (Which Profiles show depends on any search criteria).
 - Each "Developer block" contains the Developer's Profile Name, Category, Profile Image, Description, Purchase count and a line to view the full profile.
-- Meets user stories: ???.
+- Meets user stories: 12.
 
 ### Developer Profile Details Section
 - Situated on the Developer Profile page.
@@ -307,17 +308,7 @@ The website consists of fourteen pages with 18 features.
 - The Developer's Profile price and link to purchase only show if the Developer has added any posts. This is to ensure that there is content on the profile for the user to purchase.
 - If the user is not logged in, the purchase link changes to a link to the login page
 - If the current user is the owner of the Developer Profile, links are available on this section to edit the profile details.
-- Meets user story: ???.
-
-### Developer Posts Section
-- Situated on the Developer Profile page.
-- This page displays the selected Developer's Profile Posts.
-- If the Developer has added any posts, they are displayed in "post blocks" here.
-- Each block contains the Post Title, Published Date, Image and Content.
-- The Post content is hidden and changes to a link to purchase if a user has not purchased this profile. 
-- If the user is not logged in, the purchase link changes to a link to the login page
-- If the current user is the owner of the Developer Profile, links are available on this section to add a new post and to edit a post.
-- Meets user story: ???.
+- Meets user story: 2, 9, 13.
 
 ### Create a Developer Profile Section
 - This page contains a form for the user to create a Developer Profile to the website.
@@ -325,7 +316,7 @@ The website consists of fourteen pages with 18 features.
 - Validation exists to ensure the fields are completed and that the Price cannot be negative.
 - Validation also exists to stop the same Profile Name being used as a previous Profile.
 - The user then clicks a submit button, which adds the Developer Profile to the Developer database.
-- Meets user story: ???.
+- Meets user story: 1.
 
 ### Edit Developer Profile Section
 - This page contains a form for the user to edit their Developer Profile.
@@ -334,12 +325,12 @@ The website consists of fourteen pages with 18 features.
 - Validation exists to ensure the fields are completed and that the Price cannot be negative.
 - This section contains a link to the delete profile page.
 - The user then clicks a submit button, which updates the Developer Profile on the Developer database.
-- Meets user story: ???.
+- Meets user story: 9, 10, 11.
 
 ### Delete Developer Profile Section
 - This page contains text and a link asking if the user is sure they want to delete their profile.
 - The user can confirm deletion, or return to the edit profile page.
-- Meets user story: ???.
+- Meets user story: 3.
 
 ### Developer Posts Section
 - Situated on the Developer Profile page.
@@ -349,14 +340,14 @@ The website consists of fourteen pages with 18 features.
 - The Post content is hidden and changes to a link to purchase if a user has not purchased this profile. 
 - If the user is not logged in, the purchase link changes to a link to the login page
 - If the current user is the owner of the Developer Profile, links are available on this section to add a new post and to edit a post.
-- Meets user story: ???.
+- Meets user story: 1, 10.
 
 ### Add a New Post Section
 - This page contains a form for the user to add a new post to their Developer Profile.
 - All field within the form are mandatory, except the image.
 - Validation exists to ensure the mandatory fields are completed.
 - The user then clicks a submit button, which adds the post to the Post database.
-- Meets user story: ???.
+- Meets user story: 10.
 
 ### Edit Post Section
 - This page contains a form for the user to edit their Developer Profile Post.
@@ -365,35 +356,35 @@ The website consists of fourteen pages with 18 features.
 - Validation exists to ensure the mandatory fields are completed.
 - This section contains a link to the delete post page.
 - The user then clicks a submit button, which updates the post on the Post database.
-- Meets user story: ???.
+- Meets user story: 10.
 
 ### Delete Post Section
 - This page contains text and a link asking if the user is sure they want to delete their post.
 - The user can confirm deletion, or return to the edit post page.
-- Meets user story: ???.
+- Meets user story: 10.
 
 ### My Account Section
 - This page displays the current users account details.
 - Username, Email and a link to Change Password are presented to the user.
 - A purchased developer section contains the details of any Developer Profiles the user has purchase with links to each profile.
-- Meets user story: ???.
+- Meets user story: 4, 6, 8, 14, 16.
 
 ### Contact Us Section
 - This page contains a form for the user to submit a message to the site admin.
 - All field within the form are mandatory.
 - Validation exists to ensure the mandatory fields are completed.
 - The user then clicks a submit button, which adds the form to the contactus database.
-- Meets user story: ???.
+- Meets user story: 17.
 
 ### Login Page
 - This page contains a form for the user to log in to the website.
 - This page is part of Django allauth.
-- Meets user story: ??.
+- Meets user story: 6.
 
 ### Register Page
 - This page contains a form for the user to create an account on the website.
 - This page is part of Django allauth.
-- Meets user story: ??.
+- Meets user story: 4, 5, 8.
 
 ### 404 Page
 - This page is display when a user encounters a page that does not exist (HTTP 404 response code).
@@ -409,7 +400,6 @@ The website consists of fourteen pages with 18 features.
 </details>
 
 - The website is full responsive on desktop to mobile devices.
-- Meets user story: ???.
 
 ## Bugs
 
