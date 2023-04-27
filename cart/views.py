@@ -3,10 +3,8 @@ from django.contrib import messages
 
 from developers.models import Developer
 
-# Create your views here.
-
 def view_cart(request):
-    """ View to show cart """
+    ''' View to show cart '''
     return render(request, 'cart/cart.html')
 
 def add_to_cart(request, item_id):

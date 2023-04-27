@@ -11,9 +11,11 @@ class Order(models.Model):
     username = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
-    total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    total = models.DecimalField(max_digits=10, decimal_places=2,
+                                null=False, default=0)
     original_cart = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False,
+                                  default='')
 
     def _generate_order_number(self):
         """
@@ -25,7 +27,8 @@ class Order(models.Model):
         """
         Update total each time a line item is added.
         """
-        self.total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.total = self.lineitems.aggregate(Sum('lineitem_total'))[
+            'lineitem_total__sum'] or 0
         self.save()
 
     def save(self, *args, **kwargs):
@@ -42,9 +45,14 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    developer = models.ForeignKey(Developer, null=False, blank=False, on_delete=models.CASCADE)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    order = models.ForeignKey(Order, null=False, blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='lineitems')
+    developer = models.ForeignKey(Developer, null=False, blank=False,
+                                  on_delete=models.CASCADE)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
+                                         null=False, blank=False,
+                                         editable=False)
 
     def save(self, *args, **kwargs):
         """
@@ -55,4 +63,5 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.developer.profile_name} on order {self.order.order_number}'
+        return f'
+        {self.developer.profile_name} on order{self.order.order_number}'

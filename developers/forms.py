@@ -1,6 +1,7 @@
 from django import forms
 from .models import Developer, Category, Post
 
+
 class DeveloperProfileForm(forms.ModelForm):
 
     class Meta:
@@ -16,11 +17,11 @@ class DeveloperProfileForm(forms.ModelForm):
 
         self.fields['profile_name'].widget.attrs['autofocus'] = True
         self.fields['category'].choices = friendly_names
-        self.fields['profile_name'].label =  'Profile Name'
-        self.fields['description'].label =  'Profile Description'
-        self.fields['category'].label =  'Category'
-        self.fields['price'].label =  'Purchase Price(£)'
-        self.fields['price'].placeholder =  '5.00'
+        self.fields['profile_name'].label = 'Profile Name'
+        self.fields['description'].label = 'Profile Description'
+        self.fields['category'].label = 'Category'
+        self.fields['price'].label = 'Purchase Price(£)'
+        self.fields['price'].placeholder = '5.00'
 
         self.fields['category'].required = True
         self.fields['profile_name'].required = True
@@ -42,9 +43,9 @@ class PostForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         self.fields['title'].widget.attrs['autofocus'] = True
-        self.fields['title'].label =  'Post Title'
-        self.fields['content'].label =  'Post Content'
-        self.fields['image'].label =  'Post Image'
+        self.fields['title'].label = 'Post Title'
+        self.fields['content'].label = 'Post Content'
+        self.fields['image'].label = 'Post Image'
 
         self.fields['title'].required = True
         self.fields['content'].required = True

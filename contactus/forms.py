@@ -1,8 +1,8 @@
 from django import forms
 from .models import ContactUs
 
-class ContactForm(forms.ModelForm):
 
+class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactUs
         exclude = ('user', 'sent_date')
@@ -11,8 +11,8 @@ class ContactForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         self.fields['subject'].widget.attrs['autofocus'] = True
-        self.fields['subject'].label =  'Subject'
-        self.fields['body'].label =  'Body'
+        self.fields['subject'].label = 'Subject'
+        self.fields['body'].label = 'Body'
 
         self.fields['subject'].required = True
         self.fields['body'].required = False
