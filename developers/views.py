@@ -18,8 +18,10 @@ def all_developers(request):
     if request.GET:
         if 'search-query' in request.GET:
             query = request.GET['search-query']
-            queries = Q(profile_name__icontains=query)
-            | Q(description__icontains=query)
+            queries = (
+                Q(profile_name__icontains=query) |
+                Q(description__icontains=query)
+                )
             developers = developers.filter(queries)
 
         if 'sort-criteria' in request.GET:
@@ -118,8 +120,11 @@ def add_developer(request):
             current_developer = developers.filter(
                 profile_name=developer.profile_name)
             if current_developer:
-                messages.error(request, ("Profile Name is already in use,
-                               please use another Profile Name."))
+                messages.error(request,
+                               ('Profile Name is already in use,'
+                                'please use another Profile Name.'
+                                )
+                               )
                 return redirect(reverse('add_developer'))
             developer.user = request.user
             developer.save()
@@ -133,8 +138,11 @@ def add_developer(request):
                              'Successfully created a Developer Profile!')
             return redirect(reverse('developer_profile', args=[developer.id]))
         else:
-            messages.error(request, 'Failed to create a Developer Profile.
-                           Please ensure the form is valid.')
+            messages.error(request,
+                           ('Failed to create a Developer Profile.'
+                            'Please ensure the form is valid.'
+                            )
+                           )
     else:
         form = DeveloperProfileForm()
     template = 'developers/add_developer.html'
@@ -158,9 +166,11 @@ def edit_developer(request, developer_id):
                              'Successfully updated your Developer Profile!')
             return redirect(reverse('developer_profile', args=[developer.id]))
         else:
-            messages.error(request, 'Failed to update your Developer Profile.
-                           Please ensure the form is valid.')
-    else:
+            messages.error(request,
+                           ('Failed to update your Developer Profile.'
+                            'Please ensure the form is valid.'
+                            )
+                           )
         form = DeveloperProfileForm(instance=developer)
         messages.info(request, f'You are editing {developer.profile_name}')
 
@@ -214,8 +224,11 @@ def add_post(request, developer_id):
             messages.success(request, 'Successfully created a new Post!')
             return redirect(reverse('developer_profile', args=[developer.id]))
         else:
-            messages.error(request, 'Failed to create a new Post.
-                           Please ensure the form is valid.')
+            messages.error(request,
+                           ('Failed to create a new Post.'
+                            'Please ensure the form is valid.'
+                            )
+                           )
     else:
         form = PostForm()
     template = 'developers/add_post.html'
@@ -239,8 +252,11 @@ def edit_post(request, post_id):
             messages.success(request, 'Successfully updated your Post!')
             return redirect(reverse('developer_profile', args=[developer.id]))
         else:
-            messages.error(request, 'Failed to update your Post.
-                           Please ensure the form is valid.')
+            messages.error(request,
+                           ('Failed to update your Post.'
+                            'Please ensure the form is valid.'
+                            )
+                           )
     else:
         form = PostForm(instance=post)
         messages.info(request, f'You are editing {post.title}')

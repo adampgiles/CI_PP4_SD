@@ -17,8 +17,11 @@ def contact_us(request):
             messages.success(request, 'Contact Form submitted successfully!')
             return redirect(reverse('contact_us'))
         else:
-            messages.error(request, 'Failed to submit Contact Form.
-                           Please ensure the form is valid.')
+            messages.error(request,
+                           ('Failed to submit Contact Form.'
+                            'Please ensure the form is valid.'
+                            )
+                           )
     else:
         form = ContactForm()
     template = 'contactus/contact_us.html'

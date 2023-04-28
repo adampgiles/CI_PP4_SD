@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse,
+from django.shortcuts import render, redirect, reverse
 from django.shortcuts import get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
@@ -59,9 +59,10 @@ def checkout(request):
                         )
                         order_line_item.save()
                 except developer.DoesNotExist:
-                    messages.error(request, "One of the developers in your
-                                   cart wasn't found in our database. Please
-                                   call us for assistance!"
+                    messages.error(request,
+                                   ("One of the developers in your "
+                                    "cart wasn't found in our database."
+                                    )
                                    )
                     order.delete()
                     return redirect(reverse('view_cart'))
@@ -75,8 +76,11 @@ def checkout(request):
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "There's nothing in your cart
-                           at the moment")
+            messages.error(request,
+                           ("There's nothing in your "
+                            "cart at the moment"
+                            )
+                           )
             return redirect(reverse('developers'))
 
         current_cart = cart_contents(request)
