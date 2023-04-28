@@ -39,6 +39,9 @@ def all_developers(request):
                 developers = developers.order_by('count_sold')
             elif sort == 'Purchase Count (descending)':
                 developers = developers.order_by('-count_sold')
+            elif sort == 'Clear Sort':
+                developers = developers.order_by('-count_sold')
+                sort = ""
 
         if 'sort-clear' in request.GET:
             sort = ""
