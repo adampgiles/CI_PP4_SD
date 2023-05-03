@@ -397,8 +397,64 @@ The website consists of fourteen pages with 18 features.
 <details><summary>Responsive Design</summary>
 <img src="">
 </details>
-
 - The website is full responsive on desktop to mobile devices.
+
+## Validation
+
+### HTML Validation
+
+W3C Markup Validation Service was utilised to validate the HTML of the website. The website's pages pass with no errors.
+<details><summary>Index</summary>
+<img src="readme/validation/html/index.PNG">
+</details>
+<details><summary>Login</summary>
+<img src="readme/validation/html/login.PNG">
+</details>
+<details><summary>Register</summary>
+<img src="readme/validation/html/register.PNG">
+</details>
+<details><summary>Developers</summary>
+<img src="readme/validation/html/developers.PNG">
+</details>
+<details><summary>Developer Profile</summary>
+<img src="readme/validation/html/developer_profile.PNG">
+</details>
+<details><summary>My Account</summary>
+<img src="readme/validation/html/my_account.PNG">
+</details>
+<details><summary>Add Developer Profile</summary>
+<img src="readme/validation/html/add_developer.PNG">
+</details>
+<details><summary>Edit Developer Profile</summary>
+<img src="readme/validation/html/edit_developer.PNG">
+</details>
+<details><summary>Confirm Delete Developer Profile</summary>
+<img src="readme/validation/html/confirm_delete_profile.PNG">
+</details>
+<details><summary>Add Post</summary>
+<img src="readme/validation/html/add_post.PNG">
+</details>
+<details><summary>Edit Post</summary>
+<img src="readme/validation/html/edit_post.PNG">
+</details>
+<details><summary>Confirm Delete Post</summary>
+<img src="readme/validation/html/confirm_delete_post.PNG">
+</details>
+<details><summary>Cart</summary>
+<img src="readme/validation/html/cart.PNG">
+</details>
+<details><summary>Checkout</summary>
+<img src="readme/validation/html/checkout.PNG">
+</details>
+<details><summary>Checkout Success</summary>
+<img src="readme/validation/html/checkout_success.PNG">
+</details>
+<details><summary>Error 404</summary>
+<img src="readme/validation/html/error_404.PNG">
+</details>
+<details><summary>Error 500</summary>
+<img src="readme/validation/html/error_500.PNG">
+</details>
 
 ## Bugs
 
