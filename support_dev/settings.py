@@ -138,16 +138,28 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+                'django.contrib.auth.password_validation.'
+                'UserAttributeSimilarityValidator'
+                ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+                'django.contrib.auth.password_validation.'
+                'MinimumLengthValidator'
+                ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+                'django.contrib.auth.password_validation'
+                '.CommonPasswordValidator'
+                ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+                'django.contrib.auth.password_validation'
+                '.NumericPasswordValidator'
+                ),
     },
 ]
 
@@ -185,8 +197,8 @@ if 'USE_AWS' in os.environ:
     AWS_REGION_NAME = 's3.eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f'({AWS_STORAGE_BUCKET_NAME}.' \
-                           '{AWS_REGION_NAME}.amazonaws.com'
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.'\
+                           f'{AWS_REGION_NAME}.amazonaws.com'
 
     ''' Static and media files '''
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
