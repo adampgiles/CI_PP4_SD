@@ -104,7 +104,7 @@ The pages are detailed below;
 <details><summary>Explore Developers Page</summary>
 <img src="readme/structure/all_developers.PNG">
 </details>
-- This page contains a search bar, sort by filter,and a block for each Developer's Profile. Each block containes the Developer's Profile Image, Profile Name, Profile Description, Profile Price, Purchase Count and a link to the Developer's Full Profile.
+- This page contains a search bar, sort by filter,and a block for each Developer's Profile. Each block contains the Developer's Profile Image, Profile Name, Profile Description, Profile Price, Purchase Count and a link to the Developer's Full Profile.
 
 <details><summary>Login Page</summary>
 <img src="readme/structure/login.PNG">
@@ -468,6 +468,13 @@ W3C Jigsaw CSS Validation Service was utilised to validate the website's custom 
 JSHint was utilised to validate the website's JS.
 <details><summary>developers.js</summary>
 <img src="readme/validation/js/validation.PNG">
+</details>
+
+## Python Validation
+
+Code Institute CI Python Linter was utilised to validate the websites Python. All clear, no errors found. Also used PyLint VSCode extension which checks all python files. Only errors were with env.py, which is not part of the deployed project.
+<details><summary>VS Code - Problems (PyLint shows any errors)</summary>
+<img src="readme/validation/python/validation.PNG">
 </details>
 
 ## Bugs
@@ -908,11 +915,6 @@ The website was tested on the following browsers:
 <details><summary>Screenshot</summary>
 <img src="">
 </details>
-
-
-
-
-
 
 ## Credits
 
