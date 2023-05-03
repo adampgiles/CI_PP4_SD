@@ -130,6 +130,7 @@ def add_developer(request):
                                )
                 return redirect(reverse('add_developer'))
             developer.user = request.user
+            developer.count_sold = 0
             developer.save()
 
             current_user = request.user
