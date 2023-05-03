@@ -284,9 +284,7 @@ def confirm_delete_post(request, post_id):
     developer = Developer.objects.filter(user=request.user)
     if developer:
         post = get_object_or_404(Post, pk=post_id)
-        print(developer.profile_name)
-        print(post.author)
-        if not developer.profile_name != post.author:
+        if not developer[0].profile_name != post.author:
             return redirect('home')
     else:
         return redirect('home')
@@ -302,7 +300,7 @@ def delete_post(request, post_id):
     """ Delete a developer profile post """
     developer = Developer.objects.filter(user=request.user)[0]
     post = get_object_or_404(Post, pk=post_id)
-    if not developer.user == post.author:
+    if not developer.profile_name != post.author:
         return redirect('home')
     post.delete()
     messages.success(request, 'Post deleted!')
