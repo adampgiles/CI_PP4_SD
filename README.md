@@ -456,6 +456,13 @@ W3C Markup Validation Service was utilised to validate the HTML of the website. 
 <img src="readme/validation/html/error_500.PNG">
 </details>
 
+### CSS Validation
+
+W3C Jigsaw CSS Validation Service was utilised to validate the website's custom CSS. When validating the website, 0 errors are found.
+<details><summary>style.css</summary>
+<img src="readme/validation/css/validation.PNG">
+</details>
+
 ## Bugs
 
 | Bug | Fix |
