@@ -6,6 +6,7 @@
 <div class="container-fluid text-center bg-primary py-1 m-0"> 
     <form class="row justify-content-center" method="GET" action="{% url 'developers' %}">
         <div class="col-9 col-md-5 col-xl-4 m-1 p-1">
+            <label style="display: none" for="search-criteria">First name</label>
             <input class="form-control" type="text" name="search-query" id="search-criteria" placeholder="Search Developers: " value="{{ search }}">                       
         </div>
 
