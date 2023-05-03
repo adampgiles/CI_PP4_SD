@@ -459,8 +459,15 @@ W3C Markup Validation Service was utilised to validate the HTML of the website. 
 ### CSS Validation
 
 W3C Jigsaw CSS Validation Service was utilised to validate the website's custom CSS. When validating the website, 0 errors are found.
-<details><summary>style.css</summary>
+<details><summary>base.css</summary>
 <img src="readme/validation/css/validation.PNG">
+</details>
+
+### JS Validation
+
+JSHint was utilised to validate the website's JS.
+<details><summary>developers.js</summary>
+<img src="readme/validation/js/validation.PNG">
 </details>
 
 ## Bugs
