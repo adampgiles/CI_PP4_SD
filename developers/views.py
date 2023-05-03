@@ -177,6 +177,9 @@ def edit_developer(request, developer_id):
                            )
         form = DeveloperProfileForm(instance=developer)
         messages.info(request, f'You are editing {developer.profile_name}')
+    else:
+        form = DeveloperProfileForm(instance=developer)
+        messages.info(request, f'You are editing your Profile')
 
     template = 'developers/edit_developer.html'
     context = {
