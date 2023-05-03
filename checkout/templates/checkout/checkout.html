@@ -51,19 +51,18 @@
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset> 
                     
-                    <button class="btn btn btn-primary shadow mt-4 fw-bolder" id="submit-button">
-                        <span>Complete Order</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </button>
-                    <p>
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </span>
-                        <span>Your card will be charged <strong>£{{ total|floatformat:2 }}</strong></span>
-                    </p>
-                </div>
+                <button class="btn btn btn-primary shadow mt-4 fw-bolder" id="submit-button">
+                    <span>Complete Order</span>
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </button>
+                <p>
+                    <span class="icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </span>
+                    <span>Your card will be charged <strong>£{{ total|floatformat:2 }}</strong></span>
+                </p>
             </form>
         </div>
     </div>         
