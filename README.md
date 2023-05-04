@@ -440,6 +440,9 @@ W3C Markup Validation Service was utilised to validate the HTML of the website. 
 <details><summary>Confirm Delete Post</summary>
 <img src="readme/validation/html/confirm_delete_post.PNG">
 </details>
+<details><summary>Contact Us</summary>
+<img src="readme/validation/html/contact_us.PNG">
+</details>
 <details><summary>Cart</summary>
 <img src="readme/validation/html/cart.PNG">
 </details>
@@ -475,6 +478,61 @@ JSHint was utilised to validate the website's JS.
 Code Institute CI Python Linter was utilised to validate the websites Python. All clear, no errors found. Also used PyLint VSCode extension which checks all python files. Only errors were with env.py, which is not part of the deployed project.
 <details><summary>VS Code - Problems (PyLint shows any errors)</summary>
 <img src="readme/validation/python/validation.PNG">
+</details>
+
+## Testing
+
+### Accessibility
+
+WAVE WebAIM web accessibility evaluation tool was utilised to ensure the website met accessibility standards. I was able to index.html, login.html, register.html and developers.html, all with 0 errors. The other pages were not able to be accessed by WAVE WebAIM so I used Google Chrome Lighthouse to check the remaining pages, below are the results.
+
+<details><summary>Index</summary>
+<img src="readme/validation/accessibility/index.PNG">
+</details>
+<details><summary>Login</summary>
+<img src="readme/validation/accessibility/login.PNG">
+</details>
+<details><summary>Register</summary>
+<img src="readme/validation/accessibility/register.PNG">
+</details>
+<details><summary>Developers</summary>
+<img src="readme/validation/accessibility/developers.PNG">
+</details>
+<details><summary>Developer Profile</summary>
+<img src="readme/validation/accessibility/developer_profile.PNG">
+</details>
+<details><summary>My Account</summary>
+<img src="readme/validation/accessibility/my_account.PNG">
+</details>
+<details><summary>Add Developer Profile</summary>
+<img src="readme/validation/accessibility/add_developer.PNG">
+</details>
+<details><summary>Edit Developer Profile</summary>
+<img src="readme/validation/accessibility/edit_developer.PNG">
+</details>
+<details><summary>Confirm Delete Developer Profile</summary>
+<img src="readme/validation/accessibility/confirm_delete_developer.PNG">
+</details>
+<details><summary>Add Post</summary>
+<img src="readme/validation/accessibility/add_post.PNG">
+</details>
+<details><summary>Edit Post</summary>
+<img src="readme/validation/accessibility/edit_post.PNG">
+</details>
+<details><summary>Confirm Delete Post</summary>
+<img src="readme/validation/accessibility/confirm_delete_post.PNG">
+</details>
+<details><summary>Contact Us</summary>
+<img src="readme/validation/accessibility/contact_us.PNG">
+</details>
+<details><summary>Cart</summary>
+<img src="readme/validation/accessibility/cart.PNG">
+</details>
+<details><summary>Checkout</summary>
+<img src="readme/validation/accessibility/checkout.PNG">
+</details>
+<details><summary>Checkout Success</summary>
+<img src="readme/validation/accessibility/checkout_success.PNG">
 </details>
 
 ## Bugs
