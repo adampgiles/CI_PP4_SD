@@ -63,7 +63,7 @@ User stories have been separated into two groups; Developer and Supporter.
 14. I want to be able to amend my Account details. So that I can ensure my details are correct and up to date.
 15. I want to be able to sort Developer Profiles by multiple criteria. So that I can quickly identify Developer profiles by price, name or post count.
 16. I want to be able to view a list of Developer Profiles I have purchased access to. So that I can quickly navigate to a Developer's Profile.
-17. I want to access a contact form, so I can inform the site owner.
+17. I want to access a contact form, so I can contact the site owner.
 
 ## Design
 
@@ -974,7 +974,17 @@ The website was tested on the following browsers:
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
-| SMy Account Page                    | Navigate to My Account page and scroll down to Purchased Developers section     | Purchased Profiles displayed and a link for each can be clicked to go to the profile  | Works as expected |
+| My Account Page                    | Navigate to My Account page and scroll down to Purchased Developers section     | Purchased Profiles displayed and a link for each can be clicked to go to the profile  | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+17. I want to access a contact form, so I can contact the site owner.
+
+| **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| Contact Us Page                  | Navigate to Contact Us page and complete the form   | Form is submitted to site owner  | Works as expected |
 
 <details><summary>Screenshot</summary>
 <img src="">
