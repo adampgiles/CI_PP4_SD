@@ -1,6 +1,10 @@
 # supportDev (Membership creation platform, tailored to Developers)
 
+<img src="readme/structure/responsive.PNG">
+
 **Developer: Adam Giles**
+
+[Live website](https://supportdev.herokuapp.com/)
 
 ## Table of Content
 
@@ -23,6 +27,12 @@
     - [CSS Validation](#css-validation)
     - [JS Validation](#js-validation)
     - [Python Validation](#python-validation)
+- [Testing](#testing)
+    - [Accessibility](#accessibility)
+    - [Performance](#performance)
+    - [Device Testing](#device-testing)
+    - [Browser Compatibility](#browser-compatibility)
+    - [User Story Testing](#user-story-testing)
 - [Bugs](#bugs)
 - [Deployment](#deployment)
 - [Credits](#credits)
@@ -224,31 +234,31 @@ This model contains an overview of all the model fields, their types and connect
 
 The following models represent the database structure of the website:
 
-##### UserAccount Model
+#### UserAccount Model
 The UserAccount model contains data for the user's account page.
  - Contains the following fields: user(OneToOneField), is_developer, purchased_developers(ManyToManyField).
 
-##### Order Model
+#### Order Model
 The Order model contains data on the orders.
  - Contains the following fields: order_number, username, email, date, total, original_cart, stripe_pid.
 
-##### OrderLineItem Model
+#### OrderLineItem Model
 The OrderLineItem model contains data on the each entry in an order.
  - Contains the following fields: order(Foreign Key), developer(Foreign Key), lineitem_total.
 
-##### ContactUs Model
+#### ContactUs Model
 The ContactUs model contains data on the message a user submits to the site admin.
  - Contains the following fields: user(Foreign Key), subject, body, sent_date.
 
-##### Category Model
+#### Category Model
 The Category model contains data on the categories a user can attach to their Developer Profile.
  - Contains the following fields: name, friendly_name.
 
-##### Developer Model
+#### Developer Model
 The Developer model contains data on the user's Developer Profile.
  - Contains the following fields: user, profile_name, description, category(Foreign Key), price, count_sold, image.
 
-##### Post Model
+#### Post Model
 The Post model contains data on the user's Developer Profile Posts.
  - Contains the following fields: title, author(Foreign Key), publish_date, content, image.
 
@@ -395,7 +405,7 @@ The website consists of fourteen pages with 18 features.
 
 ### Responsive Design
 <details><summary>Responsive Design</summary>
-<img src="">
+<<img src="readme/structure/responsive.PNG">>
 </details>
 - The website is full responsive on desktop to mobile devices.
 
@@ -486,60 +496,7 @@ Code Institute CI Python Linter was utilised to validate the websites Python. Al
 <img src="readme/validation/python/validation.PNG">
 </details>
 
-## Testing
 
-### Accessibility
-
-WAVE WebAIM web accessibility evaluation tool was utilised to ensure the website met accessibility standards. I was able to index.html, login.html, register.html and developers.html, all with 0 errors. The other pages were not able to be accessed by WAVE WebAIM so I used Google Chrome Lighthouse to check the remaining pages, below are the results.
-
-<details><summary>Index</summary>
-<img src="readme/validation/accessibility/index.PNG">
-</details>
-<details><summary>Login</summary>
-<img src="readme/validation/accessibility/login.PNG">
-</details>
-<details><summary>Register</summary>
-<img src="readme/validation/accessibility/register.PNG">
-</details>
-<details><summary>Developers</summary>
-<img src="readme/validation/accessibility/developers.PNG">
-</details>
-<details><summary>Developer Profile</summary>
-<img src="readme/validation/accessibility/developer_profile.PNG">
-</details>
-<details><summary>My Account</summary>
-<img src="readme/validation/accessibility/my_account.PNG">
-</details>
-<details><summary>Add Developer Profile</summary>
-<img src="readme/validation/accessibility/add_developer.PNG">
-</details>
-<details><summary>Edit Developer Profile</summary>
-<img src="readme/validation/accessibility/edit_developer.PNG">
-</details>
-<details><summary>Confirm Delete Developer Profile</summary>
-<img src="readme/validation/accessibility/confirm_delete_developer.PNG">
-</details>
-<details><summary>Add Post</summary>
-<img src="readme/validation/accessibility/add_post.PNG">
-</details>
-<details><summary>Edit Post</summary>
-<img src="readme/validation/accessibility/edit_post.PNG">
-</details>
-<details><summary>Confirm Delete Post</summary>
-<img src="readme/validation/accessibility/confirm_delete_post.PNG">
-</details>
-<details><summary>Contact Us</summary>
-<img src="readme/validation/accessibility/contact_us.PNG">
-</details>
-<details><summary>Cart</summary>
-<img src="readme/validation/accessibility/cart.PNG">
-</details>
-<details><summary>Checkout</summary>
-<img src="readme/validation/accessibility/checkout.PNG">
-</details>
-<details><summary>Checkout Success</summary>
-<img src="readme/validation/accessibility/checkout_success.PNG">
-</details>
 
 ## Bugs
 
@@ -753,7 +710,8 @@ pip freeze > requirements.txt
 ```
 4. Ensure ProcFile and requirements.txt are committed to your git repository in the root directory.
 
-5. Create an account on [Heroku](https://signup.heroku.com/login?redirect-url=https%3A%2F%2Fid.heroku.com%2Foauth%2Fauthorize%3Fclient_id%3Ddd0b2de7-576f-44d7-8607-788ece271310%26redirect_uri%3Dhttps%253A%252F%252Fwww.heroku.com%252Fauth%252Fheroku%252Fcallback%26response_type%3Dcode%26scope%3Didentity%2Bread%26state%3Dcbeff6caa22dd3da82260d4764c9ad34d99bca10abeb5adb)
+5. Create an account on [Heroku](https://signup.heroku.com/)
+
 6. On your dashboard, select "Create New App".
 <img src="readme/deployment/heroku/new_app.JPG">
 
@@ -780,10 +738,55 @@ pip freeze > requirements.txt
 
 ### Accessibility
 
-WAVE WebAIM web accessibility evaluation tool was utilised to ensure the website met accessibility standards.
+WAVE WebAIM web accessibility evaluation tool was utilised to ensure the website met accessibility standards. I was able to index.html, login.html, register.html and developers.html, all with 0 errors. The other pages were not able to be accessed by WAVE WebAIM so I used Google Chrome Lighthouse to check the remaining pages, below are the results.
 
-<details><summary></summary>
-<img src="">
+<details><summary>Index</summary>
+<img src="readme/validation/accessibility/index.PNG">
+</details>
+<details><summary>Login</summary>
+<img src="readme/validation/accessibility/login.PNG">
+</details>
+<details><summary>Register</summary>
+<img src="readme/validation/accessibility/register.PNG">
+</details>
+<details><summary>Developers</summary>
+<img src="readme/validation/accessibility/developers.PNG">
+</details>
+<details><summary>Developer Profile</summary>
+<img src="readme/validation/accessibility/developer_profile.PNG">
+</details>
+<details><summary>My Account</summary>
+<img src="readme/validation/accessibility/my_account.PNG">
+</details>
+<details><summary>Add Developer Profile</summary>
+<img src="readme/validation/accessibility/add_developer.PNG">
+</details>
+<details><summary>Edit Developer Profile</summary>
+<img src="readme/validation/accessibility/edit_developer.PNG">
+</details>
+<details><summary>Confirm Delete Developer Profile</summary>
+<img src="readme/validation/accessibility/confirm_delete_developer.PNG">
+</details>
+<details><summary>Add Post</summary>
+<img src="readme/validation/accessibility/add_post.PNG">
+</details>
+<details><summary>Edit Post</summary>
+<img src="readme/validation/accessibility/edit_post.PNG">
+</details>
+<details><summary>Confirm Delete Post</summary>
+<img src="readme/validation/accessibility/confirm_delete_post.PNG">
+</details>
+<details><summary>Contact Us</summary>
+<img src="readme/validation/accessibility/contact_us.PNG">
+</details>
+<details><summary>Cart</summary>
+<img src="readme/validation/accessibility/cart.PNG">
+</details>
+<details><summary>Checkout</summary>
+<img src="readme/validation/accessibility/checkout.PNG">
+</details>
+<details><summary>Checkout Success</summary>
+<img src="readme/validation/accessibility/checkout_success.PNG">
 </details>
 
 ### Performance
@@ -791,7 +794,7 @@ WAVE WebAIM web accessibility evaluation tool was utilised to ensure the website
 To test the performance of the website, Lighthouse in Google Chrome developer tools was used. Below is the outcome.
 
 <details><summary>Performance Test Result</summary>
-<img src="">
+<img src="readme/validation/performance.PNG">
 </details>
 
 ### Device Testing
@@ -826,19 +829,11 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Create A Developer Profile Page                        | Complete and submit the Form to create an Developer Profile                                | A Developer Profile is created                                      | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
 2. I want to be able to access my Profile.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Developer Profile Page                        | Navigate to the  My Developer Profile Page                               | Able to access my Profile.                                    | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
 
 3. I want to be able to delete my Profile.
 
@@ -846,19 +841,11 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Confirm Delete Profile Page                        | Navigate to the Confirm Delete Profile Page and click link to delete                            | Profile is deleted                             | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
 4. I want to be able to register for an Account. So that I can purchase access to Developer Profiles.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | allauth Register Page                        | Navigate to the Register Page and complete the form                         | Account is created after email verification                           | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
 
 5. I want to be able to authenticate my registration via email confirmation. So that I can confirm my Account registration was a success.
 
@@ -866,19 +853,11 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | allauth Email Verification                        | Register for an account and verify the email                        | Account is created after email verification                           | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
 6. I want to be able to login to my Account. So that I can purchase and access Developer Profiles.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | allauth Login page                        | Navigate to the Login Page and complete the form                      | User is logged in.                      | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
 
 7. I want to be able to logout of my Account. So that I can protect my Account from unauthorised access.
 
@@ -886,19 +865,11 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | allauth Logout page                        | Navigate to the Logout Page and confirm logout                     | User is logged out.                      | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
 8. I want to be able to have a unique Supporter Account. So that I can view my Account details and purchased Developer Profiles.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Account page                        | Navigate to the My Account Page                   | User can view their account details and purchases                     | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
 
 9. I want to be able to view my Profile from the perspective of a Developer and a Supporter. So that I can edit my Profile, and also check that the Supporter view meets my needs.
 
@@ -906,19 +877,12 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Developer Profile page                        | Navigate to the My Developer Profile Page                   | Developer can view their account from the perspective of a Supporter                    | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
 10. I want to be able to easily create and edit my Profile content. So that I can provide content to my Subscribers.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Add/Edit/Delete Post pages                        | Navigate to the My Developer Profile page, where the Developer can edit the add/edit/delete posts.                | Developer can edit their profile content             | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
 
 11. I want to be able to amend my Profile details. So that I can ensure my details are correct and up to date.
 
@@ -926,9 +890,6 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Edit Profile page                     | Navigate to the My Developer Profile page, select the Edit Profile link and complete the form               | Developer profile details are updated          | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
 
 12. I want to be able to view a list of Developer Profiles. So that I can choose which Profiles I would like to purchase access to.
 
@@ -936,19 +897,11 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Explore Developers page                     | Navigate to the Explore Developers page     | List of Developer Profiles displayed  | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
 13. I want to be able to view details of a Developer's Profile content. So that I can decide if the content is of interest to me.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Developer Profile page                     | Select a developer in the Explore Developers page     | View details of a Developer's Profile  | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
 
 14. I want to be able to amend my Account details. So that I can ensure my details are correct and up to date.
 
@@ -956,19 +909,11 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Account page                     | Navigate to My Account page     | Change Password link can be used  | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
 15. I want to be able to sort Developer Profiles by multiple criteria. So that I can quickly identify Developer profiles by price, name or post count.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Search and Filter bars                     | Navigate to Explore Developers page and use the search or filter bar     | Displayed Profiles change or are ordered, based on search or filter criteria  | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
 
 16. I want to be able to view a list of Developer Profiles I have purchased access to. So that I can quickly navigate to a Developer's Profile.
 
@@ -976,26 +921,18 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Account Page                    | Navigate to My Account page and scroll down to Purchased Developers section     | Purchased Profiles displayed and a link for each can be clicked to go to the profile  | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
 17. I want to access a contact form, so I can contact the site owner.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Contact Us Page                  | Navigate to Contact Us page and complete the form   | Form is submitted to site owner  | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
 ## Credits
 
 ## Code
 
 ### Placeholder/Test Tales
-- Placeholder/Test Developer Profile and Posts for "testuser1" and "testuser2", were generated using [ChatGPT](https://chat.openai.com/auth/login).
+- Placeholder/Test Developer Profiles and their posts were generated using [ChatGPT](https://chat.openai.com/auth/login).
 
 ### Images/Icons/Font
 - Font from [Google-Fonts](https://fonts.google.com/)
