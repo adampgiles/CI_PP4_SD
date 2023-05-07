@@ -276,7 +276,7 @@ The Post model contains data on the user's Developer Profile Posts.
 
 - [Am I Responsive](http://ami.responsivedesign.is/), used to create a devices mock-up image. 
 - [Balsamiq](https://balsamiq.com/), used to create wireframes.
-- [Bootstrap 5](httpshttps://getbootstrap.com/docs/5.2/getting-started/introduction/balsamiq.com/), used to style the website pages.
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/), used to style the website pages.
 - [Favicon.io](https://favicon.io), used to create the site favicon.
 - [Font Awesome](https://fontawesome.com/), used for all site icons.
 - [Git](https://git-scm.com/), used for version control within VSCode to push the code to GitHub.
