@@ -829,11 +829,27 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Create A Developer Profile Page                        | Complete and submit the Form to create an Developer Profile                                | A Developer Profile is created                                      | Works as expected |
 
+<details><summary>Steps</summary>
+Once Registered, navigate to "My Developer Profile" using the Navigation Bar link.
+<img src="readme/user_story_testing/1/1.PNG">
+Complete and submit the form.
+<img src="readme/user_story_testing/1/2.PNG">
+A Developer Profile is created
+<img src="readme/user_story_testing/1/3.PNG">
+</details>
+
 2. I want to be able to access my Profile.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Developer Profile Page                        | Navigate to the  My Developer Profile Page                               | Able to access my Profile.                                    | Works as expected |
+
+<details><summary>Steps</summary>
+Once a Developer Profile has been created, navigate to "My Developer Profile" using the Navigation Bar link.
+<img src="readme/user_story_testing/2/1.PNG">
+Your Developer Profile is displayed.
+<img src="readme/user_story_testing/2/2.PNG">
+</details>
 
 3. I want to be able to delete my Profile.
 
@@ -841,11 +857,35 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Confirm Delete Profile Page                        | Navigate to the Confirm Delete Profile Page and click link to delete                            | Profile is deleted                             | Works as expected |
 
+<details><summary>Steps</summary>
+Once a Developer Profile has been created, navigate to "My Developer Profile" using the Navigation Bar link.
+<img src="readme/user_story_testing/3/1.PNG">
+Click the "Edit Profile" link.
+<img src="readme/user_story_testing/3/2.PNG">
+Click the "Delete your Profile" link.
+<img src="readme/user_story_testing/3/3.PNG">
+Click the "Delete my Profile" link.
+<img src="readme/user_story_testing/3/4.PNG">
+Your Developer Profile has been deleted.
+<img src="readme/user_story_testing/3/5.PNG">
+</details>
+
 4. I want to be able to register for an Account. So that I can purchase access to Developer Profiles.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | allauth Register Page                        | Navigate to the Register Page and complete the form                         | Account is created after email verification                           | Works as expected |
+
+<details><summary>Steps</summary>
+Navigate to "Register" using the Navigation Bar link. Complete and submit the form.
+<img src="readme/user_story_testing/4/1.PNG">
+Verification email will be sent to your email address. Go to the URL Link contained in the email and click the "Confirm" Link.
+<img src="readme/user_story_testing/4/2.PNG">
+<img src="readme/user_story_testing/4/3.PNG">
+<img src="readme/user_story_testing/4/4.PNG">
+Your account has been fully created.
+<img src="readme/user_story_testing/4/5.PNG">
+</details>
 
 5. I want to be able to authenticate my registration via email confirmation. So that I can confirm my Account registration was a success.
 
@@ -853,11 +893,29 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | allauth Email Verification                        | Register for an account and verify the email                        | Account is created after email verification                           | Works as expected |
 
+<details><summary>Steps</summary>
+Navigate to "Register" using the Navigation Bar link. Complete and submit the form.
+<img src="readme/user_story_testing/5/1.PNG">
+Verification email will be sent to your email address. Go to the URL Link contained in the email and click the "Confirm" Link.
+<img src="readme/user_story_testing/5/2.PNG">
+<img src="readme/user_story_testing/5/3.PNG">
+<img src="readme/user_story_testing/5/4.PNG">
+Your account has been fully created using Email Verification.
+<img src="readme/user_story_testing/5/5.PNG">
+</details>
+
 6. I want to be able to login to my Account. So that I can purchase and access Developer Profiles.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | allauth Login page                        | Navigate to the Login Page and complete the form                      | User is logged in.                      | Works as expected |
+
+<details><summary>Steps</summary>
+Navigate to "Login" using the Navigation Bar link. Complete and submit the form.
+<img src="readme/user_story_testing/6/1.PNG">
+You will then be Logged-in to your account.
+<img src="readme/user_story_testing/6/2.PNG">
+</details>
 
 7. I want to be able to logout of my Account. So that I can protect my Account from unauthorised access.
 
@@ -865,11 +923,26 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | allauth Logout page                        | Navigate to the Logout Page and confirm logout                     | User is logged out.                      | Works as expected |
 
+<details><summary>Steps</summary>
+Navigate to "Log-out" using the Navigation Bar icon.
+<img src="readme/user_story_testing/7/1.PNG">
+Click Logout to complete the logout action.
+<img src="readme/user_story_testing/7/2.PNG">
+<img src="readme/user_story_testing/7/3.PNG">
+</details>
+
 8. I want to be able to have a unique Supporter Account. So that I can view my Account details and purchased Developer Profiles.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Account page                        | Navigate to the My Account Page                   | User can view their account details and purchases                     | Works as expected |
+
+<details><summary>Steps</summary>
+Navigate to "My Account" using the Navigation Bar link.
+<img src="readme/user_story_testing/8/1.PNG">
+Your Unique Account will be displayed.
+<img src="readme/user_story_testing/8/2.PNG">
+</details>
 
 9. I want to be able to view my Profile from the perspective of a Developer and a Supporter. So that I can edit my Profile, and also check that the Supporter view meets my needs.
 
@@ -877,12 +950,28 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Developer Profile page                        | Navigate to the My Developer Profile Page                   | Developer can view their account from the perspective of a Supporter                    | Works as expected |
 
+<details><summary>Steps</summary>
+Navigate to "My Developer Profile" using the Navigation Bar link.
+<img src="readme/user_story_testing/9/1.PNG">
+Your Developer Profile layout will be displayed, in the same layout a Supporter would see. Additionally links are displayed to edit the profile and add/edit posts.
+<img src="readme/user_story_testing/9/2.PNG">
+</details>
+
 10. I want to be able to easily create and edit my Profile content. So that I can provide content to my Subscribers.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Add/Edit/Delete Post pages                        | Navigate to the My Developer Profile page, where the Developer can edit the add/edit/delete posts.                | Developer can edit their profile content             | Works as expected |
 
+<details><summary>Steps</summary>
+Navigate to "My Developer Profile" using the Navigation Bar link.
+<img src="readme/user_story_testing/10/1.PNG">
+Click the "Add a New Post" or "Edit/Delete Post" links.
+<img src="readme/user_story_testing/10/2.PNG">
+Complete the related forms to complete the updates.
+<img src="readme/user_story_testing/10/3.PNG">
+<img src="readme/user_story_testing/10/4.PNG">
+</details>
 
 11. I want to be able to amend my Profile details. So that I can ensure my details are correct and up to date.
 
@@ -890,6 +979,15 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Edit Profile page                     | Navigate to the My Developer Profile page, select the Edit Profile link and complete the form               | Developer profile details are updated          | Works as expected |
 
+<details><summary>Steps</summary>
+Navigate to "My Developer Profile" using the Navigation Bar link.
+<img src="readme/user_story_testing/11/1.PNG">
+Click the "Edit Profile" link.
+<img src="readme/user_story_testing/11/2.PNG">
+Complete the forms to update your profile.
+<img src="readme/user_story_testing/11/3.PNG">
+<img src="readme/user_story_testing/11/4.PNG">
+</details>
 
 12. I want to be able to view a list of Developer Profiles. So that I can choose which Profiles I would like to purchase access to.
 
@@ -897,11 +995,27 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Explore Developers page                     | Navigate to the Explore Developers page     | List of Developer Profiles displayed  | Works as expected |
 
+<details><summary>Steps</summary>
+Navigate to "Explore Developers" using the Navigation Bar link.
+<img src="readme/user_story_testing/12/1.PNG">
+A list of Developer Profiles will be displayed.
+<img src="readme/user_story_testing/12/2.PNG">
+</details>
+
 13. I want to be able to view details of a Developer's Profile content. So that I can decide if the content is of interest to me.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Developer Profile page                     | Select a developer in the Explore Developers page     | View details of a Developer's Profile  | Works as expected |
+
+<details><summary>Steps</summary>
+Navigate to "Explore Developers" using the Navigation Bar link.
+<img src="readme/user_story_testing/13/1.PNG">
+A list of Developer Profiles will be displayed. Click "View Profile" on a Developer Profile Block.
+<img src="readme/user_story_testing/13/2.PNG">
+The Developer Profile will be displayed with links to purchase and previews of post titles.
+<img src="readme/user_story_testing/13/3.PNG">
+</details>
 
 14. I want to be able to amend my Account details. So that I can ensure my details are correct and up to date.
 
@@ -909,11 +1023,27 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Account page                     | Navigate to My Account page     | Change Password link can be used  | Works as expected |
 
+<details><summary>Steps</summary>
+Navigate to "My Account" using the Navigation Bar link.
+<img src="readme/user_story_testing/14/1.PNG">
+Your Account will be displayed, with a link to "Change Password".
+<img src="readme/user_story_testing/14/2.PNG">
+</details>
+
 15. I want to be able to sort Developer Profiles by multiple criteria. So that I can quickly identify Developer profiles by price, name or post count.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Search and Filter bars                     | Navigate to Explore Developers page and use the search or filter bar     | Displayed Profiles change or are ordered, based on search or filter criteria  | Works as expected |
+
+<details><summary>Steps</summary>
+Navigate to "Explore Developers" using the Navigation Bar link.
+<img src="readme/user_story_testing/15/1.PNG">
+A list of Developer Profiles will be displayed. Use the Search or Sort Bars to filter the Developer Profiles.
+<img src="readme/user_story_testing/15/2.PNG">
+<img src="readme/user_story_testing/15/3.PNG">
+<img src="readme/user_story_testing/15/4.PNG">
+</details>
 
 16. I want to be able to view a list of Developer Profiles I have purchased access to. So that I can quickly navigate to a Developer's Profile.
 
@@ -921,11 +1051,26 @@ The website was tested on the following browsers:
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | My Account Page                    | Navigate to My Account page and scroll down to Purchased Developers section     | Purchased Profiles displayed and a link for each can be clicked to go to the profile  | Works as expected |
 
+<details><summary>Steps</summary>
+Navigate to "My Account" using the Navigation Bar link.
+<img src="readme/user_story_testing/16/1.PNG">
+Your Account will be displayed, with a list of Purchased Developer Profiles.
+<img src="readme/user_story_testing/16/2.PNG">
+</details>
+
 17. I want to access a contact form, so I can contact the site owner.
 
 | **Feature**                          | **Action Required**                                                                      | **Expected Outcome**                                       | **Actual Outcome**|
 | ------------------------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------- |
 | Contact Us Page                  | Navigate to Contact Us page and complete the form   | Form is submitted to site owner  | Works as expected |
+
+<details><summary>Steps</summary>
+Navigate to the "Contact Us" page using the Navigation Bar icon.
+<img src="readme/user_story_testing/17/1.PNG">
+Complete and submit the form to send your message to the site owner.
+<img src="readme/user_story_testing/17/2.PNG">
+<img src="readme/user_story_testing/17/3.PNG">
+</details>
 
 ## Credits
 
