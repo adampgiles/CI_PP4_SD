@@ -91,7 +91,7 @@ One font was used on the site; Inter, which is a clear and legible font.
 
 I created wireframes for mobile devices. The website uses bootstrap to maintain the element layout when changing screen size and very little media queries are used, therefore I did not feel it was necessary to produce desktop wireframes.
 <details><summary>Wireframes</summary>
-<img src="readme/design/wireframes.PNG">
+<img src="readme/design/wireframes.png">
 </details>
 
 ### Structure
