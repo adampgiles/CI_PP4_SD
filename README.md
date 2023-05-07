@@ -1,6 +1,6 @@
 # supportDev (Membership creation platform, tailored to Developers)
 
-<img src="readme/structure/responsive.PNG">
+<img src="readme/structure/responsive.png">
 
 **Developer: Adam Giles**
 
