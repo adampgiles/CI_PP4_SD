@@ -475,7 +475,7 @@ W3C Jigsaw CSS Validation Service was utilised to validate the website's custom 
 <details><summary>base.css</summary>
 <img src="readme/validation/css/base.PNG">
 </details>
-<details><summary>base.css</summary>
+<details><summary>checkout.css</summary>
 <img src="readme/validation/css/checkout.PNG">
 </details>
 
