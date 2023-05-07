@@ -9,6 +9,7 @@
 ## Table of Content
 
 - [Project Goals](#project-goals)
+- [Target Audience](#target-audience)
 - [User Stories](#user-stories)
     - [Registration and User Accounts](#registration-and-user-accounts)
     - [Site Navigation and Views](#site-navigation-and-views)
@@ -42,6 +43,12 @@
 supportDev is a membership creation platform, tailored towards Developers. Developers create a Profile where they provide Supporters with access to exclusive content. This content could be; Developer Logs, Source Code, or links to products/apps. Developers set the access price for Supporters.
 
 Supporters create an account to purchase access to Developer Profiles, as a way of supporting the Developer.
+
+## Target Audience
+
+- Developers interested in sharing exclusive content for a fee.
+- Individuals interested in purchasing access to a Developers Exclusive Content.
+
 
 ## User Stories
 User stories have been separated into two groups; Developer and Supporter.
