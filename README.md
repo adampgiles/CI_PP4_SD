@@ -405,7 +405,7 @@ The website consists of fourteen pages with 18 features.
 
 ### Responsive Design
 <details><summary>Responsive Design</summary>
-<<img src="readme/structure/responsive.PNG">>
+<<img src="readme/structure/responsive.png">>
 </details>
 - The website is full responsive on desktop to mobile devices.
 
